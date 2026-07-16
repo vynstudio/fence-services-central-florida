@@ -1,6 +1,6 @@
-# Fence Services Central Florida
+# Meridian Fence Group
 
-Fence repair and installation website (Jacksonville to Tampa). Built with Next.js + Relume.
+Fence repair and installation across Central Florida (Jacksonville to Tampa). Built with Next.js + Relume.
 
 ## Local development
 
@@ -11,14 +11,10 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Pages
+## Live
 
-- `/` — Home
-- `/services` — Services
-- `/residential-fence-repair` — Residential repair
-- `/commercial-fence-installation` — Commercial installation
-- `/contact-us` — Contact
+https://fence-services-central-florida.netlify.app
 
-## Deploy
+## Brand
 
-Netlify (Next.js runtime via `@netlify/plugin-nextjs`).
+Edit `lib/site.js` for phone, email, address, and site name.

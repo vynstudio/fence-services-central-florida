@@ -46,11 +46,15 @@ export function Navbar1() {
     >
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <a href="/">
+          <a href="/" className="flex items-center gap-2">
             <img
               src="/logo/logo-dark.svg"
-              alt="Fence Services Central Florida"
+              alt=""
+              className="h-8 w-auto"
             />
+            <span className="text-md font-bold tracking-tight lg:text-base">
+              Meridian Fence Group
+            </span>
           </a>
           <button
             className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
