@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { BrandLogo } from "@/components/brand-logo";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
@@ -46,22 +47,13 @@ export function Navbar1() {
     >
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <a href="/" className="flex items-center gap-2">
-            <img
-              src="/logo/logo-dark.svg"
-              alt=""
-              className="h-8 w-auto"
-            />
-            <span className="text-md font-bold tracking-tight lg:text-base">
-              Meridian Fence Group
-            </span>
-          </a>
+          <BrandLogo variant="dark" />
           <button
             className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
             onClick={useActive.toggleMobileMenu}
           >
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
+              className="my-[3px] h-0.5 w-6 bg-background-alternative"
               animate={useActive.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: 8, transition: { delay: 0.1 } },
@@ -74,7 +66,7 @@ export function Navbar1() {
               }}
             />
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
+              className="my-[3px] h-0.5 w-6 bg-background-alternative"
               animate={useActive.animateMobileMenu}
               variants={{
                 open: { width: 0, transition: { duration: 0.1 } },
@@ -85,7 +77,7 @@ export function Navbar1() {
               }}
             />
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
+              className="my-[3px] h-0.5 w-6 bg-background-alternative"
               animate={useActive.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: -8, transition: { delay: 0.1 } },

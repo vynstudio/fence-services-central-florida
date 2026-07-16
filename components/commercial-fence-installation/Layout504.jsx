@@ -16,7 +16,7 @@ export function Layout504() {
       <div className="container">
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Compliant</p>
+            <p className="brand-eyebrow">Compliant</p>
             <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               Florida code is not optional
             </h1>
@@ -74,7 +74,7 @@ export function Layout504() {
                 />
               </div>
               <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Engineered</p>
+                <p className="brand-eyebrow">Engineered</p>
                 <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
                   Footings and post depths calculated for hurricane season
                 </h2>
@@ -112,7 +112,7 @@ export function Layout504() {
                 />
               </div>
               <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Engineered</p>
+                <p className="brand-eyebrow">Engineered</p>
                 <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
                   Footings and post depths calculated for hurricane season
                 </h2>
@@ -150,7 +150,7 @@ export function Layout504() {
                 />
               </div>
               <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Engineered</p>
+                <p className="brand-eyebrow">Engineered</p>
                 <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
                   Footings and post depths calculated for hurricane season
                 </h2>

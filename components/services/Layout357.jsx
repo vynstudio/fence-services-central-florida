@@ -22,7 +22,7 @@ export function Layout357() {
                 <div className="py-8 md:py-10 lg:py-12">
                   <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                     <div>
-                      <p className="mb-3 font-semibold md:mb-4">Repair</p>
+                      <p className="brand-eyebrow">Repair</p>
                       <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                         We cut out the rot and replace it with solid wood
                       </h2>
@@ -72,7 +72,7 @@ export function Layout357() {
                 <div className="py-8 md:py-10 lg:py-12">
                   <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                     <div>
-                      <p className="mb-3 font-semibold md:mb-4">Repair</p>
+                      <p className="brand-eyebrow">Repair</p>
                       <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                         We cut out the rot and replace it with solid wood
                       </h2>
@@ -122,7 +122,7 @@ export function Layout357() {
                 <div className="py-8 md:py-10 lg:py-12">
                   <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                     <div>
-                      <p className="mb-3 font-semibold md:mb-4">Repair</p>
+                      <p className="brand-eyebrow">Repair</p>
                       <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                         We cut out the rot and replace it with solid wood
                       </h2>
@@ -172,7 +172,7 @@ export function Layout357() {
                 <div className="py-8 md:py-10 lg:py-12">
                   <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                     <div>
-                      <p className="mb-3 font-semibold md:mb-4">Repair</p>
+                      <p className="brand-eyebrow">Repair</p>
                       <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                         We cut out the rot and replace it with solid wood
                       </h2>

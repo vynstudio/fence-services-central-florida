@@ -10,7 +10,7 @@ export function Layout237() {
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
-            <p className="mb-3 font-semibold md:mb-4">Process</p>
+            <p className="brand-eyebrow">Process</p>
             <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               The simple way we fix your fence in Florida
             </h2>

@@ -28,7 +28,7 @@ export function Contact7() {
       <div className="container grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
         <div>
           <div className="mb-6 md:mb-8">
-            <p className="mb-3 font-semibold md:mb-4">Estimate</p>
+            <p className="brand-eyebrow">Estimate</p>
             <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               Get a free quote
             </h2>

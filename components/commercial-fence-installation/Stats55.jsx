@@ -10,7 +10,7 @@ export function Stats55() {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-[0.5fr_1fr] lg:items-center lg:gap-x-20">
           <div>
-            <p className="mb-3 font-semibold md:mb-4">By the numbers</p>
+            <p className="brand-eyebrow">By the numbers</p>
             <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               The work that backs up every proposal
             </h2>

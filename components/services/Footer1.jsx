@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Input } from "@relume_io/relume-ui";
+import { BrandLogo } from "@/components/brand-logo";
 import React, { useState } from "react";
 import {
   BiLogoFacebookCircle,
@@ -33,15 +34,11 @@ export function Footer1() {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
           <div className="flex flex-col">
-            <a href="/" className="mb-5 md:mb-6">
-              <img
-                src="/logo/logo-dark.svg"
-                alt="Meridian Fence Group"
-                className="inline-block"
-              />
-            </a>
+            <div className="mb-5 md:mb-6">
+              <BrandLogo variant="dark" />
+            </div>
             <p className="mb-5 md:mb-6">
-              Get the latest on fence care and offers straight to your inbox.
+              Straight lines. Strong fences. Tips and offers for Central Florida property owners.
             </p>
             <div className="w-full max-w-md">
               <form
@@ -67,7 +64,7 @@ export function Footer1() {
           </div>
           <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 md:gap-y-4">
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Services</h2>
+              <h2 className="brand-eyebrow">Services</h2>
               <ul>
                 <li className="py-2 text-sm">
                   <a href="/residential-fence-repair" className="flex items-center gap-3">
@@ -97,7 +94,7 @@ export function Footer1() {
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Company</h2>
+              <h2 className="brand-eyebrow">Company</h2>
               <ul>
                 <li className="py-2 text-sm">
                   <a href="/services" className="flex items-center gap-3">
@@ -127,7 +124,7 @@ export function Footer1() {
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Follow us</h2>
+              <h2 className="brand-eyebrow">Follow us</h2>
               <ul className="flex flex-col items-start">
                 <li className="py-2 text-sm">
                   <a href="#" className="flex items-center gap-3">

@@ -10,7 +10,7 @@ export function Layout375() {
       <div className="container">
         <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Services</p>
+            <p className="brand-eyebrow">Services</p>
             <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               What we build and repair
             </h2>

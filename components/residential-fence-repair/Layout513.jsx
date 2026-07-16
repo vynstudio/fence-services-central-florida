@@ -129,7 +129,7 @@ export function Layout513() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start md:gap-20">
           <div className="flex flex-col gap-y-16 md:sticky md:top-20 md:mt-20 md:h-[calc(100vh_-10rem)] md:justify-center">
             <div className="flex flex-col">
-              <p className="mb-3 font-semibold md:mb-4">Services</p>
+              <p className="brand-eyebrow">Services</p>
               <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                 The specific fix your fence needs right now
               </h2>

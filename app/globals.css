@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --meridian-navy: #0f2744;
+    --meridian-navy-deep: #0a1a2e;
+    --meridian-copper: #b87333;
+    --meridian-copper-light: #c9925a;
+    --meridian-cream: #f5f3ef;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background-primary text-text-primary antialiased;
+    font-feature-settings: "ss01" on, "cv11" on;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--meridian-copper) 35%, white);
+    color: var(--meridian-navy-deep);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.02em;
+    color: var(--meridian-navy);
+  }
+}
+
+@layer components {
+  /* Eyebrow / section labels */
+  .brand-eyebrow {
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.14em] md:mb-4;
+    color: var(--meridian-copper);
+  }
+
+  /* Primary CTA hover polish */
+  [data-slot="button"],
+  button,
+  a {
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+}
+
+@layer utilities {
+  .bg-meridian-navy {
+    background-color: var(--meridian-navy);
+  }
+  .bg-meridian-copper {
+    background-color: var(--meridian-copper);
+  }
+  .text-meridian-copper {
+    color: var(--meridian-copper);
+  }
+  .border-meridian-copper {
+    border-color: var(--meridian-copper);
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--meridian-navy-deep) 55%, transparent) 0%,
+      color-mix(in srgb, var(--meridian-navy-deep) 75%, transparent) 100%
+    );
+  }
+}

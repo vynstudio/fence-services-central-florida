@@ -232,7 +232,7 @@ export function Layout350() {
               onIntersect={useScroll.handleIntersection}
             >
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Process</p>
+                <p className="brand-eyebrow">Process</p>
                 <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   We start by walking the line
                 </h2>
@@ -286,7 +286,7 @@ export function Layout350() {
               onIntersect={useScroll.handleIntersection}
             >
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Process</p>
+                <p className="brand-eyebrow">Process</p>
                 <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   We start by walking the line
                 </h2>
@@ -340,7 +340,7 @@ export function Layout350() {
               onIntersect={useScroll.handleIntersection}
             >
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Process</p>
+                <p className="brand-eyebrow">Process</p>
                 <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   We start by walking the line
                 </h2>
@@ -394,7 +394,7 @@ export function Layout350() {
               onIntersect={useScroll.handleIntersection}
             >
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Process</p>
+                <p className="brand-eyebrow">Process</p>
                 <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   We start by walking the line
                 </h2>

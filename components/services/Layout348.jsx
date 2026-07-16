@@ -69,7 +69,7 @@ export function Layout348() {
           <div className="grid grid-cols-1 gap-12 md:block">
             <div>
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Install</p>
+                <p className="brand-eyebrow">Install</p>
                 <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   A new fence starts with a straight line
                 </h2>
@@ -102,7 +102,7 @@ export function Layout348() {
             </div>
             <div>
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Install</p>
+                <p className="brand-eyebrow">Install</p>
                 <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   A new fence starts with a straight line
                 </h2>
@@ -135,7 +135,7 @@ export function Layout348() {
             </div>
             <div>
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Install</p>
+                <p className="brand-eyebrow">Install</p>
                 <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   A new fence starts with a straight line
                 </h2>
@@ -168,7 +168,7 @@ export function Layout348() {
             </div>
             <div>
               <div className="flex flex-col items-start justify-center md:h-screen">
-                <p className="mb-3 font-semibold md:mb-4">Install</p>
+                <p className="brand-eyebrow">Install</p>
                 <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
                   A new fence starts with a straight line
                 </h2>

@@ -91,7 +91,7 @@ export function Layout351() {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">Install</p>
+          <p className="brand-eyebrow">Install</p>
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
             Security fencing that protects your business assets
           </h1>
