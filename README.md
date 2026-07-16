@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Live
 
-https://fence-services-central-florida.netlify.app
+https://meridianfencegroup.com
 
 ## Brand
 
