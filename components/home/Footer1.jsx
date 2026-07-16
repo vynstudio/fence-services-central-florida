@@ -3,13 +3,6 @@
 import { Button, Input } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
 import React, { useState } from "react";
-import {
-  BiLogoFacebookCircle,
-  BiLogoInstagram,
-  BiLogoLinkedinSquare,
-  BiLogoYoutube,
-} from "react-icons/bi";
-import { FaXTwitter } from "react-icons/fa6";
 
 const useForm = () => {
   const [email, setEmail] = useState("");
@@ -98,7 +91,7 @@ export function Footer1() {
               <ul>
                 <li className="py-2 text-sm">
                   <a href="/services" className="flex items-center gap-3">
-                    <span>Services</span>
+                    <span>All services</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
@@ -107,8 +100,8 @@ export function Footer1() {
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="/contact-us" className="flex items-center gap-3">
-                    <span>Service areas</span>
+                  <a href="/#testimonials" className="flex items-center gap-3">
+                    <span>Reviews</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
@@ -116,44 +109,21 @@ export function Footer1() {
                     <span>Free quote</span>
                   </a>
                 </li>
-                <li className="py-2 text-sm">
-                  <a href="/#testimonials" className="flex items-center gap-3">
-                    <span>Reviews</span>
-                  </a>
-                </li>
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="brand-eyebrow">Follow us</h2>
-              <ul className="flex flex-col items-start">
-                <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoFacebookCircle className="size-6" />
-                    <span>Facebook</span>
+              <h2 className="brand-eyebrow">Service area</h2>
+              <ul className="flex flex-col items-start text-sm">
+                <li className="py-2">Jacksonville to Tampa</li>
+                <li className="py-2">Orlando &amp; Central Florida</li>
+                <li className="py-2">
+                  <a href="tel:+14075550198" className="underline">
+                    (407) 555-0198
                   </a>
                 </li>
-                <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoInstagram className="size-6" />
-                    <span>Instagram</span>
-                  </a>
-                </li>
-                <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <FaXTwitter className="size-6 p-0.5" />
-                    <span>X</span>
-                  </a>
-                </li>
-                <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoLinkedinSquare className="size-6" />
-                    <span>LinkedIn</span>
-                  </a>
-                </li>
-                <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoYoutube className="size-6" />
-                    <span>Youtube</span>
+                <li className="py-2">
+                  <a href="mailto:hello@meridianfencegroup.com" className="underline">
+                    hello@meridianfencegroup.com
                   </a>
                 </li>
               </ul>
@@ -165,17 +135,9 @@ export function Footer1() {
           <p className="mt-6 max-w-xl text-sm md:mt-0">
             © 2026 Meridian Fence Group. A DBA of Diler Dynamics Group LLC. All rights reserved.
           </p>
-          <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
-            <li className="underline">
-              <a href="#">Privacy policy</a>
-            </li>
-            <li className="underline">
-              <a href="#">Terms of service</a>
-            </li>
-            <li className="underline">
-              <a href="#">Cookies settings</a>
-            </li>
-          </ul>
+          <p className="mt-4 text-sm text-text-secondary md:mt-0">
+            Straight lines. Strong fences.
+          </p>
         </div>
       </div>
     </footer>

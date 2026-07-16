@@ -15,8 +15,9 @@ export function Faq5() {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="rb-12 mb-12 max-w-lg md:mb-18 lg:mb-20">
+          <p className="brand-eyebrow">FAQs</p>
           <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-            FAQs
+            Common questions
           </h2>
           <p className="md:text-md">
             Straight answers about fence work in Central Florida from

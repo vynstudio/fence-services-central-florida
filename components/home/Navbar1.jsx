@@ -2,39 +2,20 @@
 
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { RxChevronDown } from "react-icons/rx";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 991px)");
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const openOnMobileDropdownMenu = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-  const openOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(true);
-  };
-  const closeOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(false);
-  };
   const animateMobileMenu = isMobileMenuOpen ? "open" : "close";
   const animateMobileMenuButtonSpan = isMobileMenuOpen
     ? ["open", "rotatePhase"]
     : "closed";
-  const animateDropdownMenu = isDropdownOpen ? "open" : "close";
-  const animateDropdownMenuIcon = isDropdownOpen ? "rotated" : "initial";
   return {
     toggleMobileMenu,
-    openOnDesktopDropdownMenu,
-    closeOnDesktopDropdownMenu,
-    openOnMobileDropdownMenu,
     animateMobileMenu,
     animateMobileMenuButtonSpan,
-    animateDropdownMenu,
-    animateDropdownMenuIcon,
   };
 };
 
@@ -115,71 +96,23 @@ export function Navbar1() {
             Services
           </a>
           <a
-            href="/services"
+            href="/residential-fence-repair"
             className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
-            About
+            Repair
           </a>
-          <div
-            onMouseEnter={useActive.openOnDesktopDropdownMenu}
-            onMouseLeave={useActive.closeOnDesktopDropdownMenu}
+          <a
+            href="/commercial-fence-installation"
+            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
-            <button
-              className="flex w-full items-center justify-between gap-2 py-3 text-left text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
-              onClick={useActive.openOnMobileDropdownMenu}
-            >
-              <span>Repair</span>
-              <motion.span
-                variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
-                animate={useActive.animateDropdownMenuIcon}
-                transition={{ duration: 0.3 }}
-              >
-                <RxChevronDown />
-              </motion.span>
-            </button>
-            <AnimatePresence>
-              <motion.nav
-                variants={{
-                  open: {
-                    visibility: "visible",
-                    opacity: "var(--opacity-open, 100%)",
-                    display: "block",
-                    y: 0,
-                  },
-                  close: {
-                    visibility: "hidden",
-                    opacity: "var(--opacity-close, 0)",
-                    display: "none",
-                    y: "var(--y-close, 0%)",
-                  },
-                }}
-                animate={useActive.animateDropdownMenu}
-                initial="close"
-                exit="close"
-                transition={{ duration: 0.2 }}
-                className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
-              >
-                <a
-                  href="/residential-fence-repair"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Residential
-                </a>
-                <a
-                  href="/commercial-fence-installation"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Commercial
-                </a>
-                <a
-                  href="/contact-us"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Contact
-                </a>
-              </motion.nav>
-            </AnimatePresence>
-          </div>
+            Commercial
+          </a>
+          <a
+            href="/contact-us"
+            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+          >
+            Contact
+          </a>
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             <Button
               title="Quote"
