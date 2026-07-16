@@ -6,22 +6,22 @@ import React from "react";
 
 export function Header98() {
   return (
-    <section id="relume" className="px-[5%] py-12 md:py-16 lg:py-20">
-      <div className="container relative overflow-hidden rounded-sm">
-        <div className="relative z-10 flex min-h-[32rem] flex-col items-center justify-center p-8 text-center md:min-h-[40rem] md:p-16">
-          <div className="w-full max-w-2xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-brand-copper-light">
+    <section id="relume" className="px-[5%] py-16 lg:py-24">
+      <div className="container relative overflow-hidden">
+        <div className="relative z-10 flex min-h-[28rem] flex-col items-center justify-center px-8 py-16 text-center md:min-h-[36rem] lg:min-h-[42rem] lg:px-20 lg:py-24">
+          <div className="w-full max-w-3xl">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">
               {SITE.tagline}
             </p>
-            <h1 className="mb-5 text-6xl font-bold text-text-alternative md:mb-6 md:text-9xl lg:text-10xl">
+            <h1 className="mb-6 text-5xl font-bold text-text-alternative md:text-8xl lg:text-10xl lg:leading-[1.05]">
               {SITE.marketLine}
             </h1>
-            <p className="text-text-alternative md:text-md">
+            <p className="mx-auto max-w-xl text-base text-white/90 md:text-md lg:text-lg">
               Expert repair and installation that stands up to Florida weather.
               Clear quotes. Solid posts. The true line—every time.
             </p>
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:mt-10">
             <Button title="Free quote" variant="primary" asChild>
               <a href="/contact-us">Free quote</a>
             </Button>

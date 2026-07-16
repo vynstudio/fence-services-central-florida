@@ -4,11 +4,13 @@
 
 @layer base {
   :root {
-    --meridian-navy: #0f2744;
-    --meridian-navy-deep: #0a1a2e;
-    --meridian-copper: #b87333;
-    --meridian-copper-light: #c9925a;
-    --meridian-cream: #f5f3ef;
+    --meridian-black: #111111;
+    --meridian-ink: #111111;
+    --meridian-accent: #1f6b4a;
+    --meridian-accent-soft: #e8f2ec;
+    --meridian-soft: #f7f7f5;
+    --meridian-gray: #6b6b6b;
+    --meridian-line: #e5e5e5;
   }
 
   html {
@@ -17,12 +19,11 @@
 
   body {
     @apply bg-background-primary text-text-primary antialiased;
-    font-feature-settings: "ss01" on, "cv11" on;
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--meridian-copper) 35%, white);
-    color: var(--meridian-navy-deep);
+    background-color: color-mix(in srgb, var(--meridian-accent) 28%, white);
+    color: var(--meridian-black);
   }
 
   h1,
@@ -32,47 +33,59 @@
   h5,
   h6 {
     letter-spacing: -0.02em;
-    color: var(--meridian-navy);
+    color: var(--meridian-ink);
   }
 }
 
 @layer components {
-  /* Eyebrow / section labels */
   .brand-eyebrow {
     @apply mb-3 text-sm font-semibold uppercase tracking-[0.14em] md:mb-4;
-    color: var(--meridian-copper);
+    color: var(--meridian-accent);
   }
 
-  /* Primary CTA hover polish */
-  [data-slot="button"],
   button,
   a {
     transition:
-      color 0.2s ease,
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      opacity 0.2s ease;
+      color 0.15s ease,
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  /*
+   * Desktop-first refinements (lg+ = 992px, matching Relume)
+   * Mobile polish comes later.
+   */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+    }
+
+    /* Taller, calmer desktop nav */
+    section#relume.lg\:min-h-18 {
+      min-height: 5rem;
+    }
+
+    /* Desktop section rhythm */
+    .desktop-section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
   }
 }
 
 @layer utilities {
-  .bg-meridian-navy {
-    background-color: var(--meridian-navy);
+  .text-brand-accent {
+    color: var(--meridian-accent);
   }
-  .bg-meridian-copper {
-    background-color: var(--meridian-copper);
-  }
-  .text-meridian-copper {
-    color: var(--meridian-copper);
-  }
-  .border-meridian-copper {
-    border-color: var(--meridian-copper);
+  .bg-brand-accent {
+    background-color: var(--meridian-accent);
   }
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--meridian-navy-deep) 55%, transparent) 0%,
-      color-mix(in srgb, var(--meridian-navy-deep) 75%, transparent) 100%
+      rgba(17, 17, 17, 0.45) 0%,
+      rgba(17, 17, 17, 0.72) 100%
     );
   }
 }
