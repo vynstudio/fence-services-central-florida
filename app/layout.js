@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Providers } from "@/app/providers";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -42,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-background-primary font-sans text-text-primary antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

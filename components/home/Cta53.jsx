@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
+import { QuoteButton } from "@/components/quote-button";
 import { SITE } from "@/lib/site";
 import React from "react";
 
@@ -22,9 +23,7 @@ export function Cta53() {
             </p>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-            <Button title="Free quote" asChild>
-              <a href="/contact-us">Free quote</a>
-            </Button>
+            <QuoteButton title="Free quote">Free quote</QuoteButton>
             <Button title="Call" variant="secondary-alt" asChild>
               <a href={SITE.phoneHref}>Call {SITE.phone}</a>
             </Button>

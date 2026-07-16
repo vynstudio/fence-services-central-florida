@@ -124,37 +124,22 @@ export function Footer1() {
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="brand-eyebrow">Follow us</h2>
+              <h2 className="brand-eyebrow">Quick links</h2>
               <ul className="flex flex-col items-start">
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoFacebookCircle className="size-6" />
-                    <span>Facebook</span>
-                  </a>
+                  <a href="/contact-us" className="flex items-center gap-3"><span>Get a quote</span></a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoInstagram className="size-6" />
-                    <span>Instagram</span>
-                  </a>
+                  <a href="/services" className="flex items-center gap-3"><span>View services</span></a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <FaXTwitter className="size-6 p-0.5" />
-                    <span>X</span>
-                  </a>
+                  <a href="/residential-fence-repair" className="flex items-center gap-3"><span>Residential repair</span></a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoLinkedinSquare className="size-6" />
-                    <span>LinkedIn</span>
-                  </a>
+                  <a href="/commercial-fence-installation" className="flex items-center gap-3"><span>Commercial install</span></a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <BiLogoYoutube className="size-6" />
-                    <span>Youtube</span>
-                  </a>
+                  <a href="tel:+14075550198" className="flex items-center gap-3"><span>Call us</span></a>
                 </li>
               </ul>
             </div>
@@ -167,13 +152,13 @@ export function Footer1() {
           </p>
           <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             <li className="underline">
-              <a href="#">Privacy policy</a>
+              <span className="text-text-secondary">Licensed &amp; insured</span>
             </li>
             <li className="underline">
-              <a href="#">Terms of service</a>
+              <span className="text-text-secondary">DBA of Diler Dynamics Group LLC</span>
             </li>
             <li className="underline">
-              <a href="#">Cookies settings</a>
+              <span className="text-text-secondary">Straight lines. Strong fences.</span>
             </li>
           </ul>
         </div>

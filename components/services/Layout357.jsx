@@ -13,7 +13,7 @@ export function Layout357() {
           <div className="relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-48">
             <div className="px-[5%]">
               <div className="container">
-                <a href="#" className="flex h-16 w-full items-center underline">
+                <a href="/residential-fence-repair" className="flex h-16 w-full items-center underline">
                   <span className="mr-5 font-semibold md:mr-6 md:text-md">
                     01
                   </span>
@@ -63,7 +63,7 @@ export function Layout357() {
           <div className="relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-16 lg:-mt-32 lg:mb-32">
             <div className="px-[5%]">
               <div className="container">
-                <a href="#" className="flex h-16 w-full items-center underline">
+                <a href="/services" className="flex h-16 w-full items-center underline">
                   <span className="mr-5 font-semibold md:mr-6 md:text-md">
                     02
                   </span>
@@ -113,7 +113,7 @@ export function Layout357() {
           <div className="relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-32 lg:-mt-16 lg:mb-16">
             <div className="px-[5%]">
               <div className="container">
-                <a href="#" className="flex h-16 w-full items-center underline">
+                <a href="/commercial-fence-installation" className="flex h-16 w-full items-center underline">
                   <span className="mr-5 font-semibold md:mr-6 md:text-md">
                     03
                   </span>
@@ -163,7 +163,7 @@ export function Layout357() {
           <div className="relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-0 lg:mb-16">
             <div className="px-[5%]">
               <div className="container">
-                <a href="#" className="flex h-16 w-full items-center underline">
+                <a href="/contact-us" className="flex h-16 w-full items-center underline">
                   <span className="mr-5 font-semibold md:mr-6 md:text-md">
                     04
                   </span>

@@ -2,40 +2,67 @@
 
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
+import { QuoteButton } from "@/components/quote-button";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const useRelume = () => {
+const LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/residential-fence-repair", label: "Repair" },
+  { href: "/commercial-fence-installation", label: "Commercial" },
+  { href: "/contact-us", label: "Contact" },
+];
+
+const useNav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 991px)");
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  useEffect(() => {
+    if (!isMobile) setIsMobileMenuOpen(false);
+  }, [isMobile]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   const animateMobileMenu = isMobileMenuOpen ? "open" : "close";
   const animateMobileMenuButtonSpan = isMobileMenuOpen
     ? ["open", "rotatePhase"]
     : "closed";
+
   return {
+    isMobileMenuOpen,
     toggleMobileMenu,
+    closeMobileMenu,
     animateMobileMenu,
     animateMobileMenuButtonSpan,
   };
 };
 
 export function Navbar1() {
-  const useActive = useRelume();
+  const nav = useNav();
+
   return (
-    <section
-      id="relume"
-      className="flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]"
-    >
-      <div className="size-full lg:flex lg:items-center lg:justify-between">
-        <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
+    <header className="site-header">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col lg:flex-row lg:items-center lg:justify-between lg:px-[5%]">
+        <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-[5rem] lg:px-0">
           <BrandLogo variant="dark" />
           <button
+            type="button"
             className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
-            onClick={useActive.toggleMobileMenu}
+            onClick={nav.toggleMobileMenu}
+            aria-expanded={nav.isMobileMenuOpen}
+            aria-label={nav.isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <motion.span
               className="my-[3px] h-0.5 w-6 bg-background-alternative"
-              animate={useActive.animateMobileMenuButtonSpan}
+              animate={nav.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: 8, transition: { delay: 0.1 } },
                 rotatePhase: { rotate: -45, transition: { delay: 0.2 } },
@@ -48,7 +75,7 @@ export function Navbar1() {
             />
             <motion.span
               className="my-[3px] h-0.5 w-6 bg-background-alternative"
-              animate={useActive.animateMobileMenu}
+              animate={nav.animateMobileMenu}
               variants={{
                 open: { width: 0, transition: { duration: 0.1 } },
                 closed: {
@@ -59,7 +86,7 @@ export function Navbar1() {
             />
             <motion.span
               className="my-[3px] h-0.5 w-6 bg-background-alternative"
-              animate={useActive.animateMobileMenuButtonSpan}
+              animate={nav.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: -8, transition: { delay: 0.1 } },
                 rotatePhase: { rotate: 45, transition: { delay: 0.2 } },
@@ -72,63 +99,43 @@ export function Navbar1() {
             />
           </button>
         </div>
-        <motion.div
+
+        <motion.nav
           variants={{
-            open: { height: "var(--height-open, 100dvh)" },
-            close: { height: "var(--height-closed, 0)" },
+            open: { height: "auto", opacity: 1 },
+            close: { height: 0, opacity: 0 },
           }}
           initial="close"
-          exit="close"
-          animate={useActive.animateMobileMenu}
-          transition={{ duration: 0.4 }}
-          className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+          animate={nav.animateMobileMenu}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden border-t border-border-primary px-[5%] pb-4 lg:flex lg:items-center lg:overflow-visible lg:border-t-0 lg:px-0 lg:pb-0 lg:[height:auto!important] lg:[opacity:1!important]"
+          aria-label="Primary"
         >
-          <a
-            href="/"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Home
-          </a>
-          <a
-            href="/services"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Services
-          </a>
-          <a
-            href="/residential-fence-repair"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Repair
-          </a>
-          <a
-            href="/commercial-fence-installation"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Commercial
-          </a>
-          <a
-            href="/contact-us"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Contact
-          </a>
-          <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <Button
+          {LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={nav.closeMobileMenu}
+              className="block py-3 text-base font-medium first:pt-4 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="mt-3 flex flex-col gap-2 lg:ml-4 lg:mt-0 lg:flex-row lg:items-center">
+            <QuoteButton
               title="Quote"
               variant="secondary"
               size="sm"
-              className="w-full"
-              asChild
+              className="w-full lg:w-auto"
             >
-              <a href="/contact-us">Quote</a>
-            </Button>
-            <Button title="Call" size="sm" className="w-full" asChild>
+              Quote
+            </QuoteButton>
+            <Button title="Call" size="sm" className="w-full lg:w-auto" asChild>
               <a href="tel:+14075550198">Call</a>
             </Button>
           </div>
-        </motion.div>
+        </motion.nav>
       </div>
-    </section>
+    </header>
   );
 }
