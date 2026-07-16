@@ -165,7 +165,9 @@ export function Footer1() {
         </div>
         <div className="h-px w-full bg-black" />
         <div className="flex flex-col-reverse items-start justify-between pb-4 pt-6 text-sm md:flex-row md:items-center md:pb-0 md:pt-8">
-          <p className="mt-6 md:mt-0">© 2026 Meridian Fence Group. All rights reserved.</p>
+          <p className="mt-6 max-w-xl text-sm md:mt-0">
+            © 2026 Meridian Fence Group. A fictitious name of Diler Dynamics Group LLC. All rights reserved.
+          </p>
           <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             <li className="underline">
               <a href="#">Privacy policy</a>
