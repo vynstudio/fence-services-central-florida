@@ -18,11 +18,11 @@ export function Header98() {
             </p>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-            <Button title="Free quote" variant="primary">
-              Free quote
+            <Button title="Free quote" variant="primary" asChild>
+              <a href="/contact-us">Free quote</a>
             </Button>
-            <Button title="Our services" variant="secondary-alt">
-              Our services
+            <Button title="Our services" variant="secondary-alt" asChild>
+              <a href="/services">Our services</a>
             </Button>
           </div>
         </div>

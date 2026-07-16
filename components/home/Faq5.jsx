@@ -126,9 +126,7 @@ export function Faq5() {
             Call us for a straight answer about your fence project.
           </p>
           <div className="mt-6 md:mt-8">
-            <Button title="Contact" variant="secondary">
-              Contact
-            </Button>
+            <Button title="Contact" asChild><a href="/contact-us">Contact</a></Button>
           </div>
         </div>
       </div>

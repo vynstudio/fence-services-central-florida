@@ -190,11 +190,12 @@ export function Navbar1() {
               variant="secondary"
               size="sm"
               className="w-full"
+              asChild
             >
-              Quote
+              <a href="/contact-us">Quote</a>
             </Button>
-            <Button title="Call" size="sm" className="w-full">
-              Call
+            <Button title="Call" size="sm" className="w-full" asChild>
+              <a href="tel:+14075550198">Call</a>
             </Button>
           </div>
         </motion.div>

@@ -93,7 +93,7 @@ export function Layout350() {
         tagline: "Tagline",
         heading: "Medium length section heading goes here",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         buttons: [
           { title: "Button", variant: "secondary" },
           {
@@ -114,7 +114,7 @@ export function Layout350() {
         tagline: "Tagline",
         heading: "Medium length section heading goes here",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         buttons: [
           { title: "Button", variant: "secondary" },
           {
@@ -135,7 +135,7 @@ export function Layout350() {
         tagline: "Tagline",
         heading: "Medium length section heading goes here",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         buttons: [
           { title: "Button", variant: "secondary" },
           {
@@ -156,7 +156,7 @@ export function Layout350() {
         tagline: "Tagline",
         heading: "Medium length section heading goes here",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         buttons: [
           { title: "Button", variant: "secondary" },
           {
@@ -217,7 +217,7 @@ export function Layout350() {
                 tagline: "Tagline",
                 heading: "Medium length section heading goes here",
                 description:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                  "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                 buttons: [
                   { title: "Button", variant: "secondary" },
                   {
@@ -242,9 +242,7 @@ export function Layout350() {
                   proposal, not an estimate.
                 </p>
                 <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Assess" variant="secondary">
-                    Assess
-                  </Button>
+                  <Button title="Assess" asChild><a href="/contact-us">Get assessment</a></Button>
                   <Button
                     title="Learn"
                     variant="link"
@@ -273,7 +271,7 @@ export function Layout350() {
                 tagline: "Tagline",
                 heading: "Medium length section heading goes here",
                 description:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                  "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                 buttons: [
                   { title: "Button", variant: "secondary" },
                   {
@@ -298,9 +296,7 @@ export function Layout350() {
                   proposal, not an estimate.
                 </p>
                 <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Assess" variant="secondary">
-                    Assess
-                  </Button>
+                  <Button title="Assess" asChild><a href="/contact-us">Get assessment</a></Button>
                   <Button
                     title="Learn"
                     variant="link"
@@ -329,7 +325,7 @@ export function Layout350() {
                 tagline: "Tagline",
                 heading: "Medium length section heading goes here",
                 description:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                  "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                 buttons: [
                   { title: "Button", variant: "secondary" },
                   {
@@ -354,9 +350,7 @@ export function Layout350() {
                   proposal, not an estimate.
                 </p>
                 <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Assess" variant="secondary">
-                    Assess
-                  </Button>
+                  <Button title="Assess" asChild><a href="/contact-us">Get assessment</a></Button>
                   <Button
                     title="Learn"
                     variant="link"
@@ -385,7 +379,7 @@ export function Layout350() {
                 tagline: "Tagline",
                 heading: "Medium length section heading goes here",
                 description:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                  "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                 buttons: [
                   { title: "Button", variant: "secondary" },
                   {
@@ -410,9 +404,7 @@ export function Layout350() {
                   proposal, not an estimate.
                 </p>
                 <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Assess" variant="secondary">
-                    Assess
-                  </Button>
+                  <Button title="Assess" asChild><a href="/contact-us">Get assessment</a></Button>
                   <Button
                     title="Learn"
                     variant="link"

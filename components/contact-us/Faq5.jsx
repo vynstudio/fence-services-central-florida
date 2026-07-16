@@ -119,9 +119,7 @@ export function Faq5() {
           </h4>
           <p className="md:text-md">Call us. We pick up on the first ring.</p>
           <div className="mt-6 md:mt-8">
-            <Button title="Contact" variant="secondary">
-              Contact
-            </Button>
+            <Button title="Contact" asChild><a href="/contact-us">Contact</a></Button>
           </div>
         </div>
       </div>

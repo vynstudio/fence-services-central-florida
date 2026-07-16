@@ -41,9 +41,9 @@ export function Layout351() {
         columnText: "01",
         verticalText: "Feature one",
         horizontalText: "Feature one",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-0.jpg",
           alt: "Relume placeholder image 1",
@@ -53,9 +53,9 @@ export function Layout351() {
         columnText: "02",
         verticalText: "Feature two",
         horizontalText: "Feature two",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-1.jpg",
           alt: "Relume placeholder image 2",
@@ -65,9 +65,9 @@ export function Layout351() {
         columnText: "03",
         verticalText: "Feature three",
         horizontalText: "Feature three",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-2.jpg",
           alt: "Relume placeholder image 3",
@@ -77,9 +77,9 @@ export function Layout351() {
         columnText: "04",
         verticalText: "Feature four",
         horizontalText: "Feature four",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-3.jpg",
           alt: "Relume placeholder image 4",
@@ -123,11 +123,10 @@ export function Layout351() {
             >
               <div className="flex h-full flex-col px-6 pb-8 pt-4 md:px-10 md:pb-12 md:pt-12 lg:w-[40rem] lg:px-12 lg:pb-16 lg:pt-16">
                 <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Elegant aluminum fence installation
+                  Custom wood fence installation
                 </h3>
                 <p className="md:text-md">
-                  Rust-proof and refined. We install aluminum that frames your
-                  property without blocking the view.
+                  Warm, private, and built to last. Cedar and pressure-treated options matched to your home.
                 </p>
                 <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
                   <img
@@ -162,11 +161,10 @@ export function Layout351() {
             >
               <div className="flex h-full flex-col px-6 pb-8 pt-4 md:px-10 md:pb-12 md:pt-12 lg:w-[40rem] lg:px-12 lg:pb-16 lg:pt-16">
                 <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Elegant aluminum fence installation
+                  Low-maintenance vinyl fencing
                 </h3>
                 <p className="md:text-md">
-                  Rust-proof and refined. We install aluminum that frames your
-                  property without blocking the view.
+                  Privacy that never needs painting. Clean vinyl panels that handle Florida sun and storms.
                 </p>
                 <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
                   <img
@@ -203,11 +201,10 @@ export function Layout351() {
             >
               <div className="flex h-full flex-col px-6 pb-8 pt-4 md:px-10 md:pb-12 md:pt-12 lg:w-[40rem] lg:px-12 lg:pb-16 lg:pt-16">
                 <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Elegant aluminum fence installation
+                  Durable chain link systems
                 </h3>
                 <p className="md:text-md">
-                  Rust-proof and refined. We install aluminum that frames your
-                  property without blocking the view.
+                  Affordable security for homes, pets, and commercial lots—galvanized and coated options.
                 </p>
                 <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
                   <img
@@ -247,8 +244,7 @@ export function Layout351() {
                   Elegant aluminum fence installation
                 </h3>
                 <p className="md:text-md">
-                  Rust-proof and refined. We install aluminum that frames your
-                  property without blocking the view.
+                  Rust-proof and refined. Aluminum that frames your property without blocking the view.
                 </p>
                 <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
                   <img

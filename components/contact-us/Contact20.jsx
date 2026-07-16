@@ -1,5 +1,6 @@
 "use client";
 
+import { SITE } from "@/lib/site";
 import React from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
 
@@ -25,8 +26,8 @@ export function Contact20() {
             <p className="mb-5 md:mb-6">
               Send us the details. We read every one.
             </p>
-            <a className="underline" href="#">
-              hello@relume.io
+            <a className="underline" href={SITE.emailHref}>
+              {SITE.email}
             </a>
           </div>
           <div className="flex flex-col items-center justify-start text-center">
@@ -39,8 +40,8 @@ export function Contact20() {
             <p className="mb-5 md:mb-6">
               We pick up. If we miss you, we call back fast.
             </p>
-            <a className="underline" href="#">
-              (407) 555-0198
+            <a className="underline" href={SITE.phoneHref}>
+              {SITE.phone}
             </a>
           </div>
           <div className="flex flex-col items-center justify-start text-center">
@@ -53,8 +54,8 @@ export function Contact20() {
             <p className="mb-5 md:mb-6">
               The hub for crews from Jacksonville to Tampa.
             </p>
-            <a className="underline" href="#">
-              1420 West Pine Street, Orlando, FL 32805
+            <a className="underline" href={SITE.mapsHref} target="_blank" rel="noreferrer">
+              {SITE.address}
             </a>
           </div>
         </div>

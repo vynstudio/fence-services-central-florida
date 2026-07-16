@@ -18,8 +18,21 @@ export function Cta52() {
             </p>
           </div>
           <div className="mx-auto mt-6 max-w-sm md:mt-8">
-            <form className="rb-4 mb-4 grid max-w-sm grid-cols-1 gap-y-3 sm:grid-cols-[1fr_max-content] sm:gap-4">
-              <Input id="email" type="email" placeholder="Your company name" />
+            <form
+              name="quote"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/thank-you/"
+              className="rb-4 mb-4 grid max-w-sm grid-cols-1 gap-y-3 sm:grid-cols-[1fr_max-content] sm:gap-4"
+            >
+              <input type="hidden" name="form-name" value="quote" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out: <input name="bot-field" />
+                </label>
+              </p>
+              <Input id="email" name="email" type="email" required placeholder="Your email or company" />
               <Button
                 title="Get quote"
                 variant="primary"

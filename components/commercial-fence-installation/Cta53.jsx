@@ -18,10 +18,8 @@ export function Cta53() {
             </p>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-            <Button title="Assess">Assess</Button>
-            <Button title="Contact" variant="secondary-alt">
-              Contact
-            </Button>
+            <Button title="Assess" asChild><a href="/contact-us">Get assessment</a></Button>
+            <Button title="Contact" asChild><a href="/contact-us">Contact</a></Button>
           </div>
         </div>
         <div className="absolute inset-0 z-0">

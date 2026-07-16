@@ -37,9 +37,7 @@ export function Layout25() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Call" variant="secondary">
-                Call
-              </Button>
+              <Button title="Call" asChild><a href="tel:+14075550198">Call</a></Button>
               <Button
                 title="Quote"
                 variant="link"

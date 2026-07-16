@@ -33,7 +33,7 @@ export function Footer1() {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
           <div className="flex flex-col">
-            <a href="#" className="mb-5 md:mb-6">
+            <a href="/" className="mb-5 md:mb-6">
               <img
                 src="/logo/logo-dark.svg"
                 alt="Fence Services Central Florida"
@@ -70,27 +70,27 @@ export function Footer1() {
               <h2 className="mb-3 font-semibold md:mb-4">Services</h2>
               <ul>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/residential-fence-repair" className="flex items-center gap-3">
                     <span>Residential repair</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/commercial-fence-installation" className="flex items-center gap-3">
                     <span>Commercial install</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/services" className="flex items-center gap-3">
                     <span>Wood fences</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/services" className="flex items-center gap-3">
                     <span>Vinyl fences</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/services" className="flex items-center gap-3">
                     <span>Aluminum fences</span>
                   </a>
                 </li>
@@ -100,27 +100,27 @@ export function Footer1() {
               <h2 className="mb-3 font-semibold md:mb-4">Company</h2>
               <ul>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <span>About us</span>
+                  <a href="/services" className="flex items-center gap-3">
+                    <span>Services</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/contact-us" className="flex items-center gap-3">
                     <span>Contact us</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/contact-us" className="flex items-center gap-3">
                     <span>Service areas</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
-                    <span>Careers</span>
+                  <a href="/contact-us" className="flex items-center gap-3">
+                    <span>Free quote</span>
                   </a>
                 </li>
                 <li className="py-2 text-sm">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="/#testimonials" className="flex items-center gap-3">
                     <span>Reviews</span>
                   </a>
                 </li>
@@ -165,7 +165,7 @@ export function Footer1() {
         </div>
         <div className="h-px w-full bg-black" />
         <div className="flex flex-col-reverse items-start justify-between pb-4 pt-6 text-sm md:flex-row md:items-center md:pb-0 md:pt-8">
-          <p className="mt-6 md:mt-0">© 2024 Relume. All rights reserved.</p>
+          <p className="mt-6 md:mt-0">© 2026 Fence Services Central Florida. All rights reserved.</p>
           <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             <li className="underline">
               <a href="#">Privacy policy</a>

@@ -1,12 +1,39 @@
 import "./globals.css";
+import { SITE } from "@/lib/site";
 
 export const metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "Fence Services Central Florida | Repair & Installation",
-    template: "%s | Fence Services Central Florida",
+    default: `${SITE.name} | Repair & Installation`,
+    template: `%s | ${SITE.name}`,
   },
-  description:
-    "Expert fence repair and installation from Jacksonville to Tampa. Strong fences built for Florida weather. Free quotes.",
+  description: SITE.description,
+  applicationName: SITE.name,
+  keywords: [
+    "fence installation",
+    "fence repair",
+    "Central Florida fence company",
+    "Orlando fence",
+    "Jacksonville fence",
+    "Tampa fence",
+    "wood fence",
+    "vinyl fence",
+    "aluminum fence",
+    "chain link fence",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    url: SITE.url,
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.name,
+    description: SITE.description,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {

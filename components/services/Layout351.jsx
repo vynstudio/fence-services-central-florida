@@ -41,9 +41,9 @@ export function Layout351() {
         columnText: "01",
         verticalText: "Feature one",
         horizontalText: "Feature one",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-0.jpg",
           alt: "Relume placeholder image 1",
@@ -53,9 +53,9 @@ export function Layout351() {
         columnText: "02",
         verticalText: "Feature two",
         horizontalText: "Feature two",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-1.jpg",
           alt: "Relume placeholder image 2",
@@ -65,9 +65,9 @@ export function Layout351() {
         columnText: "03",
         verticalText: "Feature three",
         horizontalText: "Feature three",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-2.jpg",
           alt: "Relume placeholder image 3",
@@ -77,9 +77,9 @@ export function Layout351() {
         columnText: "04",
         verticalText: "Feature four",
         horizontalText: "Feature four",
-        heading: "Short heading goes here",
+        heading: "Quality fencing done right",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+          "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
         image: {
           src: "/images/home-features-list-section-3.jpg",
           alt: "Relume placeholder image 4",

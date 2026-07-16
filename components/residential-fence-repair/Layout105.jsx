@@ -25,7 +25,7 @@ export function Layout105() {
                 <div className="mr-4 flex-none self-start">
                   <img
                     src="/images/home-features-list-section-0.jpg"
-                    alt="Relume logo"
+                    alt="Fence project"
                     className="size-6"
                   />
                 </div>
@@ -35,7 +35,7 @@ export function Layout105() {
                 <div className="mr-4 flex-none self-start">
                   <img
                     src="/images/home-features-list-section-0.jpg"
-                    alt="Relume logo"
+                    alt="Fence project"
                     className="size-6"
                   />
                 </div>
@@ -45,7 +45,7 @@ export function Layout105() {
                 <div className="mr-4 flex-none self-start">
                   <img
                     src="/images/home-features-list-section-0.jpg"
-                    alt="Relume logo"
+                    alt="Fence project"
                     className="size-6"
                   />
                 </div>

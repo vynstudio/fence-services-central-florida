@@ -125,9 +125,7 @@ export function Faq5() {
             Reach out for a direct answer about your specific repair
           </p>
           <div className="mt-6 md:mt-8">
-            <Button title="Contact" variant="secondary">
-              Contact
-            </Button>
+            <Button title="Contact" asChild><a href="/contact-us">Contact</a></Button>
           </div>
         </div>
       </div>

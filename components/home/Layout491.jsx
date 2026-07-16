@@ -166,9 +166,9 @@ export function Layout491() {
             <AnimatePresence initial={false}>
               <TabItem
                 tabItem={{
-                  heading: "Short heading goes here",
+                  heading: "Quality fencing done right",
                   description:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                    "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                   image: {
                     src: "/images/home-hero-header-section.jpg",
                     alt: "Relume placeholder image 1",
@@ -179,9 +179,9 @@ export function Layout491() {
               />
               <TabItem
                 tabItem={{
-                  heading: "Short heading goes here",
+                  heading: "Quality fencing done right",
                   description:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                    "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                   video: {
                     image: {
                       src: "/images/home-about-section.jpg",
@@ -195,9 +195,9 @@ export function Layout491() {
               />
               <TabItem
                 tabItem={{
-                  heading: "Short heading goes here",
+                  heading: "Quality fencing done right",
                   description:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+                    "Built for Florida weather—solid posts, clean lines, and work that stands up to storms and salt air.",
                   image: {
                     src: "/images/home-about-section.jpg",
                     alt: "Relume placeholder image 3",

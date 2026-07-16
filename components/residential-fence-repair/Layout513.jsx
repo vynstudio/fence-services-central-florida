@@ -68,7 +68,7 @@ export function Layout513() {
       {
         heading: "01 Feature one",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+          "Solid materials, clean installs, and repairs that last through Florida storms.",
         image: {
           src: "/images/home-features-list-section-0.jpg",
           alt: "Relume placeholder image 1",
@@ -81,7 +81,7 @@ export function Layout513() {
       {
         heading: "02 Feature two",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+          "Solid materials, clean installs, and repairs that last through Florida storms.",
         image: {
           src: "/images/home-features-list-section-1.jpg",
           alt: "Relume placeholder image 2",
@@ -94,7 +94,7 @@ export function Layout513() {
       {
         heading: "03 Feature three",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+          "Solid materials, clean installs, and repairs that last through Florida storms.",
         image: {
           src: "/images/home-features-list-section-2.jpg",
           alt: "Relume placeholder image 3",
@@ -107,7 +107,7 @@ export function Layout513() {
       {
         heading: "04 Feature four",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+          "Solid materials, clean installs, and repairs that last through Florida storms.",
         image: {
           src: "/images/home-features-list-section-3.jpg",
           alt: "Relume placeholder image 4",
@@ -138,9 +138,7 @@ export function Layout513() {
                 right technique for the job.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                <Button title="Call" variant="secondary">
-                  Call
-                </Button>
+                <Button title="Call" asChild><a href="tel:+14075550198">Call</a></Button>
                 <Button
                   title="Quote"
                   variant="link"
