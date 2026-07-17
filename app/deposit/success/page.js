@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
-import { Navbar1 } from "@/components/home/Navbar1";
-import { Footer1 } from "@/components/home/Footer1";
+import { BrandLogo } from "@/components/brand-logo";
+import { SiteHeader } from "@/components/landing/site-header";
 import { SITE } from "@/lib/site";
 import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -12,7 +12,7 @@ function SuccessBody() {
   const sessionId = params.get("session_id");
 
   return (
-    <main className="flex min-h-[60vh] flex-col items-center justify-center px-[5%] py-16 text-center">
+    <main className="flex min-h-[60vh] flex-col items-center justify-center px-5 py-16 text-center md:px-8">
       <p className="brand-eyebrow">Payment received</p>
       <h1 className="mb-4 max-w-lg text-4xl font-bold md:text-5xl">
         Deposit confirmed
@@ -41,11 +41,15 @@ function SuccessBody() {
 export default function DepositSuccessPage() {
   return (
     <div>
-      <Navbar1 />
+      <SiteHeader />
       <Suspense fallback={<main className="p-16 text-center">Loading…</main>}>
         <SuccessBody />
       </Suspense>
-      <Footer1 />
+      <footer className="border-t border-border-primary px-5 py-8 md:px-8">
+        <div className="mx-auto max-w-[1120px]">
+          <BrandLogo variant="dark" />
+        </div>
+      </footer>
     </div>
   );
 }

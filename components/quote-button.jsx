@@ -6,7 +6,7 @@ import React from "react";
 
 /**
  * Opens the guided lead form popup.
- * Falls back to /contact-us if provider is missing.
+ * Opens the guided lead form (requires LeadFormProvider).
  */
 export function QuoteButton({
   children = "Free quote",

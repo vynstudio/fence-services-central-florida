@@ -1,8 +1,8 @@
 "use client";
 
 import { Button, Input, Label } from "@relume_io/relume-ui";
-import { Navbar1 } from "@/components/home/Navbar1";
-import { Footer1 } from "@/components/home/Footer1";
+import { BrandLogo } from "@/components/brand-logo";
+import { SiteHeader } from "@/components/landing/site-header";
 import { SITE } from "@/lib/site";
 import React, { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -43,8 +43,8 @@ function DepositForm() {
   };
 
   return (
-    <main className="px-[5%] py-12 md:py-20">
-      <div className="container max-w-lg">
+    <main className="px-5 py-12 md:px-8 md:py-20">
+      <div className="mx-auto max-w-lg">
         <p className="brand-eyebrow">Secure deposit</p>
         <h1 className="mb-4 text-4xl font-bold md:text-5xl">
           Reserve your fence project
@@ -133,14 +133,27 @@ function DepositForm() {
   );
 }
 
+function SimpleFooter() {
+  return (
+    <footer className="border-t border-border-primary px-5 py-8 md:px-8">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-2 text-sm text-text-secondary">
+        <BrandLogo variant="dark" />
+        <p>
+          © {SITE.year} {SITE.webName}. {SITE.legalLine}
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 export default function DepositPage() {
   return (
     <div>
-      <Navbar1 />
+      <SiteHeader />
       <Suspense fallback={<main className="p-16 text-center">Loading…</main>}>
         <DepositForm />
       </Suspense>
-      <Footer1 />
+      <SimpleFooter />
     </div>
   );
 }
