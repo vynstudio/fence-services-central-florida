@@ -10,6 +10,7 @@ export function BrandLogo({
   className = "",
   href = "/",
 }) {
+  // className may include scale utilities for phone shell
   const isLight = variant === "light";
   const ink = isLight ? "#FFFFFF" : "#111111";
   const accent = "#0E7C4A";

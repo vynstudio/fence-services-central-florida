@@ -1,8 +1,9 @@
 "use client";
 
 /**
- * SEO + AEO foundation homepage (conversion-focused):
- * Hero → Services → Areas → Why → FAQ → About → CTA
+ * SEO + AEO foundation homepage.
+ * Three shells: phone (<768) · iPad (768–1023) · desktop (≥1024)
+ * Flow: Hero → Services → Areas → Why → FAQ → About → CTA
  */
 
 import { Button } from "@relume_io/relume-ui";
@@ -38,11 +39,8 @@ const AREAS = SITE.serviceAreas.filter(
 
 function Section({ id, children, className = "" }) {
   return (
-    <section
-      id={id}
-      className={`px-4 py-9 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-20 xl:py-24 ${className}`}
-    >
-      <div className="mx-auto w-full max-w-[1120px]">{children}</div>
+    <section id={id} className={`shell-section ${className}`}>
+      <div className="shell-inner">{children}</div>
     </section>
   );
 }
@@ -66,13 +64,14 @@ export function LandingPage() {
         <p className="mb-4 text-sm font-bold text-text-primary">
           Our services include:
         </p>
-        <ul className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+        {/* Phone: 1 col · iPad: 2 col · Desktop: 3 col */}
+        <ul className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
           {FULL_SERVICES.map((s, i) => {
             const Icon = SERVICE_ICONS[i] || BiCheckCircle;
             return (
               <li
                 key={s.title}
-                className="flex gap-3 border border-border-primary bg-background-primary p-4 sm:p-5"
+                className="flex gap-3 border border-border-primary bg-background-primary p-4 md:p-5"
               >
                 <Icon
                   className="mt-0.5 size-6 shrink-0 text-brand-accent"
@@ -95,7 +94,8 @@ export function LandingPage() {
           Materials we install &amp; repair
         </h3>
 
-        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+        {/* Phone: horizontal snap cards */}
+        <div className="shell-phone-only snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {MATERIAL_SERVICES.map((s) => (
             <article
               key={s.title}
@@ -124,6 +124,7 @@ export function LandingPage() {
           ))}
         </div>
 
+        {/* iPad: 2 col · Desktop: 4 col */}
         <div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {MATERIAL_SERVICES.map((s) => (
             <article
@@ -156,20 +157,21 @@ export function LandingPage() {
 
       {/* Areas we serve */}
       <Section id="areas" className="bg-background-secondary">
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
-          <div>
+        {/* Phone: photo then copy · iPad/Desktop: side-by-side */}
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-10 lg:gap-14">
+          <div className="order-2 md:order-1">
             <p className="brand-eyebrow">Coverage</p>
-            <h2 className="mb-3 text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+            <h2 className="mb-3 text-[1.5rem] font-bold leading-tight md:mb-4 md:text-4xl lg:text-5xl">
               {SITE.areasHeading}
             </h2>
-            <p className="mb-4 text-base leading-relaxed text-text-secondary sm:text-base md:mb-5 md:text-md">
+            <p className="mb-4 text-base leading-relaxed text-text-secondary md:mb-5 md:text-md">
               {SITE.areasLead}
             </p>
-            <ul className="mb-5 flex flex-wrap gap-1.5 sm:mb-6 sm:gap-2">
+            <ul className="mb-5 flex flex-wrap gap-1.5 md:mb-6 md:gap-2">
               {AREAS.map((city) => (
                 <li
                   key={city}
-                  className="border border-border-primary bg-background-primary px-2.5 py-1.5 text-xs font-medium sm:px-3 sm:text-sm"
+                  className="border border-border-primary bg-background-primary px-2.5 py-1.5 text-xs font-medium md:px-3 md:text-sm"
                 >
                   {city}
                 </li>
@@ -178,11 +180,11 @@ export function LandingPage() {
             <p className="mb-6 text-sm text-text-secondary md:text-base">
               {SITE.areasNearMe}
             </p>
-            <QuoteButton className="min-h-12 w-full touch-manipulation sm:w-auto sm:min-h-11">
+            <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
               Get free quote
             </QuoteButton>
           </div>
-          <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
+          <div className="relative order-1 aspect-[3/4] overflow-hidden md:order-2 md:aspect-[4/3] lg:aspect-[16/10]">
             <ResponsivePicture
               name="about"
               alt="FenceLine Florida service area across Central and North Florida"
@@ -202,13 +204,14 @@ export function LandingPage() {
         <p className="mb-6 max-w-2xl text-base leading-relaxed text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
           {SITE.whyLead}
         </p>
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:gap-5">
+        {/* Phone: stack · iPad/Desktop: 2×2 */}
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:gap-5">
           {WHY_POINTS.map((item, i) => {
             const Icon = WHY_ICONS[i] || BiCheckCircle;
             return (
               <div
                 key={item.title}
-                className="border border-border-primary bg-background-secondary p-4 sm:p-5 lg:p-6"
+                className="border border-border-primary bg-background-secondary p-4 md:p-5 lg:p-6"
               >
                 <Icon
                   className="mb-3 size-7 text-brand-accent sm:size-8"
@@ -287,7 +290,8 @@ export function LandingPage() {
           <p className="mb-8 text-sm text-white/65">
             A representative from our team will contact you soon.
           </p>
-          <div className="flex flex-col items-stretch justify-center gap-2.5 sm:gap-3 md:flex-row md:items-center">
+          {/* Phone: stacked full-width · iPad/Desktop: row */}
+          <div className="flex flex-col items-stretch justify-center gap-2.5 md:flex-row md:items-center md:gap-3">
             <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
               Get free quote
             </QuoteButton>
@@ -309,8 +313,8 @@ export function LandingPage() {
         </div>
       </Section>
 
-      <footer className="border-t border-border-primary px-4 py-8 sm:px-5 sm:py-10 md:px-8">
-        <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-6 sm:gap-8 md:flex-row md:items-start md:justify-between">
+      <footer className="border-t border-border-primary shell-section !py-8 md:!py-10">
+        <div className="shell-inner flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
@@ -365,7 +369,7 @@ export function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-8 w-full max-w-[1120px] border-t border-border-primary pt-5 text-xs text-text-secondary sm:mt-10 sm:pt-6 sm:text-sm">
+        <div className="shell-inner mt-8 border-t border-border-primary pt-5 text-xs text-text-secondary md:mt-10 md:pt-6 md:text-sm">
           <p>
             © {SITE.year} {SITE.name}. {SITE.legalLine} All rights reserved.{" "}
             <a href="https://fencelineflorida.com" className="underline">

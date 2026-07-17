@@ -3,17 +3,19 @@
 @tailwind utilities;
 
 /*
-  Mobile-first shells:
-  - phone:  default
-  - iPad:   md 768+
-  - desktop: lg 1024+
+  ═══════════════════════════════════════════════════
+  THREE SITE SHELLS (mobile-first)
+  ───────────────────────────────────────────────────
+  phone   < 768px   default styles
+  iPad    768–1023  md:
+  desktop ≥ 1024    lg:
+  ═══════════════════════════════════════════════════
 */
 
 @layer base {
   :root {
     --meridian-black: #111111;
     --meridian-ink: #121212;
-    /* Clearer leaf green — higher chroma, easier to read than muddy forest */
     --meridian-accent: #0e7c4a;
     --meridian-accent-hover: #0b6a3f;
     --meridian-accent-bright: #1a9a5c;
@@ -21,20 +23,37 @@
     --meridian-soft: #f6f8f6;
     --meridian-gray: #555555;
     --meridian-line: #e2e8e4;
+
+    /* Phone defaults */
+    --shell-pad-x: 1rem;
+    --shell-pad-y: 2.25rem;
+    --shell-max: 100%;
+    --shell-gap: 0.75rem;
     --site-nav-height: 3.25rem;
-    --site-sticky-cta-height: 4.25rem;
+    --site-sticky-cta-height: 4.35rem;
   }
 
+  /* iPad */
   @media (min-width: 768px) {
     :root {
+      --shell-pad-x: 2rem;
+      --shell-pad-y: 3.5rem;
+      --shell-max: 100%;
+      --shell-gap: 1rem;
       --site-nav-height: 4rem;
-      --site-sticky-cta-height: 4.75rem;
+      --site-sticky-cta-height: 0px; /* header CTAs on tablet */
     }
   }
 
+  /* Desktop */
   @media (min-width: 1024px) {
     :root {
+      --shell-pad-x: 2rem;
+      --shell-pad-y: 5rem;
+      --shell-max: 1120px;
+      --shell-gap: 1.25rem;
       --site-nav-height: 5rem;
+      --site-sticky-cta-height: 0px;
     }
   }
 
@@ -52,7 +71,7 @@
     );
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     body {
       padding-bottom: 0;
     }
@@ -86,9 +105,8 @@
 }
 
 @layer components {
-  /* Readable accent label — slightly larger on phone */
   .brand-eyebrow {
-    @apply mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] sm:text-xs md:mb-3 md:text-sm lg:mb-4;
+    @apply mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] sm:text-xs md:mb-3 md:text-sm;
     color: var(--meridian-accent);
   }
 
@@ -106,15 +124,35 @@
     padding-top: env(safe-area-inset-top, 0px);
   }
 
-  .section-pad {
-    @apply px-4 py-9 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-24;
+  /* Shared content rail */
+  .shell-rail {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--shell-pad-x);
+    padding-right: var(--shell-pad-x);
+  }
+
+  /* Section vertical rhythm by shell */
+  .shell-section {
+    padding-top: var(--shell-pad-y);
+    padding-bottom: var(--shell-pad-y);
+    padding-left: var(--shell-pad-x);
+    padding-right: var(--shell-pad-x);
+  }
+
+  .shell-section > .shell-inner {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .tap-target {
     @apply min-h-11 min-w-11 touch-manipulation;
   }
 
-  /* Soft green surface for cards / highlights */
   .bg-brand-soft {
     background-color: var(--meridian-accent-soft);
   }
@@ -124,8 +162,14 @@
   .text-brand-accent {
     color: var(--meridian-accent);
   }
+  .text-brand-accent-bright {
+    color: var(--meridian-accent-bright);
+  }
   .bg-brand-accent {
     background-color: var(--meridian-accent);
+  }
+  .bg-brand-accent-hover {
+    background-color: var(--meridian-accent-hover);
   }
   .border-brand-accent {
     border-color: var(--meridian-accent);
@@ -138,25 +182,20 @@
     );
   }
 
-  .pb-sticky-cta {
-    padding-bottom: calc(
-      var(--site-sticky-cta-height) + env(safe-area-inset-bottom, 0px)
-    );
+  /* Explicit shell visibility (flex-aware for nav rows) */
+  .shell-phone-only {
+    @apply flex md:hidden;
   }
-
-  .only-phone {
-    @apply block md:hidden;
+  .shell-tablet-only {
+    @apply hidden md:flex lg:hidden;
   }
-  .only-tablet {
-    @apply hidden md:block lg:hidden;
+  .shell-desktop-only {
+    @apply hidden lg:flex;
   }
-  .only-desktop {
-    @apply hidden lg:block;
-  }
-  .from-tablet {
+  .shell-tablet-up {
     @apply hidden md:block;
   }
-  .from-desktop {
+  .shell-desktop-up {
     @apply hidden lg:block;
   }
 }

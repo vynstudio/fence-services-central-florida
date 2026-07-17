@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-/** Desktop: 4 links + short CTAs */
+/** Desktop bar — room for 4 links */
 const DESKTOP_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#areas", label: "Areas" },
@@ -15,12 +15,14 @@ const DESKTOP_LINKS = [
   { href: "#faq", label: "FAQ" },
 ];
 
+/** iPad bar — 3 links max so it never wraps */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#areas", label: "Areas" },
   { href: "#faq", label: "FAQ" },
 ];
 
+/** Phone drawer — full map */
 const MENU_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#areas", label: "Areas" },
@@ -44,23 +46,25 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:px-8 md:py-3.5 lg:py-4">
-        <BrandLogo variant="dark" />
+      {/* Phone: compact · iPad: mid · Desktop: full rail */}
+      <div className="shell-rail flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3.5 lg:py-4">
+        <BrandLogo variant="dark" className="scale-95 md:scale-100" />
 
+        {/* ── iPad shell ── */}
         <nav
-          className="hidden items-center gap-1 md:flex lg:hidden"
-          aria-label="Tablet"
+          className="shell-tablet-only items-center gap-0.5"
+          aria-label="Tablet navigation"
         >
           {TABLET_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-2 py-2 text-[13px] font-medium text-text-primary hover:text-brand-accent"
+              className="px-2.5 py-2 text-[13px] font-medium text-text-primary hover:text-brand-accent"
             >
               {l.label}
             </a>
           ))}
-          <QuoteButton size="sm" className="ml-2 min-h-10 px-3">
+          <QuoteButton size="sm" className="ml-2 min-h-10 px-3.5">
             Get quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-1.5 min-h-10" asChild>
@@ -68,17 +72,21 @@ export function SiteHeader() {
           </Button>
         </nav>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        {/* ── Desktop shell ── */}
+        <nav
+          className="shell-desktop-only items-center gap-0.5"
+          aria-label="Primary navigation"
+        >
           {DESKTOP_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-2.5 py-2 text-sm font-medium text-text-primary hover:text-brand-accent"
+              className="px-3 py-2 text-sm font-medium text-text-primary hover:text-brand-accent"
             >
               {l.label}
             </a>
           ))}
-          <QuoteButton size="sm" className="ml-3 min-h-10 px-4">
+          <QuoteButton size="sm" className="ml-4 min-h-10 px-4">
             Get quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-2 min-h-10" asChild>
@@ -86,8 +94,9 @@ export function SiteHeader() {
           </Button>
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <QuoteButton size="sm" className="min-h-10 px-3 text-xs sm:text-sm">
+        {/* ── Phone shell ── */}
+        <div className="shell-phone-only items-center gap-2">
+          <QuoteButton size="sm" className="min-h-11 px-3.5 text-sm">
             Quote
           </QuoteButton>
           <button
@@ -110,6 +119,7 @@ export function SiteHeader() {
         </div>
       </div>
 
+      {/* Phone drawer only */}
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -117,9 +127,9 @@ export function SiteHeader() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden border-t border-border-primary bg-background-primary md:hidden"
-            aria-label="Mobile"
+            aria-label="Mobile menu"
           >
-            <div className="px-4 py-2 pb-4">
+            <div className="px-4 py-2 pb-5">
               {MENU_LINKS.map((l) => (
                 <a
                   key={l.href}

@@ -130,10 +130,10 @@ export function Hero() {
   }, [paused]);
 
   return (
-    <section className="px-3 pb-6 pt-2 sm:px-5 sm:pb-8 sm:pt-3 md:px-8 md:pb-12 md:pt-5 lg:pb-16 lg:pt-8">
-      <div className="mx-auto max-w-[1120px]">
+    <section className="shell-section !py-3 md:!py-6 lg:!py-10">
+      <div className="shell-inner">
         <div
-          className="relative overflow-hidden border border-border-primary bg-[#0a0a0a] sm:rounded-none"
+          className="relative overflow-hidden border border-border-primary bg-[#0a0a0a]"
           onMouseMove={onMove}
           onMouseLeave={onLeave}
           onMouseEnter={() => setPaused(true)}
@@ -162,15 +162,14 @@ export function Hero() {
           />
 
           {/*
-            Layout shells:
-            - Mobile  (< md): image first → copy stack (thumb-friendly)
-            - iPad    (md–lg): 2-col balanced hybrid
-            - Desktop (lg+):  cinematic 5/7 split
+            Phone:   stack (photo → copy), tall 3:4
+            iPad:    50/50 side-by-side, min-h 28rem
+            Desktop: 5/7 cinematic split, min-h 36rem + estimate card
           */}
           <div className="relative z-10 grid md:grid-cols-2 md:min-h-[28rem] lg:grid-cols-12 lg:min-h-[36rem] xl:min-h-[40rem]">
             {/* ── Visual stage ── */}
             <div className="relative order-1 md:order-2 lg:col-span-7 lg:order-2">
-              <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[4/3] md:absolute md:inset-0 md:aspect-auto lg:aspect-auto">
+              <div className="relative aspect-[3/4] overflow-hidden md:absolute md:inset-0 md:aspect-auto">
                 <AnimatePresence mode="sync">
                   <motion.div
                     key={material.id}
@@ -249,9 +248,9 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Estimate card — iPad landscape+ / desktop only */}
+                {/* Estimate card — desktop only */}
                 <motion.div
-                  className="absolute right-4 top-4 z-10 hidden w-[10.5rem] border border-white/15 bg-black/55 p-3.5 backdrop-blur-md lg:right-8 lg:top-8 lg:block lg:w-[11.5rem] lg:p-4 xl:block"
+                  className="absolute right-8 top-8 z-10 hidden w-[11.5rem] border border-white/15 bg-black/55 p-4 backdrop-blur-md lg:block"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.45 }}
