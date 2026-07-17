@@ -22,7 +22,7 @@ export default function ThankYouPage() {
           Thanks — we got it
         </h1>
         <p className="mb-8 max-w-md text-text-secondary md:text-md">
-          A real person will review your fence project and follow up shortly.
+          A representative from our team will contact you soon.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button asChild>

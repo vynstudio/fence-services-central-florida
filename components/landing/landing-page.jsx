@@ -320,8 +320,8 @@ export function LandingPage() {
             Get your free estimate today
           </h2>
           <p className="mb-6 text-sm text-white/80 sm:mb-8 sm:text-base md:text-md">
-            Tell us about the job. We’ll follow up with a clear next step—no
-            pressure.
+            Tell us about the job. A representative from our team will contact
+            you soon—no pressure.
           </p>
           <div className="flex flex-col items-stretch justify-center gap-2.5 sm:gap-3 md:flex-row md:items-center">
             <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">

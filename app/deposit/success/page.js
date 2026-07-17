@@ -18,8 +18,8 @@ function SuccessBody() {
         Deposit confirmed
       </h1>
       <p className="mb-8 max-w-md text-md text-text-secondary">
-        Thanks — your fence project deposit is secured. We’ll reach out shortly
-        to confirm schedule and details.
+        Thanks — your fence project deposit is secured. A representative from
+        our team will contact you soon to confirm schedule and details.
       </p>
       {sessionId && (
         <p className="mb-6 max-w-full truncate text-xs text-text-secondary">
