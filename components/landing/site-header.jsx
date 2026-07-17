@@ -7,25 +7,31 @@ import { SITE } from "@/lib/site";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-/** Phone: short labels. Tablet/desktop: full. */
-/** Matches page scroll order */
-const LINKS = [
-  { href: "#services", label: "Services", short: "Services" },
-  { href: "#florida", label: "Florida-built", short: "FL-built" },
-  { href: "#why", label: "Why us", short: "Why" },
-  { href: "#process", label: "Process", short: "Process" },
-  { href: "#areas", label: "Areas", short: "Areas" },
-  { href: "#faq", label: "FAQ", short: "FAQ" },
-  { href: "#about", label: "About", short: "About" },
-  { href: "#contact", label: "Contact", short: "Contact" },
+/** Desktop bar: few links + CTAs. Full list lives in mobile menu. */
+const DESKTOP_LINKS = [
+  { href: "#services", label: "Services" },
+  { href: "#florida", label: "Florida" },
+  { href: "#areas", label: "Areas" },
+  { href: "#why", label: "Why us" },
 ];
 
-/** iPad: key destinations only */
+/** iPad: same slim set */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#florida", label: "FL-built" },
+  { href: "#florida", label: "Florida" },
+  { href: "#areas", label: "Areas" },
+];
+
+/** Phone drawer + full site map */
+const MENU_LINKS = [
+  { href: "#services", label: "Services" },
+  { href: "#florida", label: "Florida-built" },
+  { href: "#why", label: "Why us" },
+  { href: "#process", label: "Process" },
   { href: "#areas", label: "Areas" },
   { href: "#faq", label: "FAQ" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -45,21 +51,21 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:px-8 md:py-3.5 lg:py-4">
         <BrandLogo variant="dark" />
 
-        {/* ── iPad (md–lg): condensed nav ── */}
+        {/* ── iPad (md–lg): slim nav ── */}
         <nav
-          className="hidden items-center gap-0.5 md:flex lg:hidden"
+          className="hidden items-center gap-1 md:flex lg:hidden"
           aria-label="Tablet"
         >
           {TABLET_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-2.5 py-2 text-[13px] font-medium text-text-primary hover:text-brand-accent"
+              className="px-2 py-2 text-[13px] font-medium text-text-primary hover:text-brand-accent"
             >
               {l.label}
             </a>
           ))}
-          <QuoteButton size="sm" className="ml-2 min-h-10">
+          <QuoteButton size="sm" className="ml-2 min-h-10 px-3">
             Get quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-1.5 min-h-10" asChild>
@@ -67,29 +73,26 @@ export function SiteHeader() {
           </Button>
         </nav>
 
-        {/* ── Desktop (lg+): full nav ── */}
-        <nav
-          className="hidden items-center gap-0.5 lg:flex"
-          aria-label="Primary"
-        >
-          {LINKS.map((l) => (
+        {/* ── Desktop (lg+): 4 links + short CTAs ── */}
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          {DESKTOP_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-3 py-2 text-sm font-medium text-text-primary hover:text-brand-accent"
+              className="px-2.5 py-2 text-sm font-medium text-text-primary hover:text-brand-accent"
             >
               {l.label}
             </a>
           ))}
-          <QuoteButton size="sm" className="ml-3 min-h-10">
-            Get Your Custom Fence Quote
+          <QuoteButton size="sm" className="ml-3 min-h-10 px-4">
+            Get quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-2 min-h-10" asChild>
             <a href={SITE.phoneHref}>Call</a>
           </Button>
         </nav>
 
-        {/* ── Phone only: menu ── */}
+        {/* ── Phone: quote + hamburger (full menu in drawer) ── */}
         <div className="flex items-center gap-2 md:hidden">
           <QuoteButton size="sm" className="min-h-10 px-3 text-xs sm:text-sm">
             Quote
@@ -124,7 +127,7 @@ export function SiteHeader() {
             aria-label="Mobile"
           >
             <div className="px-4 py-2 pb-4">
-              {LINKS.map((l) => (
+              {MENU_LINKS.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
