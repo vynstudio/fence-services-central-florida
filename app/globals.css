@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Device shells (mobile-first):
+  - phone:  < 768px
+  - iPad:   768–1023px (md)
+  - desktop: ≥ 1024px (lg)
+*/
+
 @layer base {
   :root {
     --meridian-black: #111111;
@@ -11,21 +18,38 @@
     --meridian-soft: #f7f7f5;
     --meridian-gray: #6b6b6b;
     --meridian-line: #e5e5e5;
-    --site-nav-height: 4rem;
-    --site-sticky-cta-height: 4.75rem;
+    --site-nav-height: 3.5rem;
+    --site-sticky-cta-height: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --site-nav-height: 4rem;
+      --site-sticky-cta-height: 4.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --site-nav-height: 5rem;
+    }
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background-primary text-text-primary antialiased;
-    /* Room for sticky mobile CTA bar */
-    padding-bottom: calc(var(--site-sticky-cta-height) + env(safe-area-inset-bottom));
+    /* Phone + iPad: room for sticky CTA */
+    padding-bottom: calc(
+      var(--site-sticky-cta-height) + env(safe-area-inset-bottom, 0px)
+    );
   }
 
-  @media (min-width: 992px) {
+  /* Desktop: no sticky bar */
+  @media (min-width: 1024px) {
     body {
       padding-bottom: 0;
     }
@@ -46,24 +70,21 @@
     color: var(--meridian-ink);
   }
 
-  /* Mobile-first type scale: start smaller, grow at md/lg */
-  h1.text-5xl,
-  h2.text-5xl {
-    font-size: 1.875rem;
-    line-height: 1.15;
+  /* Prefer system tap highlight off for branded CTAs */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 
-  @media (min-width: 768px) {
-    h1.text-5xl,
-    h2.text-5xl {
-      font-size: 2.25rem;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
 @layer components {
   .brand-eyebrow {
-    @apply mb-2 text-xs font-semibold uppercase tracking-[0.14em] md:mb-3 md:text-sm lg:mb-4;
+    @apply mb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:mb-2 sm:text-xs md:mb-3 md:text-sm lg:mb-4;
     color: var(--meridian-accent);
   }
 
@@ -76,24 +97,18 @@
       opacity 0.15s ease;
   }
 
-  /* Sticky site header */
   .site-header {
     @apply sticky top-0 z-[900] w-full border-b border-border-primary bg-background-primary/95 backdrop-blur-md;
+    padding-top: env(safe-area-inset-top, 0px);
   }
 
-  /* Tighter mobile sections by default */
   .section-pad {
-    @apply px-[5%] py-12 md:py-20 lg:py-28;
+    @apply px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-24;
   }
 
-  @media (min-width: 992px) {
-    .container {
-      max-width: 1200px;
-    }
-
-    .site-header {
-      min-height: 5rem;
-    }
+  /* Touch target helper */
+  .tap-target {
+    @apply min-h-11 min-w-11 touch-manipulation;
   }
 }
 
@@ -112,8 +127,40 @@
     );
   }
 
-  /* Safe area for fixed bottom UI */
   .pb-sticky-cta {
-    padding-bottom: calc(var(--site-sticky-cta-height) + env(safe-area-inset-bottom));
+    padding-bottom: calc(
+      var(--site-sticky-cta-height) + env(safe-area-inset-bottom, 0px)
+    );
+  }
+
+  /* Device visibility helpers (optional use) */
+  .only-phone {
+    @apply block md:hidden;
+  }
+  .only-tablet {
+    @apply hidden md:block lg:hidden;
+  }
+  .only-desktop {
+    @apply hidden lg:block;
+  }
+  .from-tablet {
+    @apply hidden md:block;
+  }
+  .from-desktop {
+    @apply hidden lg:block;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

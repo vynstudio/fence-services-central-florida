@@ -8,6 +8,14 @@ module.exports = {
   presets: [require("@relume_io/relume-tailwind")],
   theme: {
     extend: {
+      // Explicit shells: phone default → iPad (md) → desktop (lg)
+      screens: {
+        sm: "640px",
+        md: "768px", // iPad portrait
+        lg: "1024px", // iPad landscape / laptop
+        xl: "1280px", // desktop
+        "2xl": "1536px",
+      },
       colors: {
         brand: {
           black: "#111111",
