@@ -13,28 +13,32 @@ const MATERIALS = [
     label: "Wood",
     short: "Wood",
     line: "Privacy that ages with character",
-    image: "/images/home-gallery-section-0.jpg",
+    name: "wood",
+    fallback: "/images/home-gallery-section-0.jpg",
   },
   {
     id: "vinyl",
     label: "Vinyl",
     short: "Vinyl",
     line: "Low care. Holds color in the sun.",
-    image: "/images/home-gallery-section-1.jpg",
+    name: "vinyl",
+    fallback: "/images/home-gallery-section-1.jpg",
   },
   {
     id: "aluminum",
     label: "Aluminum",
     short: "Alum.",
     line: "Ornamental strength. Pool-ready.",
-    image: "/images/home-gallery-section-3.jpg",
+    name: "aluminum",
+    fallback: "/images/home-gallery-section-3.jpg",
   },
   {
     id: "chain",
     label: "Chain link",
     short: "Chain",
     line: "Security that doesn’t quit",
-    image: "/images/home-gallery-section-2.jpg",
+    name: "chain",
+    fallback: "/images/home-gallery-section-2.jpg",
   },
 ];
 
@@ -166,7 +170,7 @@ export function Hero() {
           <div className="relative z-10 grid md:grid-cols-2 md:min-h-[28rem] lg:grid-cols-12 lg:min-h-[36rem] xl:min-h-[40rem]">
             {/* ── Visual stage ── */}
             <div className="relative order-1 md:order-2 lg:col-span-7 lg:order-2">
-              <div className="relative aspect-[5/4] overflow-hidden sm:aspect-[16/11] md:absolute md:inset-0 md:aspect-auto">
+              <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[4/3] md:absolute md:inset-0 md:aspect-auto lg:aspect-auto">
                 <AnimatePresence mode="sync">
                   <motion.div
                     key={material.id}
@@ -177,13 +181,23 @@ export function Hero() {
                     transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                     style={canParallax ? { x: sx, y: sy } : undefined}
                   >
-                    <img
-                      src={material.image}
-                      alt={`${material.label} fence installation`}
-                      className="size-full object-cover object-center"
-                      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 58vw"
-                      decoding="async"
-                    />
+                    <picture className="absolute inset-0 block size-full">
+                      <source
+                        media="(min-width: 1024px)"
+                        srcSet={`/images/desktop/${material.name}.jpg`}
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcSet={`/images/tablet/${material.name}.jpg`}
+                      />
+                      <img
+                        src={`/images/mobile/${material.name}.jpg`}
+                        alt={`${material.label} fence installation`}
+                        className="size-full object-cover object-center"
+                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 58vw"
+                        decoding="async"
+                      />
+                    </picture>
                   </motion.div>
                 </AnimatePresence>
 

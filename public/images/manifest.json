@@ -1,0 +1,18 @@
+{
+  "devices": {
+    "mobile": { "maxWidth": 767, "dir": "/images/mobile", "aspect": "3:4", "size": "648x864" },
+    "tablet": { "minWidth": 768, "maxWidth": 1023, "dir": "/images/tablet", "aspect": "4:3", "size": "1152x864" },
+    "desktop": { "minWidth": 1024, "dir": "/images/desktop", "aspect": "16:9", "size": "1152x648" }
+  },
+  "keys": {
+    "wood": "wood.jpg",
+    "vinyl": "vinyl.jpg",
+    "aluminum": "aluminum.jpg",
+    "chain": "chain.jpg",
+    "about": "about.jpg",
+    "gallery-0": "gallery-0.jpg",
+    "gallery-1": "gallery-1.jpg",
+    "gallery-2": "gallery-2.jpg",
+    "gallery-3": "gallery-3.jpg"
+  }
+}

@@ -27,6 +27,7 @@ import {
   BiWrench,
 } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
+import { ResponsivePicture } from "@/components/responsive-picture";
 
 const SERVICE_ICONS = [BiHomeAlt, BiWrench, BiShield, BiTimeFive, BiFile];
 const WHY_ICONS = [BiShield, BiTimeFive, BiFile, BiCheckCircle];
@@ -100,12 +101,14 @@ export function LandingPage() {
               key={s.title}
               className="w-[78%] max-w-[280px] shrink-0 snap-start overflow-hidden border border-border-primary"
             >
-              <img
-                src={s.image}
-                alt={`${s.title} in Central Florida`}
-                className="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
+              <div className="aspect-[3/4] w-full overflow-hidden">
+                <ResponsivePicture
+                  name={s.name}
+                  alt={`${s.title} in Central Florida`}
+                  className="block size-full"
+                  fallback={s.image}
+                />
+              </div>
               <div className="p-4">
                 <h4 className="mb-1.5 text-base font-bold">{s.title}</h4>
                 <p className="mb-3 text-sm text-text-secondary">{s.body}</p>
@@ -127,12 +130,14 @@ export function LandingPage() {
               key={s.title}
               className="flex flex-col overflow-hidden border border-border-primary"
             >
-              <img
-                src={s.image}
-                alt={`${s.title} in Central Florida`}
-                className="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
+              <div className="aspect-[4/3] w-full overflow-hidden lg:aspect-[16/10]">
+                <ResponsivePicture
+                  name={s.name}
+                  alt={`${s.title} in Central Florida`}
+                  className="block size-full"
+                  fallback={s.image}
+                />
+              </div>
               <div className="flex flex-1 flex-col p-4 lg:p-5">
                 <h4 className="mb-2 text-lg font-bold">{s.title}</h4>
                 <p className="mb-4 flex-1 text-sm text-text-secondary">{s.body}</p>
@@ -177,12 +182,12 @@ export function LandingPage() {
               Get free quote
             </QuoteButton>
           </div>
-          <div className="relative aspect-[16/10] overflow-hidden md:aspect-[4/3]">
-            <img
-              src="/images/home-about-section.jpg"
+          <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/10]">
+            <ResponsivePicture
+              name="about"
               alt="FenceLine Florida service area across Central and North Florida"
-              className="size-full object-cover"
-              loading="lazy"
+              className="absolute inset-0 block size-full"
+              fallback="/images/home-about-section.jpg"
             />
           </div>
         </div>
