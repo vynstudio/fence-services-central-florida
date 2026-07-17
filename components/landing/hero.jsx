@@ -3,8 +3,8 @@
 import { Button } from "@relume_io/relume-ui";
 import { QuoteButton } from "@/components/quote-button";
 import { SITE } from "@/lib/site";
-import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
-import React, { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { BiPhone } from "react-icons/bi";
 
 const MATERIALS = [
@@ -40,7 +40,6 @@ const MATERIALS = [
 
 const EASE = [0.22, 1, 0.36, 1];
 
-/** Stagger steps for short SEO copy (total ~0.45s when motion on). */
 const STAGGER = {
   h1: 0,
   sub: 0.08,
@@ -49,10 +48,10 @@ const STAGGER = {
   corridor: 0.28,
 };
 
-function MaterialTabs({ active, setActive, setPaused, compact = false }) {
+function MaterialTabs({ active, setActive, setPaused }) {
   return (
     <div
-      className={`flex gap-1.5 ${compact ? "w-full overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" : "flex-wrap"}`}
+      className="flex w-full justify-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:w-auto md:justify-start"
       role="tablist"
       aria-label="Fence materials"
     >
@@ -68,10 +67,10 @@ function MaterialTabs({ active, setActive, setPaused, compact = false }) {
               setActive(i);
               setPaused(true);
             }}
-            className={`relative shrink-0 touch-manipulation px-3 py-2.5 text-xs font-semibold tracking-wide transition min-h-11 md:min-h-10 md:py-2 md:text-sm ${
+            className={`relative shrink-0 touch-manipulation px-3 py-2.5 text-xs font-bold tracking-wide transition min-h-11 md:min-h-10 md:py-2 md:text-sm ${
               selected
                 ? "bg-white text-black"
-                : "border border-white/25 bg-black/40 text-white/85 backdrop-blur-sm active:bg-black/60 hover:border-white/50 hover:bg-black/55"
+                : "border border-white/30 bg-black/45 text-white backdrop-blur-sm active:bg-black/60 hover:border-white/50 hover:bg-black/55"
             }`}
           >
             <span className="md:hidden">{m.short}</span>
@@ -98,48 +97,17 @@ function fadeUp(reduceMotion, delay = 0) {
     };
   }
   return {
-    initial: { opacity: 0, y: 12 },
+    initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.45, ease: EASE, delay },
+    transition: { duration: 0.4, ease: EASE, delay },
   };
 }
 
 export function Hero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [canParallax, setCanParallax] = useState(false);
   const reduceMotion = useReducedMotion();
   const material = MATERIALS[active];
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 40, damping: 20 });
-  const sy = useSpring(my, { stiffness: 40, damping: 20 });
-
-  useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1024px)");
-    const apply = () => setCanParallax(mq.matches);
-    apply();
-    mq.addEventListener?.("change", apply);
-    return () => mq.removeEventListener?.("change", apply);
-  }, []);
-
-  const onMove = useCallback(
-    (e) => {
-      if (!canParallax || reduceMotion) return;
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 12;
-      mx.set(x);
-      my.set(y);
-    },
-    [canParallax, reduceMotion, mx, my],
-  );
-
-  const onLeave = useCallback(() => {
-    mx.set(0);
-    my.set(0);
-  }, [mx, my]);
 
   useEffect(() => {
     if (paused) return;
@@ -151,65 +119,35 @@ export function Hero() {
 
   const imgTransition = reduceMotion
     ? { duration: 0.15 }
-    : { duration: 0.65, ease: EASE };
+    : { duration: 0.55, ease: EASE };
 
   return (
     <section className="shell-section !py-3 md:!py-6 lg:!py-10">
       <div className="shell-inner">
         <div
-          className="relative overflow-hidden border border-border-primary bg-[#0a0a0a]"
-          onMouseMove={onMove}
-          onMouseLeave={onLeave}
+          className="relative overflow-hidden border border-border-primary bg-black"
           onMouseEnter={() => setPaused(true)}
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
           }}
         >
-          <div
-            className="pointer-events-none absolute inset-0 hidden opacity-[0.07] md:block"
-            aria-hidden
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(90deg, transparent 0, transparent 47px, rgba(255,255,255,0.9) 47px, rgba(255,255,255,0.9) 48px)",
-            }}
-          />
-
-          {/* Ambient true-line across stage — tablet+ */}
-          <motion.div
-            className="pointer-events-none absolute left-0 right-0 top-[42%] z-[5] hidden h-px origin-left bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-80 md:block"
-            initial={reduceMotion ? false : { scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={
-              reduceMotion
-                ? { duration: 0 }
-                : { duration: 1.2, ease: EASE, delay: 0.3 }
-            }
-            aria-hidden
-          />
-
           {/*
             Phone:   stack (photo → copy)
-            iPad:    50/50 side-by-side
-            Desktop: 5/7 cinematic split
+            iPad+:   copy left, photo right
           */}
-          <div className="relative z-10 grid md:grid-cols-2 md:min-h-[26rem] lg:grid-cols-12 lg:min-h-[32rem] xl:min-h-[36rem]">
-            {/* Visual stage */}
-            <div className="relative order-1 md:order-2 lg:col-span-7 lg:order-2">
+          <div className="relative z-10 grid md:grid-cols-2 md:min-h-[26rem] lg:min-h-[32rem] xl:min-h-[36rem]">
+            {/* Visual stage — real photos only, no decorative AI overlays */}
+            <div className="relative order-1 md:order-2">
               <div className="relative aspect-[3/4] overflow-hidden md:absolute md:inset-0 md:aspect-auto">
                 <AnimatePresence mode="sync">
                   <motion.div
                     key={material.id}
                     className="absolute inset-0"
-                    initial={
-                      reduceMotion
-                        ? { opacity: 0 }
-                        : { opacity: 0, scale: 1.04 }
-                    }
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={reduceMotion ? { opacity: 0 } : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={imgTransition}
-                    style={canParallax && !reduceMotion ? { x: sx, y: sy } : undefined}
                   >
                     <picture className="absolute inset-0 block size-full">
                       <source
@@ -224,72 +162,35 @@ export function Hero() {
                         src={`/images/mobile/${material.name}.jpg`}
                         alt={`${material.label} fence installation`}
                         className="size-full object-cover object-center"
-                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 58vw"
+                        sizes="(max-width: 767px) 100vw, 50vw"
                         decoding="async"
                       />
                     </picture>
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Material post-sweep — vertical post travels L→R on change */}
-                {!reduceMotion && (
-                  <AnimatePresence>
-                    <motion.div
-                      key={`post-${material.id}`}
-                      className="pointer-events-none absolute inset-y-0 z-[6] w-px bg-gradient-to-b from-transparent via-white/55 to-transparent md:via-brand-accent/70"
-                      initial={{ left: "0%", opacity: 0 }}
-                      animate={{
-                        left: ["0%", "100%"],
-                        opacity: [0, 0.85, 0.85, 0],
-                      }}
-                      transition={{
-                        duration: 0.42,
-                        ease: EASE,
-                        times: [0, 0.12, 0.75, 1],
-                      }}
-                      aria-hidden
-                    />
-                    {/* Soft wipe trailing the post — stronger on tablet+ */}
-                    <motion.div
-                      key={`wipe-${material.id}`}
-                      className="pointer-events-none absolute inset-y-0 z-[5] w-[28%] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent md:via-white/[0.09]"
-                      initial={{ left: "-28%", opacity: 0 }}
-                      animate={{
-                        left: ["-28%", "100%"],
-                        opacity: [0, 1, 1, 0],
-                      }}
-                      transition={{
-                        duration: 0.45,
-                        ease: EASE,
-                        times: [0, 0.15, 0.7, 1],
-                      }}
-                      aria-hidden
-                    />
-                  </AnimatePresence>
-                )}
+                {/* Soft bottom scrim only — keep photo readable */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/25 md:bg-gradient-to-r md:from-[#0a0a0a]/90 md:via-[#0a0a0a]/20 md:to-transparent lg:from-[#0a0a0a] lg:via-[#0a0a0a]/30" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:from-black/40" />
-
-                <div className="absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4 md:p-5 lg:p-8">
-                  <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-4">
+                <div className="absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4 md:p-5 lg:p-6">
+                  <div className="flex flex-col items-center gap-3 text-center md:items-start md:text-left">
                     <div className="min-w-0">
                       <AnimatePresence mode="wait">
                         <motion.p
                           key={material.id + "-line"}
-                          className="mb-0.5 text-sm font-medium text-white md:text-base"
+                          className="mb-0.5 text-sm font-bold text-white md:text-base"
                           initial={reduceMotion ? false : { opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
-                          exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
-                          transition={{ duration: reduceMotion ? 0 : 0.25 }}
+                          exit={reduceMotion ? undefined : { opacity: 0 }}
+                          transition={{ duration: reduceMotion ? 0 : 0.2 }}
                         >
                           {material.line}
                         </motion.p>
                       </AnimatePresence>
-                      <p className="text-[11px] text-white/50 md:text-xs">
-                        <span className="md:hidden">Swipe materials</span>
+                      <p className="text-[11px] font-semibold text-white/60 md:text-xs">
+                        <span className="md:hidden">Choose a material</span>
                         <span className="hidden md:inline">
-                          Tap a material — we install & repair each
+                          Tap a material — we install &amp; repair each
                         </span>
                       </p>
                     </div>
@@ -297,13 +198,12 @@ export function Hero() {
                       active={active}
                       setActive={setActive}
                       setPaused={setPaused}
-                      compact
                     />
                   </div>
-                  <div className="mt-3 h-0.5 w-full overflow-hidden bg-white/10">
+                  <div className="mt-3 h-0.5 w-full overflow-hidden bg-white/15">
                     <motion.div
                       key={`${active}-${paused}`}
-                      className="h-full bg-brand-accent"
+                      className="h-full bg-brand-accent-bright"
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={
@@ -317,75 +217,76 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Copy — short SEO hero + stagger + true-line */}
-            <div className="relative order-2 flex flex-col justify-center px-4 py-6 sm:px-6 sm:py-8 md:order-1 md:px-7 md:py-10 lg:col-span-5 lg:order-1 lg:px-12 lg:py-14 xl:px-14 xl:py-16">
-              <motion.h1
-                className="mb-3 text-[1.625rem] font-bold leading-[1.14] tracking-tight text-white sm:mb-3.5 sm:text-[2rem] md:text-[2.15rem] md:leading-[1.1] lg:text-[2.6rem] lg:leading-[1.06] xl:text-[2.85rem]"
-                {...fadeUp(reduceMotion, STAGGER.h1)}
-              >
-                Fence installation &amp; repair
-                <span className="mt-0.5 block font-semibold text-white/50 md:mt-1">
-                  in Central Florida
-                </span>
-                {/* Brand true-line under location line */}
-                <span className="mt-3 block h-px w-full max-w-[12rem] overflow-hidden sm:mt-3.5 md:max-w-[14rem] lg:max-w-[16rem]">
-                  <motion.span
-                    className="block h-px w-full origin-left bg-gradient-to-r from-brand-accent via-brand-accent-bright to-transparent"
-                    initial={reduceMotion ? false : { scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={
-                      reduceMotion
-                        ? { duration: 0 }
-                        : { duration: 0.7, ease: EASE, delay: 0.12 }
-                    }
-                    aria-hidden
-                  />
-                </span>
-              </motion.h1>
-
-              <motion.p
-                className="mb-3 max-w-md text-base leading-relaxed text-white/80 sm:mb-4 md:text-[1.05rem]"
-                {...fadeUp(reduceMotion, STAGGER.sub)}
-              >
-                {SITE.heroSubheadline}
-              </motion.p>
-
-              <motion.p
-                className="mb-5 text-sm font-medium text-white/65 sm:mb-6"
-                {...fadeUp(reduceMotion, STAGGER.trust)}
-              >
-                {SITE.heroTrust}
-              </motion.p>
-
-              <motion.div
-                className="flex flex-col gap-2.5 sm:gap-3 md:flex-row md:flex-wrap"
-                {...fadeUp(reduceMotion, STAGGER.cta)}
-              >
-                <QuoteButton className="min-h-12 w-full touch-manipulation text-base md:min-h-11 md:w-auto md:min-w-[10.5rem] md:text-sm">
-                  {SITE.heroCta}
-                </QuoteButton>
-                <Button
-                  variant="secondary-alt"
-                  className="min-h-12 w-full touch-manipulation border-white/30 bg-transparent text-base text-white hover:bg-white/10 md:min-h-11 md:w-auto md:text-sm"
-                  asChild
+            {/* Copy — centered, bold, clean black panel */}
+            <div className="relative order-2 flex flex-col items-center justify-center bg-black px-5 py-10 text-center sm:px-8 sm:py-12 md:order-1 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-14">
+              <div className="mx-auto flex w-full max-w-md flex-col items-center md:max-w-lg">
+                <motion.h1
+                  className="mb-4 w-full text-center text-[1.75rem] font-extrabold leading-[1.12] tracking-tight text-white sm:mb-5 sm:text-[2.15rem] md:text-[2.35rem] md:leading-[1.1] lg:text-[2.75rem] xl:text-[3rem]"
+                  {...fadeUp(reduceMotion, STAGGER.h1)}
                 >
-                  <a
-                    href={SITE.phoneHref}
-                    className="inline-flex items-center justify-center gap-2"
-                  >
-                    <BiPhone className="size-5 shrink-0" aria-hidden />
-                    <span className="md:hidden">Call now</span>
-                    <span className="hidden md:inline">Call {SITE.phone}</span>
-                  </a>
-                </Button>
-              </motion.div>
+                  <span className="block">Fence installation &amp; repair</span>
+                  <span className="mt-1 block font-extrabold text-white">
+                    in Central Florida
+                  </span>
+                  <span className="mx-auto mt-4 block h-0.5 w-16 overflow-hidden bg-transparent sm:mt-5">
+                    <motion.span
+                      className="block h-0.5 w-full origin-center bg-brand-accent-bright"
+                      initial={reduceMotion ? false : { scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={
+                        reduceMotion
+                          ? { duration: 0 }
+                          : { duration: 0.55, ease: EASE, delay: 0.1 }
+                      }
+                      aria-hidden
+                    />
+                  </span>
+                </motion.h1>
 
-              <motion.p
-                className="mt-5 text-[11px] font-medium tracking-wide text-white/45 md:mt-6 md:text-xs md:text-white/50"
-                {...fadeUp(reduceMotion, STAGGER.corridor)}
-              >
-                Jax · Orlando · Tampa
-              </motion.p>
+                <motion.p
+                  className="mb-3 w-full text-center text-base font-bold leading-snug text-white sm:mb-4 sm:text-lg md:text-[1.125rem]"
+                  {...fadeUp(reduceMotion, STAGGER.sub)}
+                >
+                  {SITE.heroSubheadline}
+                </motion.p>
+
+                <motion.p
+                  className="mb-7 w-full text-center text-sm font-bold leading-snug text-white/80 sm:mb-8 sm:text-[0.95rem]"
+                  {...fadeUp(reduceMotion, STAGGER.trust)}
+                >
+                  {SITE.heroTrust}
+                </motion.p>
+
+                <motion.div
+                  className="flex w-full max-w-sm flex-col items-stretch gap-2.5 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-3"
+                  {...fadeUp(reduceMotion, STAGGER.cta)}
+                >
+                  <QuoteButton className="min-h-12 w-full touch-manipulation bg-brand-accent text-base font-bold text-white hover:bg-brand-accent-hover sm:w-auto sm:min-w-[11rem] md:min-h-11 md:text-sm">
+                    {SITE.heroCta}
+                  </QuoteButton>
+                  <Button
+                    variant="secondary-alt"
+                    className="min-h-12 w-full touch-manipulation border-2 border-white/40 bg-transparent text-base font-bold text-white hover:bg-white/10 sm:w-auto md:min-h-11 md:text-sm"
+                    asChild
+                  >
+                    <a
+                      href={SITE.phoneHref}
+                      className="inline-flex items-center justify-center gap-2 font-bold"
+                    >
+                      <BiPhone className="size-5 shrink-0" aria-hidden />
+                      <span className="sm:hidden">Call now</span>
+                      <span className="hidden sm:inline">Call {SITE.phone}</span>
+                    </a>
+                  </Button>
+                </motion.div>
+
+                <motion.p
+                  className="mt-6 text-center text-xs font-bold tracking-wide text-white/55 md:mt-7 md:text-sm"
+                  {...fadeUp(reduceMotion, STAGGER.corridor)}
+                >
+                  Jax · Orlando · Tampa
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
