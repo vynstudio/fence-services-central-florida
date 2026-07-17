@@ -39,7 +39,7 @@ function Section({ id, children, className = "" }) {
   return (
     <section
       id={id}
-      className={`px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-20 xl:py-24 ${className}`}
+      className={`px-4 py-9 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-20 xl:py-24 ${className}`}
     >
       <div className="mx-auto w-full max-w-[1120px]">{children}</div>
     </section>
@@ -55,10 +55,10 @@ export function LandingPage() {
       {/* Full-service fence company */}
       <Section id="services">
         <p className="brand-eyebrow">Services</p>
-        <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+        <h2 className="mb-3 max-w-2xl text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
           {SITE.servicesHeading}
         </h2>
-        <p className="mb-8 max-w-2xl text-sm text-text-secondary sm:text-base md:mb-10 md:text-md">
+        <p className="mb-6 max-w-2xl text-base leading-relaxed text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
           {SITE.servicesLead}
         </p>
 
@@ -154,10 +154,10 @@ export function LandingPage() {
         <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
           <div>
             <p className="brand-eyebrow">Coverage</p>
-            <h2 className="mb-3 text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+            <h2 className="mb-3 text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
               {SITE.areasHeading}
             </h2>
-            <p className="mb-4 text-sm text-text-secondary sm:text-base md:mb-5 md:text-md">
+            <p className="mb-4 text-base leading-relaxed text-text-secondary sm:text-base md:mb-5 md:text-md">
               {SITE.areasLead}
             </p>
             <ul className="mb-5 flex flex-wrap gap-1.5 sm:mb-6 sm:gap-2">
@@ -191,10 +191,10 @@ export function LandingPage() {
       {/* Why choose */}
       <Section id="why">
         <p className="brand-eyebrow">Why us</p>
-        <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+        <h2 className="mb-3 max-w-2xl text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
           {SITE.whyHeading}
         </h2>
-        <p className="mb-8 max-w-2xl text-sm text-text-secondary sm:text-base md:mb-10 md:text-md">
+        <p className="mb-6 max-w-2xl text-base leading-relaxed text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
           {SITE.whyLead}
         </p>
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:gap-5">
@@ -224,24 +224,24 @@ export function LandingPage() {
       {/* AEO FAQ — one block, before convert */}
       <Section id="faq" className="bg-background-secondary">
         <p className="brand-eyebrow">FAQ</p>
-        <h2 className="mb-3 max-w-xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl">
+        <h2 className="mb-3 max-w-xl text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl">
           Common questions
         </h2>
-        <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 md:text-base">
+        <p className="mb-5 max-w-xl text-base text-text-secondary sm:mb-8 md:text-base">
           Materials, permits, HOA, Florida weather, and service areas.
         </p>
         <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary bg-background-primary">
           {HOME_FAQS.map((item) => (
             <details key={item.q} className="group">
-              <summary className="cursor-pointer list-none px-4 py-4 text-[0.95rem] font-bold touch-manipulation sm:px-5 sm:py-5 sm:text-base md:p-6 md:text-lg [&::-webkit-details-marker]:hidden">
+              <summary className="cursor-pointer list-none px-4 py-4 text-base font-bold touch-manipulation sm:px-5 sm:py-5 sm:text-base md:p-6 md:text-lg [&::-webkit-details-marker]:hidden">
                 <span className="flex items-start justify-between gap-3">
-                  <span className="min-w-0 flex-1">{item.q}</span>
+                  <span className="min-w-0 flex-1 pr-2">{item.q}</span>
                   <span className="mt-0.5 shrink-0 text-brand-accent transition group-open:rotate-45">
                     +
                   </span>
                 </span>
               </summary>
-              <p className="px-4 pb-4 text-sm leading-relaxed text-text-secondary sm:px-5 sm:pb-5 md:px-6 md:pb-6 md:text-base">
+              <p className="px-4 pb-4 text-base leading-relaxed text-text-secondary sm:px-5 sm:pb-5 md:px-6 md:pb-6">
                 {item.a}
               </p>
             </details>

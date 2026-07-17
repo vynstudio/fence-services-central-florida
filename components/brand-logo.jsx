@@ -12,7 +12,7 @@ export function BrandLogo({
 }) {
   const isLight = variant === "light";
   const ink = isLight ? "#FFFFFF" : "#111111";
-  const accent = "#1F6B4A";
+  const accent = "#0E7C4A";
 
   const content = (
     <span className={`inline-flex items-center gap-3 ${className}`}>

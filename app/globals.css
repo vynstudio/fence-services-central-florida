@@ -3,23 +3,26 @@
 @tailwind utilities;
 
 /*
-  Device shells (mobile-first):
-  - phone:  < 768px
-  - iPad:   768–1023px (md)
-  - desktop: ≥ 1024px (lg)
+  Mobile-first shells:
+  - phone:  default
+  - iPad:   md 768+
+  - desktop: lg 1024+
 */
 
 @layer base {
   :root {
     --meridian-black: #111111;
-    --meridian-ink: #111111;
-    --meridian-accent: #1f6b4a;
-    --meridian-accent-soft: #e8f2ec;
-    --meridian-soft: #f7f7f5;
-    --meridian-gray: #6b6b6b;
-    --meridian-line: #e5e5e5;
-    --site-nav-height: 3.5rem;
-    --site-sticky-cta-height: 4.5rem;
+    --meridian-ink: #121212;
+    /* Clearer leaf green — higher chroma, easier to read than muddy forest */
+    --meridian-accent: #0e7c4a;
+    --meridian-accent-hover: #0b6a3f;
+    --meridian-accent-bright: #1a9a5c;
+    --meridian-accent-soft: #e6f5ed;
+    --meridian-soft: #f6f8f6;
+    --meridian-gray: #555555;
+    --meridian-line: #e2e8e4;
+    --site-nav-height: 3.25rem;
+    --site-sticky-cta-height: 4.25rem;
   }
 
   @media (min-width: 768px) {
@@ -42,13 +45,13 @@
 
   body {
     @apply bg-background-primary text-text-primary antialiased;
-    /* Phone + iPad: room for sticky CTA */
+    font-size: 16px;
+    line-height: 1.55;
     padding-bottom: calc(
       var(--site-sticky-cta-height) + env(safe-area-inset-bottom, 0px)
     );
   }
 
-  /* Desktop: no sticky bar */
   @media (min-width: 1024px) {
     body {
       padding-bottom: 0;
@@ -56,7 +59,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--meridian-accent) 28%, white);
+    background-color: color-mix(in srgb, var(--meridian-accent) 24%, white);
     color: var(--meridian-black);
   }
 
@@ -68,9 +71,9 @@
   h6 {
     letter-spacing: -0.02em;
     color: var(--meridian-ink);
+    line-height: 1.15;
   }
 
-  /* Prefer system tap highlight off for branded CTAs */
   button,
   a {
     -webkit-tap-highlight-color: transparent;
@@ -83,8 +86,9 @@
 }
 
 @layer components {
+  /* Readable accent label — slightly larger on phone */
   .brand-eyebrow {
-    @apply mb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:mb-2 sm:text-xs md:mb-3 md:text-sm lg:mb-4;
+    @apply mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] sm:text-xs md:mb-3 md:text-sm lg:mb-4;
     color: var(--meridian-accent);
   }
 
@@ -103,12 +107,16 @@
   }
 
   .section-pad {
-    @apply px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-24;
+    @apply px-4 py-9 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:py-24;
   }
 
-  /* Touch target helper */
   .tap-target {
     @apply min-h-11 min-w-11 touch-manipulation;
+  }
+
+  /* Soft green surface for cards / highlights */
+  .bg-brand-soft {
+    background-color: var(--meridian-accent-soft);
   }
 }
 
@@ -119,11 +127,14 @@
   .bg-brand-accent {
     background-color: var(--meridian-accent);
   }
+  .border-brand-accent {
+    border-color: var(--meridian-accent);
+  }
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(17, 17, 17, 0.45) 0%,
-      rgba(17, 17, 17, 0.72) 100%
+      rgba(17, 17, 17, 0.4) 0%,
+      rgba(17, 17, 17, 0.74) 100%
     );
   }
 
@@ -133,7 +144,6 @@
     );
   }
 
-  /* Device visibility helpers (optional use) */
   .only-phone {
     @apply block md:hidden;
   }
@@ -151,7 +161,6 @@
   }
 }
 
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

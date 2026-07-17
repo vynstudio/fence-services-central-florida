@@ -126,10 +126,10 @@ export function Hero() {
   }, [paused]);
 
   return (
-    <section className="px-4 pb-8 pt-3 sm:px-5 md:px-8 md:pb-12 md:pt-5 lg:pb-16 lg:pt-8">
+    <section className="px-3 pb-6 pt-2 sm:px-5 sm:pb-8 sm:pt-3 md:px-8 md:pb-12 md:pt-5 lg:pb-16 lg:pt-8">
       <div className="mx-auto max-w-[1120px]">
         <div
-          className="relative overflow-hidden border border-border-primary bg-[#0a0a0a]"
+          className="relative overflow-hidden border border-border-primary bg-[#0a0a0a] sm:rounded-none"
           onMouseMove={onMove}
           onMouseLeave={onLeave}
           onMouseEnter={() => setPaused(true)}
@@ -259,39 +259,39 @@ export function Hero() {
             </div>
 
             {/* ── Copy ── */}
-            <div className="relative order-2 flex flex-col justify-center px-4 py-7 sm:px-6 sm:py-9 md:order-1 md:px-7 md:py-10 lg:col-span-5 lg:order-1 lg:px-12 lg:py-16 xl:px-14 xl:py-20">
+            <div className="relative order-2 flex flex-col justify-center px-4 py-6 sm:px-6 sm:py-9 md:order-1 md:px-7 md:py-10 lg:col-span-5 lg:order-1 lg:px-12 lg:py-16 xl:px-14 xl:py-20">
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <p className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-accent sm:mb-4 sm:text-[11px] md:text-xs">
-                  <span className="inline-block size-1.5 shrink-0 rounded-full bg-brand-accent shadow-[0_0_12px_#1F6B4A]" />
+                <p className="mb-2.5 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-accent-bright sm:mb-4 sm:text-xs md:text-xs">
+                  <span className="inline-block size-1.5 shrink-0 rounded-full bg-brand-accent-bright shadow-[0_0_14px_#1A9A5C]" />
                   {SITE.tagline}
                 </p>
 
-                <h1 className="mb-3 text-[1.7rem] font-bold leading-[1.12] tracking-tight text-white sm:mb-4 sm:text-[2rem] md:text-[2.2rem] md:leading-[1.1] lg:text-[2.75rem] lg:leading-[1.06] xl:text-[3rem]">
+                <h1 className="mb-3 text-[1.625rem] font-bold leading-[1.14] tracking-tight text-white sm:mb-4 sm:text-[2rem] md:text-[2.2rem] md:leading-[1.1] lg:text-[2.75rem] lg:leading-[1.06] xl:text-[3rem]">
                   Fence installation &amp; repair
-                  <span className="mt-0.5 block font-semibold text-white/45 md:mt-1">
+                  <span className="mt-0.5 block font-semibold text-white/50 md:mt-1">
                     in Central Florida
                   </span>
                 </h1>
 
-                <p className="mb-5 max-w-md text-[0.9375rem] leading-relaxed text-white/75 sm:mb-6 sm:text-base">
+                <p className="mb-4 max-w-md text-base leading-relaxed text-white/80 sm:mb-6 sm:text-base md:text-[1.05rem]">
                   {SITE.heroSubheadline}
                 </p>
 
                 <ul
-                  className="mb-6 grid grid-cols-1 gap-2 sm:mb-7 sm:gap-2.5"
+                  className="mb-5 grid grid-cols-1 gap-2.5 sm:mb-7 sm:gap-2.5"
                   aria-label="Highlights"
                 >
                   {SITE.heroBullets.map((t) => (
                     <li
                       key={t}
-                      className="flex items-start gap-2 text-[13px] leading-snug text-white/80 sm:text-sm"
+                      className="flex items-start gap-2.5 text-sm leading-snug text-white/85 sm:text-sm"
                     >
                       <BiCheckCircle
-                        className="mt-0.5 size-4 shrink-0 text-brand-accent"
+                        className="mt-0.5 size-5 shrink-0 text-brand-accent-bright"
                         aria-hidden
                       />
                       <span>{t}</span>
@@ -300,12 +300,12 @@ export function Hero() {
                 </ul>
 
                 <div className="flex flex-col gap-2.5 sm:gap-3 md:flex-row md:flex-wrap">
-                  <QuoteButton className="min-h-12 w-full touch-manipulation md:min-h-11 md:w-auto md:min-w-[10.5rem]">
+                  <QuoteButton className="min-h-12 w-full touch-manipulation text-base md:min-h-11 md:w-auto md:min-w-[10.5rem] md:text-sm">
                     {SITE.heroCta}
                   </QuoteButton>
                   <Button
                     variant="secondary-alt"
-                    className="min-h-12 w-full touch-manipulation border-white/25 bg-transparent text-white hover:bg-white/10 md:min-h-11 md:w-auto"
+                    className="min-h-12 w-full touch-manipulation border-white/30 bg-transparent text-base text-white hover:bg-white/10 md:min-h-11 md:w-auto md:text-sm"
                     asChild
                   >
                     <a

@@ -95,7 +95,7 @@ export function OgCard({ logoSrc = null }) {
           top: 290,
           height: 2,
           background:
-            "linear-gradient(90deg, transparent 0%, #1F6B4A 35%, #1F6B4A 65%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #0E7C4A 35%, #0E7C4A 65%, transparent 100%)",
           display: "flex",
         }}
       />
@@ -135,7 +135,7 @@ export function OgCard({ logoSrc = null }) {
               style={{
                 width: 64,
                 height: 64,
-                border: "2px solid #1F6B4A",
+                border: "2px solid #0E7C4A",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -177,7 +177,7 @@ export function OgCard({ logoSrc = null }) {
                 fontWeight: 700,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#1F6B4A",
+                color: "#0E7C4A",
               }}
             >
               Florida
@@ -217,7 +217,7 @@ export function OgCard({ logoSrc = null }) {
             fontWeight: 600,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#1F6B4A",
+            color: "#0E7C4A",
           }}
         >
           <div
@@ -225,7 +225,7 @@ export function OgCard({ logoSrc = null }) {
               width: 10,
               height: 10,
               borderRadius: "50%",
-              background: "#1F6B4A",
+              background: "#0E7C4A",
               display: "flex",
             }}
           />
