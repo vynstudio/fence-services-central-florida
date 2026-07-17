@@ -1,5 +1,18 @@
 "use client";
 
+/**
+ * Strategic section order (conversion + SEO/AEO):
+ * 1. Hero          — attention + primary CTA
+ * 2. Services      — what you buy (SEO)
+ * 3. Florida-built — core differentiator
+ * 4. Why us        — craft vs volume
+ * 5. Process       — reduce risk
+ * 6. Areas         — local SEO
+ * 7. FAQ           — one place only, before final CTA (objections)
+ * 8. About         — company story (low, not ATF)
+ * 9. Contact CTA   — convert
+ */
+
 import { Button } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
 import { QuoteButton } from "@/components/quote-button";
@@ -73,31 +86,12 @@ export function LandingPage() {
   return (
     <div className="min-h-screen bg-background-primary">
       <SiteHeader />
+
+      {/* 1 — Hero */}
       <Hero />
 
-      {/* AEO Quick Answers — near top, scannable */}
-      <Section id="answers" className="!py-8 sm:!py-10 md:!py-12">
-        <p className="brand-eyebrow">Quick answers</p>
-        <h2 className="mb-5 max-w-xl text-xl font-bold sm:text-2xl md:mb-6 md:text-3xl">
-          What you need to know
-        </h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:gap-4">
-          {HOME_FAQS.map((item) => (
-            <div
-              key={item.q}
-              className="border border-border-primary bg-background-secondary p-4 sm:p-5"
-            >
-              <h3 className="mb-2 text-sm font-bold sm:text-base">{item.q}</h3>
-              <p className="text-sm leading-relaxed text-text-secondary">
-                {item.a}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Services */}
-      <Section id="services" className="bg-background-secondary">
+      {/* 2 — Services (offer first) */}
+      <Section id="services">
         <p className="brand-eyebrow">Services</p>
         <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
           {SITE.servicesHeading}
@@ -110,7 +104,6 @@ export function LandingPage() {
           Our core services include
         </p>
 
-        {/* Phone snap */}
         <div className="mb-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
           {CORE_SERVICES.map((s) => (
             <article
@@ -173,8 +166,8 @@ export function LandingPage() {
         <CtaStrip />
       </Section>
 
-      {/* Built for Florida */}
-      <Section id="florida">
+      {/* 3 — Built for Florida (differentiator) */}
+      <Section id="florida" className="bg-background-secondary">
         <p className="brand-eyebrow">Built for Florida conditions</p>
         <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
           {SITE.floridaHeading}
@@ -186,7 +179,7 @@ export function LandingPage() {
           {FLORIDA_STANDARDS.map((line) => (
             <li
               key={line}
-              className="flex gap-3 border border-border-primary bg-background-secondary p-4 sm:p-5"
+              className="flex gap-3 border border-border-primary bg-background-primary p-4 sm:p-5"
             >
               <BiCheckCircle
                 className="mt-0.5 size-5 shrink-0 text-brand-accent"
@@ -200,9 +193,9 @@ export function LandingPage() {
         </ul>
       </Section>
 
-      {/* Why choose — craft vs volume positioning */}
-      <Section id="why" className="bg-background-secondary">
-        <p className="brand-eyebrow">Different by design</p>
+      {/* 4 — Why choose (brand) */}
+      <Section id="why">
+        <p className="brand-eyebrow">Why FenceLine Florida</p>
         <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
           {SITE.whyHeading}
         </h2>
@@ -215,7 +208,7 @@ export function LandingPage() {
             return (
               <div
                 key={item.title}
-                className="border border-border-primary bg-background-primary p-4 sm:p-5 lg:p-6"
+                className="border border-border-primary bg-background-secondary p-4 sm:p-5 lg:p-6"
               >
                 <Icon
                   className="mb-3 size-7 text-brand-accent sm:size-8"
@@ -233,9 +226,9 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Process */}
-      <Section id="process">
-        <p className="brand-eyebrow">Trust & process</p>
+      {/* 5 — Process (trust) */}
+      <Section id="process" className="bg-background-secondary">
+        <p className="brand-eyebrow">How it works</p>
         <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
           How our fence process works
         </h2>
@@ -243,7 +236,7 @@ export function LandingPage() {
           {STEPS.map((step) => (
             <div
               key={step.n}
-              className="border border-border-primary p-4 sm:p-5"
+              className="border border-border-primary bg-background-primary p-4 sm:p-5"
             >
               <p className="mb-2 text-sm font-bold text-brand-accent">
                 {step.n}
@@ -258,8 +251,8 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Service areas — local SEO */}
-      <Section id="areas" className="bg-background-secondary">
+      {/* 6 — Areas (local SEO) */}
+      <Section id="areas">
         <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
           <div>
             <p className="brand-eyebrow">Service areas</p>
@@ -301,13 +294,17 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* FAQ accordion mirrors AEO + schema */}
-      <Section id="faq">
+      {/* 7 — FAQ once (AEO + objections before convert) */}
+      <Section id="faq" className="bg-background-secondary">
         <p className="brand-eyebrow">FAQ</p>
-        <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:text-4xl">
-          Fence questions, direct answers
+        <h2 className="mb-3 max-w-xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl">
+          Common questions
         </h2>
-        <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary">
+        <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 md:text-base">
+          What we install, where we work, permits, HOA, and Florida weather—clear
+          answers before you request a quote.
+        </p>
+        <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary bg-background-primary">
           {HOME_FAQS.map((item) => (
             <details key={item.q} className="group">
               <summary className="cursor-pointer list-none px-4 py-4 text-[0.95rem] font-bold touch-manipulation sm:px-5 sm:py-5 sm:text-base md:p-6 md:text-lg [&::-webkit-details-marker]:hidden">
@@ -326,8 +323,8 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* About — lower on page */}
-      <Section id="about" className="bg-background-secondary">
+      {/* 8 — About (low on page — not ATF) */}
+      <Section id="about">
         <div className="mx-auto max-w-3xl">
           <p className="brand-eyebrow">About us</p>
           <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
@@ -341,7 +338,7 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Final conversion CTA */}
+      {/* 9 — Final conversion */}
       <Section
         id="contact"
         className="bg-background-alternative text-text-alternative"
@@ -386,7 +383,8 @@ export function LandingPage() {
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
-              {SITE.tagline} {SITE.positioning.slice(0, 140)}…
+              {SITE.tagline} Owner-led fence installation and repair across{" "}
+              {SITE.area}.
             </p>
             <p className="mt-2 max-w-sm text-xs text-text-secondary">
               {SITE.addressLine}
@@ -415,9 +413,16 @@ export function LandingPage() {
               </a>
             </div>
             <div>
-              <p className="mb-2 font-bold">Company</p>
-              <p className="py-1 text-text-secondary">{SITE.name}</p>
-              <p className="py-1 text-text-secondary">{SITE.domain}</p>
+              <p className="mb-2 font-bold">Explore</p>
+              <a href="#services" className="block min-h-10 py-1.5 hover:underline">
+                Services
+              </a>
+              <a href="#faq" className="block min-h-10 py-1.5 hover:underline">
+                FAQ
+              </a>
+              <a href="#about" className="block min-h-10 py-1.5 hover:underline">
+                About
+              </a>
               <a
                 href="/deposit"
                 className="block min-h-10 py-1.5 hover:underline touch-manipulation"

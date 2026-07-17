@@ -8,23 +8,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 /** Phone: short labels. Tablet/desktop: full. */
+/** Matches page scroll order */
 const LINKS = [
-  { href: "#answers", label: "Answers", short: "Answers" },
   { href: "#services", label: "Services", short: "Services" },
   { href: "#florida", label: "Florida-built", short: "FL-built" },
   { href: "#why", label: "Why us", short: "Why" },
   { href: "#process", label: "Process", short: "Process" },
   { href: "#areas", label: "Areas", short: "Areas" },
+  { href: "#faq", label: "FAQ", short: "FAQ" },
   { href: "#about", label: "About", short: "About" },
   { href: "#contact", label: "Contact", short: "Contact" },
 ];
 
-/** iPad portrait: fewer primary links */
+/** iPad: key destinations only */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#florida", label: "FL-built" },
   { href: "#areas", label: "Areas" },
-  { href: "#contact", label: "Quote" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function SiteHeader() {
