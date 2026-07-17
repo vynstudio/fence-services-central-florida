@@ -5,56 +5,26 @@ import { BrandLogo } from "@/components/brand-logo";
 import { QuoteButton } from "@/components/quote-button";
 import { Hero } from "@/components/landing/hero";
 import { SiteHeader } from "@/components/landing/site-header";
-import { HOME_FAQS, HOME_STEPS } from "@/lib/seo";
+import {
+  FULL_SERVICES,
+  HOME_FAQS,
+  HOME_STEPS,
+  MATERIAL_SERVICES,
+  WHY_POINTS,
+} from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import React from "react";
 import {
   BiCheckCircle,
-  BiMap,
+  BiFile,
+  BiHomeAlt,
+  BiShield,
   BiTimeFive,
+  BiWrench,
 } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
 
-const SERVICES = [
-  {
-    title: "Wood fence",
-    body: "Privacy and curb appeal with cedar or pressure-treated wood—posts set for Florida soil and storms.",
-    image: "/images/home-gallery-section-0.jpg",
-  },
-  {
-    title: "Vinyl fence",
-    body: "Low-maintenance privacy that holds color in sun and humidity. Clean lines, no painting.",
-    image: "/images/home-gallery-section-1.jpg",
-  },
-  {
-    title: "Aluminum fence",
-    body: "Rust-proof ornamental and pool-ready options. Strong, refined, and built to last.",
-    image: "/images/home-gallery-section-3.jpg",
-  },
-  {
-    title: "Chain link",
-    body: "Durable security for homes, pets, and commercial lots. Galvanized and coated systems.",
-    image: "/images/home-gallery-section-2.jpg",
-  },
-];
-
-const WHY = [
-  {
-    icon: BiTimeFive,
-    title: "Fast repair response",
-    body: "Storm damage or a failed post—we move quickly so your line is secure again.",
-  },
-  {
-    icon: BiMap,
-    title: "Jax to Tampa corridor",
-    body: "One crew network across Central Florida. Residential and commercial jobs.",
-  },
-  {
-    icon: BiCheckCircle,
-    title: "Clean, code-aware work",
-    body: "Straight lines, solid posts, permits and HOA details handled with care.",
-  },
-];
+const SERVICE_ICONS = [BiHomeAlt, BiWrench, BiShield, BiTimeFive, BiFile];
 
 const STEPS = HOME_STEPS.map((step, i) => ({
   n: String(i + 1).padStart(2, "0"),
@@ -66,12 +36,8 @@ const AREAS = SITE.serviceAreas.filter(
   (a) => a !== "Central Florida" && a !== "North Florida",
 );
 
-/**
- * Mobile-first section shell:
- * - phone: tight vertical rhythm
- * - iPad: more air, still compact
- * - desktop: full editorial spacing
- */
+const WHY_ICONS = [BiShield, BiTimeFive, BiFile, BiCheckCircle];
+
 function Section({ id, children, className = "" }) {
   return (
     <section
@@ -89,56 +55,72 @@ export function LandingPage() {
       <SiteHeader />
       <Hero />
 
-      {/* About — denser on phone */}
+      {/* SEO intro — primary keyword H1 for crawlers & AEO */}
       <Section id="about" className="bg-background-secondary !py-8 sm:!py-10 md:!py-12">
         <p className="brand-eyebrow">About {SITE.webName}</p>
-        <h2 className="mb-3 max-w-2xl text-xl font-bold sm:text-2xl md:mb-4 md:text-3xl">
-          Professional fence installation and repair
-        </h2>
+        <h1 className="mb-4 max-w-3xl text-2xl font-bold leading-tight sm:text-3xl md:mb-5 md:text-4xl lg:text-[2.75rem]">
+          {SITE.seoHeading}
+        </h1>
         <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
-          <p>
-            FenceLine Florida is a DBA of Diler Dynamics Group LLC, providing
-            professional fence installation and repair services across Central
-            and North Florida. We specialize in wood, vinyl, aluminum, and
-            chain-link fencing for both residential and commercial properties,
-            serving areas from Jacksonville to Tampa, including Orlando,
-            Sanford, Kissimmee, Clermont, Lakeland, Daytona Beach, Melbourne,
-            and Ocala.
-          </p>
-          <p>{SITE.aboutEngineering}</p>
+          <p>{SITE.about}</p>
+          <p>{SITE.aboutBody}</p>
         </div>
       </Section>
 
-      {/* Services
-          phone: 1 col horizontal cards
-          iPad: 2×2
-          desktop: 4 col
-      */}
+      {/* Full-service company */}
       <Section id="services">
-        <p className="brand-eyebrow">Services</p>
-        <h2 className="mb-2 max-w-xl text-2xl font-bold sm:text-3xl md:mb-3 md:text-4xl lg:text-5xl">
-          Install and repair, every material
+        <p className="brand-eyebrow">Full-service fence company</p>
+        <h2 className="mb-2 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-3 md:text-4xl lg:text-5xl">
+          Everything from start to finish
         </h2>
-        <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
-          Professional install and repair for residential and commercial
-          properties across Central and North Florida—Jacksonville to Tampa.
+        <p className="mb-6 max-w-2xl text-sm text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
+          {SITE.fullServiceLead}
         </p>
 
+        <ul className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+          {FULL_SERVICES.map((s, i) => {
+            const Icon = SERVICE_ICONS[i] || BiCheckCircle;
+            return (
+              <li
+                key={s.title}
+                className="flex gap-3 border border-border-primary bg-background-primary p-4 sm:p-5"
+              >
+                <Icon
+                  className="mt-0.5 size-6 shrink-0 text-brand-accent"
+                  aria-hidden
+                />
+                <div>
+                  <h3 className="mb-1 text-base font-bold sm:text-lg">{s.title}</h3>
+                  <p className="text-sm text-text-secondary">{s.body}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+
+        <p className="mb-6 max-w-2xl text-sm font-medium text-text-primary sm:text-base">
+          {SITE.fullServiceClose}
+        </p>
+
+        <h3 className="mb-4 text-lg font-bold md:text-xl">
+          Materials we install & repair
+        </h3>
+
         {/* Phone: horizontal snap cards */}
-        <div className="mb-0 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
-          {SERVICES.map((s) => (
+        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+          {MATERIAL_SERVICES.map((s) => (
             <article
               key={s.title}
               className="w-[78%] max-w-[280px] shrink-0 snap-start overflow-hidden border border-border-primary bg-background-primary"
             >
               <img
                 src={s.image}
-                alt={s.title}
+                alt={`${s.title} installation in Central Florida`}
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
               <div className="flex flex-col p-4">
-                <h3 className="mb-1.5 text-base font-bold">{s.title}</h3>
+                <h4 className="mb-1.5 text-base font-bold">{s.title}</h4>
                 <p className="mb-3 line-clamp-3 text-sm text-text-secondary">
                   {s.body}
                 </p>
@@ -154,21 +136,20 @@ export function LandingPage() {
           ))}
         </div>
 
-        {/* iPad + desktop grid */}
         <div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {SERVICES.map((s) => (
+          {MATERIAL_SERVICES.map((s) => (
             <article
               key={s.title}
               className="flex flex-col overflow-hidden border border-border-primary bg-background-primary"
             >
               <img
                 src={s.image}
-                alt={s.title}
+                alt={`${s.title} installation in Central Florida`}
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
               <div className="flex flex-1 flex-col p-4 lg:p-5">
-                <h3 className="mb-2 text-lg font-bold">{s.title}</h3>
+                <h4 className="mb-2 text-lg font-bold">{s.title}</h4>
                 <p className="mb-4 flex-1 text-sm text-text-secondary">{s.body}</p>
                 <QuoteButton
                   variant="link"
@@ -183,52 +164,50 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Why
-          phone: stack
-          iPad: 3 equal cols
-          desktop: same, more padding
-      */}
+      {/* Why choose */}
       <Section id="why" className="bg-background-secondary">
-        <p className="brand-eyebrow">Why us</p>
-        <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:mb-8 md:text-4xl lg:mb-10 lg:text-5xl">
-          Professional fence work without the noise
+        <p className="brand-eyebrow">Why choose FenceLine Florida</p>
+        <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+          Built for Florida. Done right the first time.
         </h2>
-        <div className="grid gap-3 sm:gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
-          {WHY.map((item) => (
-            <div
-              key={item.title}
-              className="border border-border-primary bg-background-primary p-4 sm:p-5 md:p-5 lg:p-6"
-            >
-              <item.icon
-                className="mb-3 size-7 text-brand-accent sm:mb-4 sm:size-8"
-                aria-hidden
-              />
-              <h3 className="mb-1.5 text-lg font-bold sm:mb-2 sm:text-xl">
-                {item.title}
-              </h3>
-              <p className="text-sm text-text-secondary md:text-base">
-                {item.body}
-              </p>
-            </div>
-          ))}
+        <p className="mb-6 max-w-2xl text-sm text-text-secondary sm:mb-8 md:mb-10 md:text-md">
+          {SITE.whyLead}
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:gap-5">
+          {WHY_POINTS.map((item, i) => {
+            const Icon = WHY_ICONS[i] || BiCheckCircle;
+            return (
+              <div
+                key={item.title}
+                className="border border-border-primary bg-background-primary p-4 sm:p-5 lg:p-6"
+              >
+                <Icon
+                  className="mb-3 size-7 text-brand-accent sm:mb-4 sm:size-8"
+                  aria-hidden
+                />
+                <h3 className="mb-1.5 text-lg font-bold sm:mb-2 sm:text-xl">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-text-secondary md:text-base">
+                  {item.body}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
-      {/* Process
-          phone: vertical timeline
-          iPad: 2×2
-          desktop: 4 cols
-      */}
+      {/* Process */}
       <Section id="process">
         <p className="brand-eyebrow">Process</p>
         <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:mb-8 md:text-4xl lg:mb-10 lg:text-5xl">
           Simple path from quote to finished line
         </h2>
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
-          {STEPS.map((step, i) => (
+          {STEPS.map((step) => (
             <div
               key={step.n}
-              className="relative border border-border-primary p-4 sm:p-5 md:p-6"
+              className="border border-border-primary p-4 sm:p-5 md:p-6"
             >
               <p className="mb-2 text-sm font-bold text-brand-accent sm:mb-3">
                 {step.n}
@@ -237,35 +216,23 @@ export function LandingPage() {
                 {step.t}
               </h3>
               <p className="text-sm text-text-secondary">{step.d}</p>
-              {i < STEPS.length - 1 && (
-                <span
-                  className="absolute -bottom-2 left-1/2 hidden h-4 w-px -translate-x-1/2 bg-border-primary sm:block lg:hidden"
-                  aria-hidden
-                />
-              )}
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Areas
-          phone: stack (copy then image)
-          iPad: side-by-side
-          desktop: wider gap
-      */}
+      {/* Areas we serve */}
       <Section id="areas" className="bg-background-secondary">
         <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
           <div className="order-2 md:order-1">
-            <p className="brand-eyebrow">Service area</p>
+            <p className="brand-eyebrow">Areas we serve</p>
             <h2 className="mb-3 text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
-              Central & North Florida coverage
+              Central & North Florida
             </h2>
             <p className="mb-4 text-sm text-text-secondary sm:mb-5 sm:text-base md:mb-6 md:text-md">
-              From Jacksonville to Tampa—including Orlando, Sanford, Kissimmee,
-              Clermont, Lakeland, Daytona Beach, Melbourne, and Ocala.
-              Residential and commercial.
+              {SITE.areasLead}
             </p>
-            <ul className="mb-6 flex flex-wrap gap-1.5 sm:mb-8 sm:gap-2">
+            <ul className="mb-5 flex flex-wrap gap-1.5 sm:mb-6 sm:gap-2">
               {AREAS.map((city) => (
                 <li
                   key={city}
@@ -275,6 +242,9 @@ export function LandingPage() {
                 </li>
               ))}
             </ul>
+            <p className="mb-6 text-sm text-text-secondary md:text-base">
+              {SITE.areasNearMe}
+            </p>
             <QuoteButton className="min-h-12 w-full touch-manipulation sm:w-auto sm:min-h-11">
               Get free quote
             </QuoteButton>
@@ -282,7 +252,7 @@ export function LandingPage() {
           <div className="relative order-1 aspect-[16/10] overflow-hidden md:order-2 md:aspect-[4/3]">
             <img
               src="/images/home-about-section.jpg"
-              alt="Fence crew working on a property line"
+              alt="FenceLine Florida crew installing fencing in Central Florida"
               className="size-full object-cover"
               loading="lazy"
             />
@@ -290,15 +260,15 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* FAQ — larger tap targets on phone */}
+      {/* AEO FAQ */}
       <Section id="faq">
         <p className="brand-eyebrow">FAQ</p>
         <h2 className="mb-2 max-w-xl text-2xl font-bold sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl">
           Fence questions, direct answers
         </h2>
         <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 sm:text-base md:text-md">
-          Permits, HOA rules, storm readiness, timelines, and service area for{" "}
-          {SITE.webName}.
+          Quick answers about materials, permits, Florida weather, and where we
+          work—optimized for search and AI assistants.
         </p>
         <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary">
           {HOME_FAQS.map((item) => (
@@ -319,21 +289,23 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Final CTA */}
+      {/* Get a fence quote today */}
       <Section
         id="contact"
         className="bg-background-alternative text-text-alternative"
       >
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-accent sm:mb-3 sm:text-xs md:text-sm">
-            {SITE.tagline}
+            Get a fence quote today
           </p>
           <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            Get your free estimate today
+            Reliable fence contractor in Florida
           </h2>
           <p className="mb-6 text-sm text-white/80 sm:mb-8 sm:text-base md:text-md">
-            Tell us about the job. A representative from our team will contact
-            you soon—no pressure.
+            {SITE.ctaLead}
+          </p>
+          <p className="mb-6 text-sm text-white/70">
+            A representative from our team will contact you soon.
           </p>
           <div className="flex flex-col items-stretch justify-center gap-2.5 sm:gap-3 md:flex-row md:items-center">
             <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
@@ -357,14 +329,12 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Footer — stacked phone, split tablet+ */}
       <footer className="border-t border-border-primary px-4 py-8 sm:px-5 sm:py-10 md:px-8">
         <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-6 sm:gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
-              {SITE.tagline} Professional fence installation and repair across{" "}
-              {SITE.area}.
+              {SITE.tagline} {SITE.seoHeading}. {SITE.legalLine}
             </p>
             <p className="mt-2 max-w-sm text-xs text-text-secondary">
               {SITE.addressLine}
@@ -396,7 +366,6 @@ export function LandingPage() {
               <p className="mb-2 font-bold">Company</p>
               <p className="py-1 text-text-secondary">{SITE.name}</p>
               <p className="py-1 text-text-secondary">{SITE.domain}</p>
-              <p className="py-1 text-xs text-text-secondary">{SITE.legalLine}</p>
               <a
                 href="/deposit"
                 className="block min-h-10 py-1.5 hover:underline touch-manipulation"

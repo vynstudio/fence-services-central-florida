@@ -246,7 +246,7 @@ export function OgCard({ logoSrc = null }) {
         >
           <div style={{ display: "flex" }}>Fence install & repair</div>
           <div style={{ display: "flex", color: "rgba(255,255,255,0.42)" }}>
-            Jacksonville to Tampa
+            in Central Florida
           </div>
         </div>
 

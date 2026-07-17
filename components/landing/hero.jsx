@@ -274,16 +274,17 @@ export function Hero() {
                   {SITE.tagline}
                 </p>
 
-                <h1 className="mb-3 text-[1.85rem] font-bold leading-[1.08] tracking-tight text-white sm:mb-4 sm:text-[2.15rem] md:text-[2.35rem] md:leading-[1.05] lg:text-[3rem] lg:leading-[1.02] xl:text-[3.25rem]">
+                {/* Visual brand headline; SEO H1 lives in About section */}
+                <p className="mb-3 text-[1.85rem] font-bold leading-[1.08] tracking-tight text-white sm:mb-4 sm:text-[2.15rem] md:text-[2.35rem] md:leading-[1.05] lg:text-[3rem] lg:leading-[1.02] xl:text-[3.25rem]">
                   The true line
                   <span className="mt-0.5 block font-semibold text-white/40 md:mt-1">
                     across Florida
                   </span>
-                </h1>
+                </p>
 
                 <p className="mb-5 max-w-md text-[0.9375rem] leading-relaxed text-white/70 sm:mb-6 sm:text-base md:mb-7">
-                  Install and repair from Jacksonville to Tampa. Posts set for
-                  storms. Quotes without the dance.
+                  Fence installation and repair in Central Florida—wood, vinyl,
+                  aluminum, and chain-link. Built for Florida soil and storms.
                 </p>
 
                 {/* CTAs: full-width phone → row tablet/desktop */}
