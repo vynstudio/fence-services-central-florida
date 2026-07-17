@@ -14,14 +14,15 @@ const LINKS = [
   { href: "#process", label: "Process", short: "Process" },
   { href: "#areas", label: "Areas", short: "Areas" },
   { href: "#faq", label: "FAQ", short: "FAQ" },
+  { href: "#about", label: "About", short: "About" },
   { href: "#contact", label: "Contact", short: "Contact" },
 ];
 
 /** iPad portrait: fewer primary links */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
   { href: "#areas", label: "Areas" },
+  { href: "#about", label: "About" },
   { href: "#faq", label: "FAQ" },
 ];
 

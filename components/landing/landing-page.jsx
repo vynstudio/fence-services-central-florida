@@ -55,19 +55,7 @@ export function LandingPage() {
       <SiteHeader />
       <Hero />
 
-      {/* SEO intro — primary keyword H1 for crawlers & AEO */}
-      <Section id="about" className="bg-background-secondary !py-8 sm:!py-10 md:!py-12">
-        <p className="brand-eyebrow">About {SITE.webName}</p>
-        <h1 className="mb-4 max-w-3xl text-2xl font-bold leading-tight sm:text-3xl md:mb-5 md:text-4xl lg:text-[2.75rem]">
-          {SITE.seoHeading}
-        </h1>
-        <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
-          <p>{SITE.about}</p>
-          <p>{SITE.aboutBody}</p>
-        </div>
-      </Section>
-
-      {/* Full-service company */}
+      {/* Full-service company — lead with action, not walls of text */}
       <Section id="services">
         <p className="brand-eyebrow">Full-service fence company</p>
         <h2 className="mb-2 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-3 md:text-4xl lg:text-5xl">
@@ -267,8 +255,7 @@ export function LandingPage() {
           Fence questions, direct answers
         </h2>
         <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 sm:text-base md:text-md">
-          Quick answers about materials, permits, Florida weather, and where we
-          work—optimized for search and AI assistants.
+          Materials, permits, Florida weather, and where we work.
         </p>
         <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary">
           {HOME_FAQS.map((item) => (
@@ -286,6 +273,23 @@ export function LandingPage() {
               </p>
             </details>
           ))}
+        </div>
+      </Section>
+
+      {/* About us — full description lives low on the page (less ATF noise) */}
+      <Section id="about" className="bg-background-secondary">
+        <div className="mx-auto max-w-3xl">
+          <p className="brand-eyebrow">About us</p>
+          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
+            Who we are
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
+            <p>{SITE.about}</p>
+            <p>{SITE.aboutBody}</p>
+            <p className="text-xs text-text-secondary md:text-sm">
+              {SITE.legalLine}
+            </p>
+          </div>
         </div>
       </Section>
 

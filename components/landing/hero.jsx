@@ -274,17 +274,16 @@ export function Hero() {
                   {SITE.tagline}
                 </p>
 
-                {/* Visual brand headline; SEO H1 lives in About section */}
-                <p className="mb-3 text-[1.85rem] font-bold leading-[1.08] tracking-tight text-white sm:mb-4 sm:text-[2.15rem] md:text-[2.35rem] md:leading-[1.05] lg:text-[3rem] lg:leading-[1.02] xl:text-[3.25rem]">
-                  The true line
-                  <span className="mt-0.5 block font-semibold text-white/40 md:mt-1">
-                    across Florida
+                <h1 className="mb-3 text-[1.75rem] font-bold leading-[1.1] tracking-tight text-white sm:mb-4 sm:text-[2.05rem] md:text-[2.25rem] md:leading-[1.08] lg:text-[2.85rem] lg:leading-[1.05] xl:text-[3.1rem]">
+                  Fence installation &amp; repair
+                  <span className="mt-0.5 block font-semibold text-white/45 md:mt-1">
+                    in Central Florida
                   </span>
-                </p>
+                </h1>
 
                 <p className="mb-5 max-w-md text-[0.9375rem] leading-relaxed text-white/70 sm:mb-6 sm:text-base md:mb-7">
-                  Fence installation and repair in Central Florida—wood, vinyl,
-                  aluminum, and chain-link. Built for Florida soil and storms.
+                  Wood, vinyl, aluminum, and chain-link—built for Florida soil
+                  and storms. Free quotes.
                 </p>
 
                 {/* CTAs: full-width phone → row tablet/desktop */}
