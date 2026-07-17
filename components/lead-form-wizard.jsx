@@ -140,41 +140,43 @@ export function LeadFormWizard({
     if (!canNext()) return;
     setStatus("submitting");
 
-    const message = [
-      `Need: ${data.need}`,
-      `Material: ${data.material}`,
-      `Property: ${data.property}`,
-      `Address: ${data.street}, ${data.city}, FL ${data.zip}`,
-      data.message ? `Notes: ${data.message}` : null,
+    const notes = [
+      data.message ? data.message : null,
     ]
       .filter(Boolean)
       .join("\n");
 
-    const payload = new URLSearchParams({
-      "form-name": "contact",
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      street: data.street,
-      city: data.city,
-      zip: data.zip,
-      need: data.need,
-      material: data.material,
-      property: data.property,
-      message,
-      "bot-field": "",
-    });
-
     try {
-      await fetch("/", {
+      const res = await fetch("/api/leads", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: payload.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          street: data.street,
+          city: data.city,
+          zip: data.zip,
+          need: data.need,
+          material: data.material,
+          property: data.property,
+          message: notes,
+          "bot-field": "",
+        }),
       });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        console.error("lead submit failed", err);
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       if (onSuccess) onSuccess();
       else window.location.href = "/thank-you/";
-    } catch {
+    } catch (err) {
+      console.error("lead submit error", err);
       setStatus("error");
     }
   };
