@@ -62,7 +62,9 @@ const STEPS = HOME_STEPS.map((step, i) => ({
   d: step.text,
 }));
 
-const AREAS = SITE.serviceAreas.filter((a) => a !== "Central Florida");
+const AREAS = SITE.serviceAreas.filter(
+  (a) => a !== "Central Florida" && a !== "North Florida",
+);
 
 /**
  * Mobile-first section shell:
@@ -91,11 +93,20 @@ export function LandingPage() {
       <Section id="about" className="bg-background-secondary !py-8 sm:!py-10 md:!py-12">
         <p className="brand-eyebrow">About {SITE.webName}</p>
         <h2 className="mb-3 max-w-2xl text-xl font-bold sm:text-2xl md:mb-4 md:text-3xl">
-          Central Florida fence installation and repair
+          Professional fence installation and repair
         </h2>
-        <p className="max-w-3xl text-sm leading-relaxed text-text-secondary md:text-base">
-          {SITE.about}
-        </p>
+        <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
+          <p>
+            FenceLine Florida is a DBA of Diler Dynamics Group LLC, providing
+            professional fence installation and repair services across Central
+            and North Florida. We specialize in wood, vinyl, aluminum, and
+            chain-link fencing for both residential and commercial properties,
+            serving areas from Jacksonville to Tampa, including Orlando,
+            Sanford, Kissimmee, Clermont, Lakeland, Daytona Beach, Melbourne,
+            and Ocala.
+          </p>
+          <p>{SITE.aboutEngineering}</p>
+        </div>
       </Section>
 
       {/* Services
@@ -109,8 +120,8 @@ export function LandingPage() {
           Install and repair, every material
         </h2>
         <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
-          One team for residential and commercial fence work across Central
-          Florida from Jacksonville to Tampa.
+          Professional install and repair for residential and commercial
+          properties across Central and North Florida—Jacksonville to Tampa.
         </p>
 
         {/* Phone: horizontal snap cards */}
@@ -247,11 +258,12 @@ export function LandingPage() {
           <div className="order-2 md:order-1">
             <p className="brand-eyebrow">Service area</p>
             <h2 className="mb-3 text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
-              Central Florida coverage
+              Central & North Florida coverage
             </h2>
             <p className="mb-4 text-sm text-text-secondary sm:mb-5 sm:text-base md:mb-6 md:text-md">
-              {SITE.area}. Install and repair for homes, HOAs, and commercial
-              properties.
+              From Jacksonville to Tampa—including Orlando, Sanford, Kissimmee,
+              Clermont, Lakeland, Daytona Beach, Melbourne, and Ocala.
+              Residential and commercial.
             </p>
             <ul className="mb-6 flex flex-wrap gap-1.5 sm:mb-8 sm:gap-2">
               {AREAS.map((city) => (
@@ -351,7 +363,7 @@ export function LandingPage() {
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
-              {SITE.webName} — {SITE.tagline} Install and repair across{" "}
+              {SITE.tagline} Professional fence installation and repair across{" "}
               {SITE.area}.
             </p>
             <p className="mt-2 max-w-sm text-xs text-text-secondary">
@@ -382,9 +394,9 @@ export function LandingPage() {
             </div>
             <div>
               <p className="mb-2 font-bold">Company</p>
-              <p className="py-1 text-text-secondary">{SITE.webName}</p>
               <p className="py-1 text-text-secondary">{SITE.name}</p>
               <p className="py-1 text-text-secondary">{SITE.domain}</p>
+              <p className="py-1 text-xs text-text-secondary">{SITE.legalLine}</p>
               <a
                 href="/deposit"
                 className="block min-h-10 py-1.5 hover:underline touch-manipulation"
@@ -396,8 +408,7 @@ export function LandingPage() {
         </div>
         <div className="mx-auto mt-8 w-full max-w-[1120px] border-t border-border-primary pt-5 text-xs text-text-secondary sm:mt-10 sm:pt-6 sm:text-sm">
           <p>
-            © {SITE.year} {SITE.name} ({SITE.webName}). A DBA of{" "}
-            {SITE.legalName}. All rights reserved.{" "}
+            © {SITE.year} {SITE.name}. {SITE.legalLine} All rights reserved.{" "}
             <a href="https://fencelineflorida.com" className="underline">
               fencelineflorida.com
             </a>

@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 
 /**
- * FenceLine Florida mark + wordmark (Meridian Fence Group DBA).
+ * FenceLine Florida mark + wordmark (DBA of Diler Dynamics Group LLC).
  * variant: "dark" (black on light) | "light" (white on dark)
  */
 export function BrandLogo({

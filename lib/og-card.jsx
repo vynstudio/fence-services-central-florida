@@ -281,12 +281,12 @@ export function OgCard({ logoSrc = null }) {
         <div
           style={{
             display: "flex",
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: 600,
             color: "rgba(255,255,255,0.45)",
           }}
         >
-          Meridian Fence Group
+          DBA of Diler Dynamics Group LLC
         </div>
       </div>
     </div>

@@ -13,8 +13,8 @@ export async function POST(request) {
     const amount = getDepositAmountCents();
 
     const metadata = {
-      source: "meridian-fence-group",
-      brand: "Meridian Fence Group",
+      source: "fenceline-florida",
+      brand: "FenceLine Florida",
       legal_entity: "Diler Dynamics Group LLC",
       customer_name: String(body.name || "").slice(0, 200),
       customer_email: String(body.email || "").slice(0, 200),
@@ -39,7 +39,7 @@ export async function POST(request) {
             product_data: {
               name: "Fence project deposit",
               description:
-                "Refundable deposit to reserve your Meridian Fence Group install/repair date. Applied to the final invoice.",
+                "Refundable deposit to reserve your FenceLine Florida install/repair date. Applied to the final invoice.",
             },
           },
         },
@@ -49,7 +49,7 @@ export async function POST(request) {
       metadata,
       payment_intent_data: {
         metadata,
-        description: "Meridian Fence Group — project deposit",
+        description: "FenceLine Florida — project deposit",
       },
       // Tag for Dashboard analytics (best practice)
       // integration_identifier not on older API — skip if unsupported
