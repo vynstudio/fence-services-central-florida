@@ -54,7 +54,7 @@ export function OgCard({ logoSrc = null }) {
           height: 480,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(31,107,74,0.45) 0%, transparent 68%)",
+            "radial-gradient(circle, rgba(18,65,55,0.55) 0%, transparent 68%)",
           display: "flex",
         }}
       />
@@ -68,7 +68,7 @@ export function OgCard({ logoSrc = null }) {
           height: 520,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(31,107,74,0.22) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(18,65,55,0.28) 0%, transparent 70%)",
           display: "flex",
         }}
       />
@@ -95,7 +95,7 @@ export function OgCard({ logoSrc = null }) {
           top: 290,
           height: 2,
           background:
-            "linear-gradient(90deg, transparent 0%, #0E7C4A 35%, #0E7C4A 65%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #124137 35%, #124137 65%, transparent 100%)",
           display: "flex",
         }}
       />
@@ -114,75 +114,36 @@ export function OgCard({ logoSrc = null }) {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 20,
+            gap: 16,
           }}
         >
           {logoSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={logoSrc}
-              width={72}
-              height={72}
-              alt=""
+              width={280}
+              height={64}
+              alt="Fence Line"
               style={{
-                width: 72,
-                height: 72,
+                width: 280,
+                height: 64,
                 objectFit: "contain",
+                objectPosition: "left center",
               }}
             />
           ) : (
             <div
               style={{
-                width: 64,
-                height: 64,
-                border: "2px solid #0E7C4A",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: 6,
-                  height: 40,
-                  background: "#ffffff",
-                  display: "flex",
-                }}
-              />
-            </div>
-          )}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
+                fontSize: 32,
                 fontWeight: 800,
                 letterSpacing: "-0.03em",
-                lineHeight: 1,
                 color: "#ffffff",
               }}
             >
-              FenceLine
+              FENCE LINE
             </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#0E7C4A",
-              }}
-            >
-              Florida
-            </div>
-          </div>
+          )}
         </div>
 
         <div
@@ -217,7 +178,7 @@ export function OgCard({ logoSrc = null }) {
             fontWeight: 600,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#0E7C4A",
+            color: "#3ECF8E",
           }}
         >
           <div
@@ -225,7 +186,7 @@ export function OgCard({ logoSrc = null }) {
               width: 10,
               height: 10,
               borderRadius: "50%",
-              background: "#0E7C4A",
+              background: "#3ECF8E",
               display: "flex",
             }}
           />

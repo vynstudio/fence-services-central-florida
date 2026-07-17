@@ -16,10 +16,11 @@
   :root {
     --meridian-black: #111111;
     --meridian-ink: #121212;
-    --meridian-accent: #0e7c4a;
-    --meridian-accent-hover: #0b6a3f;
-    --meridian-accent-bright: #1a9a5c;
-    --meridian-accent-soft: #e6f5ed;
+    /* Align with Fence Line logo green (#124137), readable UI accents */
+    --meridian-accent: #124137;
+    --meridian-accent-hover: #0e332c;
+    --meridian-accent-bright: #2a9b6a;
+    --meridian-accent-soft: #e8f2ee;
     --meridian-soft: #f6f8f6;
     --meridian-gray: #555555;
     --meridian-line: #e2e8e4;

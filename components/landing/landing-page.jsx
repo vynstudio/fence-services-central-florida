@@ -316,7 +316,7 @@ export function LandingPage() {
       <footer className="border-t border-border-primary shell-section !py-8 md:!py-10">
         <div className="shell-inner flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
           <div>
-            <BrandLogo variant="dark" />
+            <BrandLogo variant="dark" height={34} />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
               {SITE.tagline} Fence installation and repair across {SITE.area}.
             </p>

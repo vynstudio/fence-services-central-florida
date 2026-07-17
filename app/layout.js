@@ -45,6 +45,10 @@ export const metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: [{ url: "/logo/favicon-32.png", sizes: "32x32", type: "image/png" }],
+    apple: [{ url: "/logo/apple-touch-icon.png", sizes: "180x180" }],
+  },
   other: {
     "geo.region": "US-FL",
     "geo.placename": "Orlando",
@@ -56,7 +60,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: SITE.colors.accentBright || SITE.colors.accent,
+  themeColor: SITE.brandGreen || SITE.colors.accent,
 };
 
 export default function RootLayout({ children }) {

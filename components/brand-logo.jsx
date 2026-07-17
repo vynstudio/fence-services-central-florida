@@ -1,69 +1,62 @@
 import { SITE } from "@/lib/site";
 
 /**
- * FenceLine Florida mark + wordmark (DBA of Diler Dynamics Group LLC).
- * variant: "dark" (black on light) | "light" (white on dark)
+ * Fence Line brand logo.
+ * variant:
+ *  - "dark"  → green wordmark on light surfaces (header/footer)
+ *  - "light" → white wordmark on dark surfaces
+ *  - "black" → black monochrome
+ *  - "gold"  → gold on transparent (optional accent)
  */
+const SRC = {
+  dark: "/logo/logo-dark.png",
+  light: "/logo/logo-light.png",
+  black: "/logo/logo-black.png",
+  gold: "/logo/logo-gold.png",
+  mark: "/logo/logo-mark.png",
+};
+
 export function BrandLogo({
   variant = "dark",
   showWordmark = true,
   className = "",
   href = "/",
+  /** height in px — width auto from aspect */
+  height = 36,
 }) {
-  // className may include scale utilities for phone shell
-  const isLight = variant === "light";
-  const ink = isLight ? "#FFFFFF" : "#111111";
-  const accent = "#0E7C4A";
+  const src = showWordmark
+    ? SRC[variant] || SRC.dark
+    : SRC.mark;
 
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={SITE.webName}
+      height={height}
+      className={`h-[${height}px] w-auto max-w-[min(200px,55vw)] object-contain object-left md:max-w-[220px] ${className}`}
+      style={{ height, width: "auto" }}
+      decoding="async"
+    />
+  );
+
+  // sr-only name when using mark-only
   const content = (
-    <span className={`inline-flex items-center gap-3 ${className}`}>
-      <svg
-        width="34"
-        height="34"
-        viewBox="0 0 36 36"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        {/* True line / fence post */}
-        <rect x="16" y="4" width="4" height="28" rx="1" fill={ink} />
-        <rect x="8" y="10" width="20" height="3" rx="1" fill={accent} />
-        <rect
-          x="10"
-          y="22"
-          width="16"
-          height="2.5"
-          rx="1"
-          fill={ink}
-          opacity="0.28"
-        />
-      </svg>
-      {showWordmark && (
-        <span className="flex flex-col leading-none">
-          <span
-            className="text-base font-bold tracking-tight lg:text-[1.05rem]"
-            style={{ color: ink }}
-          >
-            FenceLine
-          </span>
-          <span
-            className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em]"
-            style={{ color: isLight ? "rgba(255,255,255,0.7)" : accent }}
-          >
-            Florida
-          </span>
-        </span>
-      )}
+    <span className="inline-flex items-center">
+      {img}
       <span className="sr-only">
-        {SITE.webName} — {SITE.name}
+        {SITE.webName}
       </span>
     </span>
   );
 
   if (href) {
     return (
-      <a href={href} className="inline-flex items-center no-underline">
+      <a
+        href={href}
+        className="inline-flex items-center no-underline"
+        aria-label={SITE.webName}
+      >
         {content}
       </a>
     );

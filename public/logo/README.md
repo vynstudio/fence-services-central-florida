@@ -1,22 +1,28 @@
-# Brand logos
+# Fence Line brand assets
 
-## Site UI
-- Header uses the inline FenceLine wordmark in `components/brand-logo.jsx`.
-- `logo-mark.png` — Grok Imagine mark (green fence icon). Swap when final brand logo is ready.
-- `logo-dark.svg` / `logo-light.svg` — legacy placeholders.
+Processed from `/Downloads/logofenceline` (propuesta suite + PDF).
 
-## Share card (Open Graph / Twitter / iMessage / WhatsApp)
-- `og-logo.png` is already installed (Imagine-generated mark).
-- To replace: drop a transparent PNG (~400×400) as `og-logo.png` and redeploy.
-- Share card: `/opengraph-image`
+## Web-ready (use these)
 
-## Photo set (`public/images/`)
-Generated with Grok Imagine for FenceLine Florida:
-| File | Subject |
-|------|---------|
-| `home-gallery-section-0.jpg` | Wood privacy fence |
-| `home-gallery-section-1.jpg` | Vinyl pool fence |
-| `home-gallery-section-2.jpg` | Chain-link play yard |
-| `home-gallery-section-3.jpg` | Black aluminum ornamental |
-| `home-about-section.jpg` | Crew installing posts (Florida) |
-| `home-hero-header-section.jpg` | Wood fence hero fallback |
+| File | Use |
+|------|-----|
+| `logo-dark.png` | **Primary header/footer** — green on transparent (light bg) |
+| `logo-dark@2x.png` | Retina header |
+| `logo-light.png` | White wordmark on dark surfaces |
+| `logo-black.png` | Black monochrome on light |
+| `logo-gold.png` | Gold wordmark (optional accent) |
+| `logo-on-green.png` | White on transparent (for green brand plates) |
+| `logo-mark.png` | Icon only |
+| `og-logo.png` | Open Graph share card (white wordmark) |
+| `favicon-32.png` | Browser favicon |
+| `apple-touch-icon.png` | iOS home screen |
+
+## Source archive (`source/`)
+
+Full 4500×4500 masters + PDF for design handoff.
+
+## Code
+
+- Header: `BrandLogo` → `logo-dark.png`
+- Dark sections: `variant="light"` → `logo-light.png`
+- Share card: auto-loads `og-logo.png` via `app/opengraph-image.jsx`
