@@ -1,19 +1,22 @@
 # Brand logos
 
 ## Site UI
-- `logo-dark.svg` / `logo-light.svg` — optional; the header currently uses the inline FenceLine wordmark.
+- Header uses the inline FenceLine wordmark in `components/brand-logo.jsx`.
+- `logo-mark.png` — Grok Imagine mark (green fence icon). Swap when final brand logo is ready.
+- `logo-dark.svg` / `logo-light.svg` — legacy placeholders.
 
 ## Share card (Open Graph / Twitter / iMessage / WhatsApp)
-When your final logo is ready:
+- `og-logo.png` is already installed (Imagine-generated mark).
+- To replace: drop a transparent PNG (~400×400) as `og-logo.png` and redeploy.
+- Share card: `/opengraph-image`
 
-1. Export a **transparent PNG** (or convert SVG → PNG).
-2. Recommended: **about 400×400px**, logo only, no padding crush, works on dark background.
-3. Save as:
-
-```
-public/logo/og-logo.png
-```
-
-4. Redeploy. The share card at `/opengraph-image` picks it up automatically.
-
-Until then, the card uses a temporary fence-post mark + “FenceLine / Florida” wordmark.
+## Photo set (`public/images/`)
+Generated with Grok Imagine for FenceLine Florida:
+| File | Subject |
+|------|---------|
+| `home-gallery-section-0.jpg` | Wood privacy fence |
+| `home-gallery-section-1.jpg` | Vinyl pool fence |
+| `home-gallery-section-2.jpg` | Chain-link play yard |
+| `home-gallery-section-3.jpg` | Black aluminum ornamental |
+| `home-about-section.jpg` | Crew installing posts (Florida) |
+| `home-hero-header-section.jpg` | Wood fence hero fallback |
