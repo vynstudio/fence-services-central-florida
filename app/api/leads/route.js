@@ -4,11 +4,7 @@ import {
   formatLeadTelegramMessage,
   sendTelegramMessage,
 } from "@/lib/leads/telegram";
-import {
-  leadAutoReplyText,
-  leadOwnerAlertText,
-  sendQuoSms,
-} from "@/lib/leads/quo";
+import { leadAutoReplyText, sendQuoSms } from "@/lib/leads/quo";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -38,15 +34,9 @@ function isEmail(v) {
 
 /**
  * POST /api/leads
- * Body JSON: lead fields from quote wizard (+ optional bot-field honeypot)
  *
- * Delivers:
- *  1) Telegram alert to team
- *  2) Quo SMS auto-reply to lead
- *  3) Optional Quo SMS to QUO_OWNER_NOTIFY_NUMBER
- *
- * Returns 200 when lead is accepted; channel failures are logged but
- * do not block the thank-you flow (unless validation fails).
+ * 1) Telegram — full lead alert to the team
+ * 2) Quo SMS  — confirmation text to the client only
  */
 export async function POST(request) {
   try {
@@ -98,13 +88,9 @@ export async function POST(request) {
     lead.phoneE164 = phoneE164;
     lead.phoneDisplay = formatDisplayPhone(phoneE164);
 
-    const channels = {
-      telegram: null,
-      quoLead: null,
-      quoOwner: null,
-    };
+    const channels = { telegram: null, quoLead: null };
 
-    // 1) Telegram team alert
+    // 1) Telegram — you receive the lead
     try {
       channels.telegram = await sendTelegramMessage(
         formatLeadTelegramMessage(lead),
@@ -114,7 +100,7 @@ export async function POST(request) {
       channels.telegram = { ok: false, reason: err.message };
     }
 
-    // 2) Quo auto-reply to lead
+    // 2) Quo — client confirmation only
     try {
       channels.quoLead = await sendQuoSms({
         to: phoneE164,
@@ -125,46 +111,14 @@ export async function POST(request) {
       channels.quoLead = { ok: false, reason: err.message };
     }
 
-    // 3) Optional owner SMS
-    const ownerTo = toE164(process.env.QUO_OWNER_NOTIFY_NUMBER || "");
-    if (ownerTo) {
-      try {
-        channels.quoOwner = await sendQuoSms({
-          to: ownerTo,
-          content: leadOwnerAlertText(lead),
-        });
-      } catch (err) {
-        console.error("quo owner threw", err);
-        channels.quoOwner = { ok: false, reason: err.message };
-      }
-    } else {
-      channels.quoOwner = { ok: false, skipped: true, reason: "No owner number" };
-    }
-
-    const anyConfigured =
-      channels.telegram?.skipped !== true ||
-      channels.quoLead?.skipped !== true ||
-      (channels.quoOwner && channels.quoOwner.skipped !== true);
-
-    // If nothing is configured in production, still accept the lead but warn
-    if (!anyConfigured) {
-      console.warn(
-        "Lead accepted but no delivery channels configured (Telegram/Quo env missing)",
-        { name: lead.name, phone: lead.phoneDisplay },
-      );
-    }
-
     console.info("lead received", {
       name: lead.name,
       phone: lead.phoneDisplay,
       city: lead.city,
       need: lead.need,
       material: lead.material,
-      channels: {
-        telegram: channels.telegram?.ok || channels.telegram?.skipped,
-        quoLead: channels.quoLead?.ok || channels.quoLead?.skipped,
-        quoOwner: channels.quoOwner?.ok || channels.quoOwner?.skipped,
-      },
+      telegram: channels.telegram,
+      quoSms: channels.quoLead,
     });
 
     return NextResponse.json({
@@ -172,7 +126,6 @@ export async function POST(request) {
       channels: {
         telegram: Boolean(channels.telegram?.ok),
         sms: Boolean(channels.quoLead?.ok),
-        ownerSms: Boolean(channels.quoOwner?.ok),
       },
     });
   } catch (err) {

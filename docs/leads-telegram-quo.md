@@ -2,9 +2,8 @@
 
 When a visitor submits **Get free quote**, the site posts to `POST /api/leads`, which:
 
-1. **Telegram** — instant alert to your bot/group  
-2. **Quo SMS** — auto-reply text to the lead  
-3. **Quo SMS (optional)** — short alert to `QUO_OWNER_NOTIFY_NUMBER`
+1. **Telegram** — full lead alert to your bot (team only)  
+2. **Quo SMS** — confirmation text to the **client only**
 
 ## Netlify environment variables
 
@@ -15,7 +14,6 @@ When a visitor submits **Get free quote**, the site posts to `POST /api/leads`, 
 | `QUO_API_KEY` | Yes* | Quo → Settings → API |
 | `QUO_FROM_NUMBER` | Yes* | Your Quo business number, E.164 (`+1407…`) |
 | `QUO_USER_ID` | No | Send as a specific workspace member |
-| `QUO_OWNER_NOTIFY_NUMBER` | No | Your cell for SMS backup of each lead |
 
 \*At least one channel (Telegram **or** Quo) should be set in production. The form still returns success if a channel fails or is missing so the customer always reaches thank-you.
 
