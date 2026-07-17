@@ -55,7 +55,7 @@ export function Contact20() {
               The hub for crews from Jacksonville to Tampa.
             </p>
             <a className="underline" href={SITE.mapsHref} target="_blank" rel="noreferrer">
-              {SITE.address}
+              {SITE.addressLine}
             </a>
           </div>
         </div>

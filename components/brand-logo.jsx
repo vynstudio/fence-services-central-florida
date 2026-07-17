@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 
 /**
- * Meridian Fence Group mark + wordmark.
+ * FenceLine Florida mark + wordmark (Meridian Fence Group DBA).
  * variant: "dark" (black on light) | "light" (white on dark)
  */
 export function BrandLogo({
@@ -44,17 +44,19 @@ export function BrandLogo({
             className="text-base font-bold tracking-tight lg:text-[1.05rem]"
             style={{ color: ink }}
           >
-            {SITE.shortName}
+            FenceLine
           </span>
           <span
             className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em]"
             style={{ color: isLight ? "rgba(255,255,255,0.7)" : accent }}
           >
-            Group
+            Florida
           </span>
         </span>
       )}
-      <span className="sr-only">{SITE.name}</span>
+      <span className="sr-only">
+        {SITE.webName} — {SITE.name}
+      </span>
     </span>
   );
 

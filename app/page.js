@@ -1,5 +1,41 @@
 import { LandingPage } from "@/components/landing/landing-page";
+import { JsonLd } from "@/components/seo/json-ld";
+import { getHomeJsonLd } from "@/lib/seo";
+import { HOME_DESCRIPTION, HOME_TITLE, SITE } from "@/lib/site";
+
+export const metadata = {
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
+  alternates: {
+    canonical: SITE.url,
+  },
+  openGraph: {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: SITE.url,
+    type: "website",
+    images: [
+      {
+        url: SITE.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "FenceLine Florida fence installation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [SITE.ogImage],
+  },
+};
 
 export default function Page() {
-  return <LandingPage />;
+  return (
+    <>
+      <JsonLd data={getHomeJsonLd()} />
+      <LandingPage />
+    </>
+  );
 }

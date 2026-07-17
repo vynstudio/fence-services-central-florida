@@ -2,6 +2,7 @@
 
 import { Button, Input } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
+import { SITE } from "@/lib/site";
 import React, { useState } from "react";
 
 const useForm = () => {
@@ -122,8 +123,8 @@ export function Footer1() {
                   </a>
                 </li>
                 <li className="py-2">
-                  <a href="mailto:hello@meridianfencegroup.com" className="underline">
-                    hello@meridianfencegroup.com
+                  <a href={SITE.emailHref} className="underline">
+                    {SITE.email}
                   </a>
                 </li>
               </ul>

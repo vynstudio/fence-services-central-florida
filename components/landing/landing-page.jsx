@@ -3,13 +3,14 @@
 import { Button } from "@relume_io/relume-ui";
 import { BrandLogo } from "@/components/brand-logo";
 import { QuoteButton } from "@/components/quote-button";
+import { Hero } from "@/components/landing/hero";
 import { SiteHeader } from "@/components/landing/site-header";
+import { HOME_FAQS, HOME_STEPS } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import React from "react";
 import {
   BiCheckCircle,
   BiMap,
-  BiPhone,
   BiTimeFive,
 } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
@@ -55,48 +56,13 @@ const WHY = [
   },
 ];
 
-const STEPS = [
-  { n: "01", t: "Request a quote", d: "Tell us repair or install, material, and location." },
-  { n: "02", t: "We confirm details", d: "Measure, review codes/HOA, and send a clear price." },
-  { n: "03", t: "We build or repair", d: "Crew on site with materials ready for Florida conditions." },
-  { n: "04", t: "Walkthrough", d: "You inspect the line. We leave it clean and true." },
-];
+const STEPS = HOME_STEPS.map((step, i) => ({
+  n: String(i + 1).padStart(2, "0"),
+  t: step.name,
+  d: step.text,
+}));
 
-const AREAS = [
-  "Jacksonville",
-  "Orlando",
-  "Tampa",
-  "Sanford",
-  "Kissimmee",
-  "Clermont",
-  "Lakeland",
-  "Daytona Beach",
-  "Melbourne",
-  "Ocala",
-];
-
-const FAQS = [
-  {
-    q: "Do I need a permit?",
-    a: "Most cities require a permit for new fences and many major repairs. We pull the paperwork as part of the job.",
-  },
-  {
-    q: "Can you work with my HOA?",
-    a: "Yes. We submit specs and materials for approval so the board and your property both get what they need.",
-  },
-  {
-    q: "Will it hold up in storms?",
-    a: "We set posts deep and build to Florida wind expectations. Materials and hardware are chosen for sun, rain, and salt air.",
-  },
-  {
-    q: "How long does install take?",
-    a: "Most residential jobs finish in one to three days. Larger commercial work is scheduled with a firm timeline up front.",
-  },
-  {
-    q: "Do you only do repairs?",
-    a: "We do both—full installs and targeted repairs (posts, panels, gates) when a full replacement isn’t needed.",
-  },
-];
+const AREAS = SITE.serviceAreas.filter((a) => a !== "Central Florida");
 
 function Section({ id, children, className = "" }) {
   return (
@@ -106,78 +72,22 @@ function Section({ id, children, className = "" }) {
   );
 }
 
-const FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
-
-const ORG_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  name: SITE.name,
-  alternateName: SITE.shortName,
-  description: SITE.description,
-  url: SITE.url,
-  telephone: SITE.phone,
-  email: SITE.email,
-  areaServed: "Central Florida",
-  slogan: SITE.tagline,
-};
-
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-background-primary">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_SCHEMA) }}
-      />
       <SiteHeader />
+      <Hero />
 
-      {/* Hero */}
-      <section className="px-5 pb-10 pt-6 md:px-8 md:pb-16 md:pt-10 lg:pb-20">
-        <div className="mx-auto max-w-[1120px]">
-          <div className="relative overflow-hidden rounded-sm">
-            <div className="relative z-10 flex min-h-[22rem] flex-col justify-end px-6 py-10 sm:min-h-[26rem] md:min-h-[32rem] md:px-12 md:py-14 lg:min-h-[36rem] lg:px-16 lg:py-16">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-brand-accent md:text-sm">
-                {SITE.tagline}
-              </p>
-              <h1 className="mb-4 max-w-2xl text-3xl font-bold leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                {SITE.marketLine}
-              </h1>
-              <p className="mb-8 max-w-xl text-sm text-white/90 md:text-base lg:text-lg">
-                Install and repair for wood, vinyl, aluminum, and chain link.
-                Clear quotes. Solid posts. Built for Florida weather.
-              </p>
-              <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
-                <QuoteButton className="w-full sm:w-auto">Get free quote</QuoteButton>
-                <Button variant="secondary-alt" className="w-full sm:w-auto" asChild>
-                  <a href={SITE.phoneHref}>
-                    <BiPhone className="size-5" />
-                    Call {SITE.phone}
-                  </a>
-                </Button>
-              </div>
-            </div>
-            <div className="absolute inset-0">
-              <img
-                src="/images/home-hero-header-section.jpg"
-                alt="Finished residential fence installation"
-                className="size-full object-cover"
-              />
-              <div className="hero-overlay absolute inset-0" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* AEO definition block — fact-first, extractable */}
+      <Section id="about" className="bg-background-secondary !py-10 md:!py-12">
+        <p className="brand-eyebrow">About {SITE.webName}</p>
+        <h2 className="mb-4 max-w-2xl text-2xl font-bold md:text-3xl">
+          Central Florida fence installation and repair
+        </h2>
+        <p className="max-w-3xl text-sm leading-relaxed text-text-secondary md:text-base">
+          {SITE.about}
+        </p>
+      </Section>
 
       {/* Services */}
       <Section id="services" className="bg-background-primary">
@@ -187,7 +97,7 @@ export function LandingPage() {
         </h2>
         <p className="mb-10 max-w-xl text-text-secondary md:text-md">
           One team for residential and commercial fence work across Central
-          Florida.
+          Florida from Jacksonville to Tampa.
         </p>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s) => (
@@ -283,14 +193,18 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* FAQ */}
+      {/* FAQ — matches FAQPage schema for rich results + AEO */}
       <Section id="faq">
         <p className="brand-eyebrow">FAQ</p>
-        <h2 className="mb-8 max-w-xl text-3xl font-bold md:text-4xl lg:text-5xl">
-          Common questions
+        <h2 className="mb-3 max-w-xl text-3xl font-bold md:text-4xl lg:text-5xl">
+          Fence questions, direct answers
         </h2>
+        <p className="mb-8 max-w-xl text-text-secondary md:text-md">
+          Permits, HOA rules, storm readiness, timelines, and service area for{" "}
+          {SITE.webName}.
+        </p>
         <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary">
-          {FAQS.map((item) => (
+          {HOME_FAQS.map((item) => (
             <details key={item.q} className="group p-5 md:p-6">
               <summary className="cursor-pointer list-none text-base font-bold md:text-lg [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center justify-between gap-4">
@@ -339,7 +253,11 @@ export function LandingPage() {
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-4 max-w-sm text-sm text-text-secondary">
-              {SITE.tagline} Install and repair across {SITE.area}.
+              {SITE.webName} — {SITE.tagline} Install and repair across{" "}
+              {SITE.area}.
+            </p>
+            <p className="mt-2 max-w-sm text-xs text-text-secondary">
+              {SITE.addressLine}
             </p>
           </div>
           <div className="grid gap-6 text-sm sm:grid-cols-2">
@@ -357,8 +275,9 @@ export function LandingPage() {
             </div>
             <div>
               <p className="mb-2 font-bold">Company</p>
+              <p className="py-1 text-text-secondary">{SITE.webName}</p>
               <p className="py-1 text-text-secondary">{SITE.name}</p>
-              <p className="py-1 text-text-secondary">fencelineflorida.com</p>
+              <p className="py-1 text-text-secondary">{SITE.domain}</p>
               <a href="/deposit" className="block py-1 hover:underline">
                 Pay deposit
               </a>
@@ -367,8 +286,11 @@ export function LandingPage() {
         </div>
         <div className="mx-auto mt-10 w-full max-w-[1120px] border-t border-border-primary pt-6 text-xs text-text-secondary md:text-sm">
           <p>
-            © {SITE.year} {SITE.name}. A DBA of {SITE.legalName}. All rights
-            reserved.
+            © {SITE.year} {SITE.name} ({SITE.webName}). A DBA of{" "}
+            {SITE.legalName}. All rights reserved.{" "}
+            <a href="https://fencelineflorida.com" className="underline">
+              fencelineflorida.com
+            </a>
           </p>
         </div>
       </footer>

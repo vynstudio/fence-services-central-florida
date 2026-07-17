@@ -1,42 +1,69 @@
 import "./globals.css";
 import { Providers } from "@/app/providers";
-import { SITE } from "@/lib/site";
+import { SITE, HOME_TITLE, HOME_DESCRIPTION } from "@/lib/site";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} | ${SITE.tagline}`,
-    template: `%s | ${SITE.name}`,
+    default: HOME_TITLE,
+    template: `%s | ${SITE.webName}`,
   },
-  description: SITE.description,
-  applicationName: SITE.name,
-  keywords: [
-    "Meridian Fence Group",
-    "fence installation",
-    "fence repair",
-    "Central Florida fence company",
-    "Orlando fence",
-    "Jacksonville fence",
-    "Tampa fence",
-    "wood fence",
-    "vinyl fence",
-    "aluminum fence",
-    "chain link fence",
-    "Diler Dynamics Group LLC",
-  ],
+  description: HOME_DESCRIPTION,
+  applicationName: SITE.webName,
+  keywords: SITE.keywords,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.legalName,
+  category: "home improvement",
+  classification: "Fence installation and repair",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
-    siteName: SITE.name,
+    locale: "en_US",
+    siteName: SITE.webName,
     url: SITE.url,
-    title: `${SITE.name} — ${SITE.tagline}`,
-    description: SITE.description,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [
+      {
+        url: SITE.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "FenceLine Florida — fence installation and repair across Central Florida",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE.name,
-    description: SITE.description,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [SITE.ogImage],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  other: {
+    "geo.region": "US-FL",
+    "geo.placename": "Orlando",
+    "geo.position": `${SITE.geo.latitude};${SITE.geo.longitude}`,
+    ICBM: `${SITE.geo.latitude}, ${SITE.geo.longitude}`,
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: SITE.colors.accent,
 };
 
 export default function RootLayout({ children }) {
