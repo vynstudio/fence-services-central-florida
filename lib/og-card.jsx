@@ -244,9 +244,9 @@ export function OgCard({ logoSrc = null }) {
             maxWidth: 920,
           }}
         >
-          <div style={{ display: "flex" }}>Premium fence installation</div>
+          <div style={{ display: "flex" }}>Fence install & repair</div>
           <div style={{ display: "flex", color: "rgba(255,255,255,0.42)" }}>
-            built for Florida weather
+            in Central Florida
           </div>
         </div>
 
@@ -260,8 +260,8 @@ export function OgCard({ logoSrc = null }) {
             maxWidth: 820,
           }}
         >
-          Wood · Vinyl · Aluminum · Chain link — storm-ready installs across
-          Central & North Florida
+          Wood · Vinyl · Aluminum · Chain link — free quotes across Central &amp;
+          North Florida
         </div>
       </div>
 
@@ -276,9 +276,7 @@ export function OgCard({ logoSrc = null }) {
         }}
       >
         <div style={{ display: "flex", gap: 12 }}>
-          {["Storm-ready", "Owner-led", "HOA & permits", "Itemized quotes"].map(
-            chip,
-          )}
+          {["Install", "Repair", "HOA & permits", "Storm-ready"].map(chip)}
         </div>
         <div
           style={{

@@ -270,11 +270,14 @@ export function Hero() {
                   {SITE.tagline}
                 </p>
 
-                <h1 className="mb-3 text-[1.65rem] font-bold leading-[1.12] tracking-tight text-white sm:mb-4 sm:text-[1.95rem] md:text-[2.15rem] md:leading-[1.1] lg:text-[2.65rem] lg:leading-[1.06] xl:text-[2.9rem]">
-                  {SITE.heroHeadline}
+                <h1 className="mb-3 text-[1.7rem] font-bold leading-[1.12] tracking-tight text-white sm:mb-4 sm:text-[2rem] md:text-[2.2rem] md:leading-[1.1] lg:text-[2.75rem] lg:leading-[1.06] xl:text-[3rem]">
+                  Fence installation &amp; repair
+                  <span className="mt-0.5 block font-semibold text-white/45 md:mt-1">
+                    in Central Florida
+                  </span>
                 </h1>
 
-                <p className="mb-5 max-w-lg text-[0.9rem] leading-relaxed text-white/75 sm:mb-6 sm:text-[0.95rem] md:text-base">
+                <p className="mb-5 max-w-md text-[0.9375rem] leading-relaxed text-white/75 sm:mb-6 sm:text-base">
                   {SITE.heroSubheadline}
                 </p>
 
@@ -296,9 +299,8 @@ export function Hero() {
                   ))}
                 </ul>
 
-                {/* CTAs: full-width phone → row tablet/desktop */}
                 <div className="flex flex-col gap-2.5 sm:gap-3 md:flex-row md:flex-wrap">
-                  <QuoteButton className="min-h-12 w-full touch-manipulation md:min-h-11 md:w-auto md:min-w-[12rem]">
+                  <QuoteButton className="min-h-12 w-full touch-manipulation md:min-h-11 md:w-auto md:min-w-[10.5rem]">
                     {SITE.heroCta}
                   </QuoteButton>
                   <Button
@@ -311,10 +313,8 @@ export function Hero() {
                       className="inline-flex items-center justify-center gap-2"
                     >
                       <BiPhone className="size-5 shrink-0" aria-hidden />
-                      <span className="md:hidden">Call for availability</span>
-                      <span className="hidden md:inline">
-                        Call {SITE.phone}
-                      </span>
+                      <span className="md:hidden">Call now</span>
+                      <span className="hidden md:inline">Call {SITE.phone}</span>
                     </a>
                   </Button>
                 </div>

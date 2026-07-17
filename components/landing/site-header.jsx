@@ -7,28 +7,24 @@ import { SITE } from "@/lib/site";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-/** Desktop bar: few links + CTAs. Full list lives in mobile menu. */
+/** Desktop: 4 links + short CTAs */
 const DESKTOP_LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#florida", label: "Florida" },
   { href: "#areas", label: "Areas" },
   { href: "#why", label: "Why us" },
+  { href: "#faq", label: "FAQ" },
 ];
 
-/** iPad: same slim set */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#florida", label: "Florida" },
   { href: "#areas", label: "Areas" },
+  { href: "#faq", label: "FAQ" },
 ];
 
-/** Phone drawer + full site map */
 const MENU_LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#florida", label: "Florida-built" },
-  { href: "#why", label: "Why us" },
-  { href: "#process", label: "Process" },
   { href: "#areas", label: "Areas" },
+  { href: "#why", label: "Why us" },
   { href: "#faq", label: "FAQ" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
@@ -51,7 +47,6 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:px-8 md:py-3.5 lg:py-4">
         <BrandLogo variant="dark" />
 
-        {/* ── iPad (md–lg): slim nav ── */}
         <nav
           className="hidden items-center gap-1 md:flex lg:hidden"
           aria-label="Tablet"
@@ -73,7 +68,6 @@ export function SiteHeader() {
           </Button>
         </nav>
 
-        {/* ── Desktop (lg+): 4 links + short CTAs ── */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {DESKTOP_LINKS.map((l) => (
             <a
@@ -92,7 +86,6 @@ export function SiteHeader() {
           </Button>
         </nav>
 
-        {/* ── Phone: quote + hamburger (full menu in drawer) ── */}
         <div className="flex items-center gap-2 md:hidden">
           <QuoteButton size="sm" className="min-h-10 px-3 text-xs sm:text-sm">
             Quote
