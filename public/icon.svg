@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="FenceLine Florida">
+  <rect width="32" height="32" rx="6" fill="#124137"/>
+  <!-- Fence posts + F mark, simplified for 16–32px tabs -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M8 7v18"/>
+    <path d="M12 7v18"/>
+    <path d="M7 11h6"/>
+    <path d="M7 16h6"/>
+  </g>
+  <path fill="#ffffff" d="M18 8h8v2.4h-5.2V14H25v2.4h-4.2V24H18V8z"/>
+</svg>
