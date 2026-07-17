@@ -9,11 +9,12 @@ import React, { useEffect, useState } from "react";
 
 /** Phone: short labels. Tablet/desktop: full. */
 const LINKS = [
+  { href: "#answers", label: "Answers", short: "Answers" },
   { href: "#services", label: "Services", short: "Services" },
+  { href: "#florida", label: "Florida-built", short: "FL-built" },
   { href: "#why", label: "Why us", short: "Why" },
   { href: "#process", label: "Process", short: "Process" },
   { href: "#areas", label: "Areas", short: "Areas" },
-  { href: "#faq", label: "FAQ", short: "FAQ" },
   { href: "#about", label: "About", short: "About" },
   { href: "#contact", label: "Contact", short: "Contact" },
 ];
@@ -21,9 +22,9 @@ const LINKS = [
 /** iPad portrait: fewer primary links */
 const TABLET_LINKS = [
   { href: "#services", label: "Services" },
+  { href: "#florida", label: "FL-built" },
   { href: "#areas", label: "Areas" },
-  { href: "#about", label: "About" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Quote" },
 ];
 
 export function SiteHeader() {
@@ -58,7 +59,7 @@ export function SiteHeader() {
             </a>
           ))}
           <QuoteButton size="sm" className="ml-2 min-h-10">
-            Quote
+            Get quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-1.5 min-h-10" asChild>
             <a href={SITE.phoneHref}>Call</a>
@@ -80,7 +81,7 @@ export function SiteHeader() {
             </a>
           ))}
           <QuoteButton size="sm" className="ml-3 min-h-10">
-            Get quote
+            Get Your Custom Fence Quote
           </QuoteButton>
           <Button size="sm" variant="secondary" className="ml-2 min-h-10" asChild>
             <a href={SITE.phoneHref}>Call</a>

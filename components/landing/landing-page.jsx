@@ -6,10 +6,10 @@ import { QuoteButton } from "@/components/quote-button";
 import { Hero } from "@/components/landing/hero";
 import { SiteHeader } from "@/components/landing/site-header";
 import {
-  FULL_SERVICES,
+  CORE_SERVICES,
+  FLORIDA_STANDARDS,
   HOME_FAQS,
   HOME_STEPS,
-  MATERIAL_SERVICES,
   WHY_POINTS,
 } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -18,25 +18,19 @@ import {
   BiCheckCircle,
   BiFile,
   BiHomeAlt,
+  BiMap,
   BiShield,
   BiTimeFive,
-  BiWrench,
 } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
 
-const SERVICE_ICONS = [BiHomeAlt, BiWrench, BiShield, BiTimeFive, BiFile];
+const WHY_ICONS = [BiShield, BiTimeFive, BiHomeAlt, BiFile];
 
 const STEPS = HOME_STEPS.map((step, i) => ({
   n: String(i + 1).padStart(2, "0"),
   t: step.name,
   d: step.text,
 }));
-
-const AREAS = SITE.serviceAreas.filter(
-  (a) => a !== "Central Florida" && a !== "North Florida",
-);
-
-const WHY_ICONS = [BiShield, BiTimeFive, BiFile, BiCheckCircle];
 
 function Section({ id, children, className = "" }) {
   return (
@@ -49,69 +43,91 @@ function Section({ id, children, className = "" }) {
   );
 }
 
+function CtaStrip({ className = "" }) {
+  return (
+    <div
+      className={`flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center ${className}`}
+    >
+      <QuoteButton className="min-h-12 w-full touch-manipulation sm:w-auto sm:min-h-11">
+        Get My Fence Quote
+      </QuoteButton>
+      <Button
+        variant="secondary"
+        className="min-h-12 w-full touch-manipulation sm:w-auto sm:min-h-11"
+        asChild
+      >
+        <a href="#contact">Schedule Site Visit</a>
+      </Button>
+      <Button
+        variant="link"
+        className="min-h-11 w-full justify-center touch-manipulation sm:w-auto sm:justify-start"
+        asChild
+      >
+        <a href={SITE.phoneHref}>Call for Same-Week Availability</a>
+      </Button>
+    </div>
+  );
+}
+
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-background-primary">
       <SiteHeader />
       <Hero />
 
-      {/* Full-service company — lead with action, not walls of text */}
-      <Section id="services">
-        <p className="brand-eyebrow">Full-service fence company</p>
-        <h2 className="mb-2 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-3 md:text-4xl lg:text-5xl">
-          Everything from start to finish
+      {/* AEO Quick Answers — near top, scannable */}
+      <Section id="answers" className="!py-8 sm:!py-10 md:!py-12">
+        <p className="brand-eyebrow">Quick answers</p>
+        <h2 className="mb-5 max-w-xl text-xl font-bold sm:text-2xl md:mb-6 md:text-3xl">
+          What you need to know
         </h2>
-        <p className="mb-6 max-w-2xl text-sm text-text-secondary sm:mb-8 sm:text-base md:mb-10 md:text-md">
-          {SITE.fullServiceLead}
+        <div className="grid gap-3 sm:grid-cols-2 lg:gap-4">
+          {HOME_FAQS.map((item) => (
+            <div
+              key={item.q}
+              className="border border-border-primary bg-background-secondary p-4 sm:p-5"
+            >
+              <h3 className="mb-2 text-sm font-bold sm:text-base">{item.q}</h3>
+              <p className="text-sm leading-relaxed text-text-secondary">
+                {item.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Services */}
+      <Section id="services" className="bg-background-secondary">
+        <p className="brand-eyebrow">Services</p>
+        <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+          {SITE.servicesHeading}
+        </h2>
+        <p className="mb-8 max-w-2xl text-sm text-text-secondary sm:text-base md:mb-10 md:text-md">
+          {SITE.servicesLead}
         </p>
 
-        <ul className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-          {FULL_SERVICES.map((s, i) => {
-            const Icon = SERVICE_ICONS[i] || BiCheckCircle;
-            return (
-              <li
-                key={s.title}
-                className="flex gap-3 border border-border-primary bg-background-primary p-4 sm:p-5"
-              >
-                <Icon
-                  className="mt-0.5 size-6 shrink-0 text-brand-accent"
-                  aria-hidden
-                />
-                <div>
-                  <h3 className="mb-1 text-base font-bold sm:text-lg">{s.title}</h3>
-                  <p className="text-sm text-text-secondary">{s.body}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-
-        <p className="mb-6 max-w-2xl text-sm font-medium text-text-primary sm:text-base">
-          {SITE.fullServiceClose}
+        <p className="mb-4 text-sm font-bold uppercase tracking-wide text-text-primary">
+          Our core services include
         </p>
 
-        <h3 className="mb-4 text-lg font-bold md:text-xl">
-          Materials we install & repair
-        </h3>
-
-        {/* Phone: horizontal snap cards */}
-        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
-          {MATERIAL_SERVICES.map((s) => (
+        {/* Phone snap */}
+        <div className="mb-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+          {CORE_SERVICES.map((s) => (
             <article
               key={s.title}
-              className="w-[78%] max-w-[280px] shrink-0 snap-start overflow-hidden border border-border-primary bg-background-primary"
+              className="w-[82%] max-w-[300px] shrink-0 snap-start overflow-hidden border border-border-primary bg-background-primary"
             >
               <img
                 src={s.image}
-                alt={`${s.title} installation in Central Florida`}
+                alt={s.title}
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
-              <div className="flex flex-col p-4">
-                <h4 className="mb-1.5 text-base font-bold">{s.title}</h4>
-                <p className="mb-3 line-clamp-3 text-sm text-text-secondary">
-                  {s.body}
-                </p>
+              <div className="p-4">
+                <h3 className="mb-1.5 text-base font-bold leading-snug">
+                  {s.title}
+                </h3>
+                <p className="mb-3 text-sm text-text-secondary">{s.body}</p>
                 <QuoteButton
                   variant="link"
                   size="link"
@@ -124,20 +140,20 @@ export function LandingPage() {
           ))}
         </div>
 
-        <div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {MATERIAL_SERVICES.map((s) => (
+        <div className="mb-8 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          {CORE_SERVICES.map((s) => (
             <article
               key={s.title}
               className="flex flex-col overflow-hidden border border-border-primary bg-background-primary"
             >
               <img
                 src={s.image}
-                alt={`${s.title} installation in Central Florida`}
+                alt={s.title}
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
-              <div className="flex flex-1 flex-col p-4 lg:p-5">
-                <h4 className="mb-2 text-lg font-bold">{s.title}</h4>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="mb-2 text-lg font-bold leading-snug">{s.title}</h3>
                 <p className="mb-4 flex-1 text-sm text-text-secondary">{s.body}</p>
                 <QuoteButton
                   variant="link"
@@ -150,15 +166,47 @@ export function LandingPage() {
             </article>
           ))}
         </div>
+
+        <p className="mb-6 max-w-2xl text-sm font-medium text-text-primary md:text-base">
+          {SITE.servicesClose}
+        </p>
+        <CtaStrip />
       </Section>
 
-      {/* Why choose */}
-      <Section id="why" className="bg-background-secondary">
-        <p className="brand-eyebrow">Why choose FenceLine Florida</p>
+      {/* Built for Florida */}
+      <Section id="florida">
+        <p className="brand-eyebrow">Built for Florida conditions</p>
         <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
-          Built for Florida. Done right the first time.
+          {SITE.floridaHeading}
         </h2>
-        <p className="mb-6 max-w-2xl text-sm text-text-secondary sm:mb-8 md:mb-10 md:text-md">
+        <p className="mb-8 max-w-2xl text-sm text-text-secondary sm:text-base md:mb-10 md:text-md">
+          {SITE.floridaLead}
+        </p>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:gap-4">
+          {FLORIDA_STANDARDS.map((line) => (
+            <li
+              key={line}
+              className="flex gap-3 border border-border-primary bg-background-secondary p-4 sm:p-5"
+            >
+              <BiCheckCircle
+                className="mt-0.5 size-5 shrink-0 text-brand-accent"
+                aria-hidden
+              />
+              <span className="text-sm font-medium text-text-primary md:text-base">
+                {line}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Why choose — craft vs volume positioning */}
+      <Section id="why" className="bg-background-secondary">
+        <p className="brand-eyebrow">Different by design</p>
+        <h2 className="mb-3 max-w-2xl text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
+          {SITE.whyHeading}
+        </h2>
+        <p className="mb-8 max-w-2xl text-sm text-text-secondary sm:text-base md:mb-10 md:text-md">
           {SITE.whyLead}
         </p>
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:gap-5">
@@ -170,10 +218,10 @@ export function LandingPage() {
                 className="border border-border-primary bg-background-primary p-4 sm:p-5 lg:p-6"
               >
                 <Icon
-                  className="mb-3 size-7 text-brand-accent sm:mb-4 sm:size-8"
+                  className="mb-3 size-7 text-brand-accent sm:size-8"
                   aria-hidden
                 />
-                <h3 className="mb-1.5 text-lg font-bold sm:mb-2 sm:text-xl">
+                <h3 className="mb-1.5 text-lg font-bold sm:text-xl">
                   {item.title}
                 </h3>
                 <p className="text-sm text-text-secondary md:text-base">
@@ -187,46 +235,51 @@ export function LandingPage() {
 
       {/* Process */}
       <Section id="process">
-        <p className="brand-eyebrow">Process</p>
-        <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:mb-8 md:text-4xl lg:mb-10 lg:text-5xl">
-          Simple path from quote to finished line
+        <p className="brand-eyebrow">Trust & process</p>
+        <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
+          How our fence process works
         </h2>
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:grid-cols-5">
           {STEPS.map((step) => (
             <div
               key={step.n}
-              className="border border-border-primary p-4 sm:p-5 md:p-6"
+              className="border border-border-primary p-4 sm:p-5"
             >
-              <p className="mb-2 text-sm font-bold text-brand-accent sm:mb-3">
+              <p className="mb-2 text-sm font-bold text-brand-accent">
                 {step.n}
               </p>
-              <h3 className="mb-1.5 text-base font-bold sm:mb-2 sm:text-lg">
-                {step.t}
-              </h3>
+              <h3 className="mb-1.5 text-base font-bold sm:text-lg">{step.t}</h3>
               <p className="text-sm text-text-secondary">{step.d}</p>
             </div>
           ))}
         </div>
+        <div className="mt-8">
+          <CtaStrip />
+        </div>
       </Section>
 
-      {/* Areas we serve */}
+      {/* Service areas — local SEO */}
       <Section id="areas" className="bg-background-secondary">
-        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
-          <div className="order-2 md:order-1">
-            <p className="brand-eyebrow">Areas we serve</p>
+        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
+          <div>
+            <p className="brand-eyebrow">Service areas</p>
             <h2 className="mb-3 text-2xl font-bold sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl">
-              Central & North Florida
+              {SITE.areasHeading}
             </h2>
-            <p className="mb-4 text-sm text-text-secondary sm:mb-5 sm:text-base md:mb-6 md:text-md">
+            <p className="mb-6 text-sm text-text-secondary sm:text-base md:text-md">
               {SITE.areasLead}
             </p>
-            <ul className="mb-5 flex flex-wrap gap-1.5 sm:mb-6 sm:gap-2">
-              {AREAS.map((city) => (
-                <li
-                  key={city}
-                  className="border border-border-primary bg-background-primary px-2.5 py-1.5 text-xs font-medium sm:px-3 sm:text-sm"
-                >
-                  {city}
+            <ul className="mb-6 space-y-3">
+              {SITE.serviceAreaGroups.map((g) => (
+                <li key={g.title} className="flex gap-3">
+                  <BiMap
+                    className="mt-0.5 size-5 shrink-0 text-brand-accent"
+                    aria-hidden
+                  />
+                  <div>
+                    <p className="font-bold text-text-primary">{g.title}</p>
+                    <p className="text-sm text-text-secondary">{g.body}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -234,13 +287,13 @@ export function LandingPage() {
               {SITE.areasNearMe}
             </p>
             <QuoteButton className="min-h-12 w-full touch-manipulation sm:w-auto sm:min-h-11">
-              Get free quote
+              Get My Fence Quote
             </QuoteButton>
           </div>
-          <div className="relative order-1 aspect-[16/10] overflow-hidden md:order-2 md:aspect-[4/3]">
+          <div className="relative aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[22rem]">
             <img
               src="/images/home-about-section.jpg"
-              alt="FenceLine Florida crew installing fencing in Central Florida"
+              alt="FenceLine Florida serving Central and North Florida"
               className="size-full object-cover"
               loading="lazy"
             />
@@ -248,20 +301,17 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* AEO FAQ */}
+      {/* FAQ accordion mirrors AEO + schema */}
       <Section id="faq">
         <p className="brand-eyebrow">FAQ</p>
-        <h2 className="mb-2 max-w-xl text-2xl font-bold sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="mb-6 max-w-xl text-2xl font-bold sm:text-3xl md:text-4xl">
           Fence questions, direct answers
         </h2>
-        <p className="mb-6 max-w-xl text-sm text-text-secondary sm:mb-8 sm:text-base md:text-md">
-          Materials, permits, Florida weather, and where we work.
-        </p>
         <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary">
           {HOME_FAQS.map((item) => (
             <details key={item.q} className="group">
               <summary className="cursor-pointer list-none px-4 py-4 text-[0.95rem] font-bold touch-manipulation sm:px-5 sm:py-5 sm:text-base md:p-6 md:text-lg [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start justify-between gap-3 sm:gap-4">
+                <span className="flex items-start justify-between gap-3">
                   <span className="min-w-0 flex-1">{item.q}</span>
                   <span className="mt-0.5 shrink-0 text-brand-accent transition group-open:rotate-45">
                     +
@@ -276,44 +326,42 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* About us — full description lives low on the page (less ATF noise) */}
+      {/* About — lower on page */}
       <Section id="about" className="bg-background-secondary">
         <div className="mx-auto max-w-3xl">
           <p className="brand-eyebrow">About us</p>
-          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
-            Who we are
+          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+            Owner-led. Florida-focused. Craft over volume.
           </h2>
           <div className="space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
             <p>{SITE.about}</p>
             <p>{SITE.aboutBody}</p>
-            <p className="text-xs text-text-secondary md:text-sm">
-              {SITE.legalLine}
-            </p>
+            <p className="text-xs md:text-sm">{SITE.legalLine}</p>
           </div>
         </div>
       </Section>
 
-      {/* Get a fence quote today */}
+      {/* Final conversion CTA */}
       <Section
         id="contact"
         className="bg-background-alternative text-text-alternative"
       >
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-accent sm:mb-3 sm:text-xs md:text-sm">
-            Get a fence quote today
+            Ready to install your fence?
           </p>
           <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            Reliable fence contractor in Florida
+            {SITE.ctaHeading}
           </h2>
-          <p className="mb-6 text-sm text-white/80 sm:mb-8 sm:text-base md:text-md">
+          <p className="mb-4 text-sm text-white/80 sm:mb-6 sm:text-base md:text-md">
             {SITE.ctaLead}
           </p>
-          <p className="mb-6 text-sm text-white/70">
+          <p className="mb-8 text-sm text-white/65">
             A representative from our team will contact you soon.
           </p>
           <div className="flex flex-col items-stretch justify-center gap-2.5 sm:gap-3 md:flex-row md:items-center">
             <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
-              Get free quote
+              Get My Fence Quote
             </QuoteButton>
             <Button
               variant="secondary-alt"
@@ -338,7 +386,7 @@ export function LandingPage() {
           <div>
             <BrandLogo variant="dark" />
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
-              {SITE.tagline} {SITE.seoHeading}. {SITE.legalLine}
+              {SITE.tagline} {SITE.positioning.slice(0, 140)}…
             </p>
             <p className="mt-2 max-w-sm text-xs text-text-secondary">
               {SITE.addressLine}
