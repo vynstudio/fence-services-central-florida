@@ -1,34 +1,37 @@
 # Google Maps Places (lead form address)
 
-The quote form uses **Google Places Autocomplete** so leads pick a full street address.
+The quote form calls **our server** (`/api/places/*`), which calls Google Places.
+That needs a **server API key** (not an HTTP-referrer-only key).
 
-## Setup
+## Setup (required)
 
-1. [Google Cloud Console](https://console.cloud.google.com/) → create/select project  
-2. Enable APIs:
-   - **Maps JavaScript API**
-   - **Places API** (or Places API (New) if your account requires it — classic Places still works with `libraries=places`)
-3. Credentials → **API key**  
-4. Application restrictions: **HTTP referrers**
-   - `https://fencelineflorida.com/*`
-   - `https://*.netlify.app/*`
-   - `http://localhost:3000/*` (dev)
-5. Netlify env (and local `.env.local`):
+1. [Google Cloud Console](https://console.cloud.google.com/) → same project as billing  
+2. Enable:
+   - [Places API (New)](https://console.cloud.google.com/apis/library/places.googleapis.com)  
+   - [Places API](https://console.cloud.google.com/apis/library/places-backend.googleapis.com) (legacy fallback)  
+3. [Credentials](https://console.cloud.google.com/apis/credentials) → **Create credentials → API key**  
+4. Edit the new key:
+   - Name: `FenceLine Server Places`
+   - **Application restrictions: None**  
+     (Referrer-restricted keys **cannot** be used from Netlify)
+   - **API restrictions:** Places API (New) + Places API only  
+5. Netlify → Environment variables:
 
 ```bash
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIza...
+GOOGLE_MAPS_API_KEY=AIza...server_key_here
 ```
 
-6. Redeploy Netlify after saving the variable.
+6. **Redeploy** after saving.
+
+You can keep your browser/referrer key for other uses; the form only needs `GOOGLE_MAPS_API_KEY`.
 
 ## Behavior
 
-- User types → Google suggestions → selects a place  
-- Form fills street, city, state, ZIP, county, lat/lng, place_id  
-- Auto-advances to contact step when address is complete  
-- Manual entry always available under “Enter or edit address manually”  
-- Without a key, the form still works with manual address fields  
+- Type 3+ characters → suggestions from Google  
+- Select → street, city, state, ZIP, lat/lng filled  
+- Auto-advance to contact when complete  
+- Manual entry always available  
 
 ## Telegram
 
-Leads include the full formatted address and a Google Maps link when coordinates exist.
+Leads include full address + Maps link when coordinates exist.
