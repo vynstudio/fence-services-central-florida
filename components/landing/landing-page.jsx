@@ -23,6 +23,7 @@ import {
   HOME_FAQS,
   HOME_REVIEWS,
   MATERIAL_SERVICES,
+  PRODUCT_LINES,
   WHY_POINTS,
 } from "@/lib/seo";
 import { CITY_PAGES } from "@/lib/locations";
@@ -41,7 +42,14 @@ import {
 import { RxChevronRight } from "react-icons/rx";
 import { ResponsivePicture } from "@/components/responsive-picture";
 
-const SERVICE_ICONS = [BiHomeAlt, BiWrench, BiShield, BiTimeFive, BiFile];
+const SERVICE_ICONS = [
+  BiHomeAlt,
+  BiWrench,
+  BiShield,
+  BiTimeFive,
+  BiFile,
+  BiCheckCircle,
+];
 const WHY_ICONS = [BiShield, BiTimeFive, BiFile, BiCheckCircle];
 
 const AREAS = SITE.serviceAreas.filter(
@@ -99,9 +107,13 @@ export function LandingPage() {
             {SITE.servicesClose}
           </p>
 
-          <h3 className="mb-4 text-lg font-bold md:text-xl">
-            Materials we install &amp; repair
+          <h3 className="mb-2 text-lg font-bold md:text-xl">
+            Materials &amp; systems we install
           </h3>
+          <p className="mb-4 max-w-2xl text-sm text-text-secondary">
+            Wholesale-grade product lines (including Master Halco catalog systems
+            where available)—specified for Florida heat, humidity, and storms.
+          </p>
         </ScrollReveal>
 
         {/* Phone: horizontal snap cards */}
@@ -119,7 +131,12 @@ export function LandingPage() {
                 </div>
                 <div className="p-4">
                   <h4 className="mb-1.5 text-base font-bold">{s.title}</h4>
-                  <p className="mb-3 text-sm text-text-secondary">{s.body}</p>
+                  <p className="mb-2 text-sm text-text-secondary">{s.body}</p>
+                  {s.flNeed && (
+                    <p className="mb-3 text-xs font-medium text-brand-accent">
+                      FL fit: {s.flNeed}
+                    </p>
+                  )}
                   <div className="flex flex-wrap items-center gap-3">
                     <QuoteButton
                       variant="link"
@@ -128,9 +145,9 @@ export function LandingPage() {
                     >
                       Get quote <RxChevronRight className="size-5" />
                     </QuoteButton>
-                    {(s.name === "wood" || s.name === "vinyl") && (
+                    {s.slug && (
                       <a
-                        href={`/services/${s.name}-fence`}
+                        href={`/services/${s.slug}`}
                         className="text-sm font-semibold text-brand-accent hover:underline"
                       >
                         Details
@@ -143,8 +160,8 @@ export function LandingPage() {
           ))}
         </div>
 
-        {/* iPad: 2 col · Desktop: 4 col */}
-        <ScrollStaggerGrid className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        {/* iPad: 2 col · Desktop: 3 col */}
+        <ScrollStaggerGrid className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {MATERIAL_SERVICES.map((s) => (
             <article
               key={s.title}
@@ -160,7 +177,12 @@ export function LandingPage() {
               </div>
               <div className="flex flex-1 flex-col p-4 lg:p-5">
                 <h4 className="mb-2 text-lg font-bold">{s.title}</h4>
-                <p className="mb-4 flex-1 text-sm text-text-secondary">{s.body}</p>
+                <p className="mb-2 flex-1 text-sm text-text-secondary">{s.body}</p>
+                {s.flNeed && (
+                  <p className="mb-3 text-xs font-medium text-brand-accent">
+                    FL fit: {s.flNeed}
+                  </p>
+                )}
                 <div className="flex flex-wrap items-center gap-3">
                   <QuoteButton
                     variant="link"
@@ -169,9 +191,9 @@ export function LandingPage() {
                   >
                     Get quote <RxChevronRight className="size-5" />
                   </QuoteButton>
-                  {(s.name === "wood" || s.name === "vinyl") && (
+                  {s.slug && (
                     <a
-                      href={`/services/${s.name}-fence`}
+                      href={`/services/${s.slug}`}
                       className="text-sm font-semibold text-brand-accent hover:underline"
                     >
                       Details
@@ -184,16 +206,40 @@ export function LandingPage() {
         </ScrollStaggerGrid>
 
         <ScrollReveal delay={0.05}>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {SERVICE_PAGES.map((p) => (
-              <a
-                key={p.slug}
-                href={`/services/${p.slug}`}
-                className="border border-brand-line bg-background-primary px-3 py-2 text-xs font-semibold text-brand-ink hover:border-brand-accent hover:text-brand-accent md:text-sm"
-              >
-                {p.h1}
-              </a>
-            ))}
+          <div className="mt-10">
+            <h3 className="mb-3 text-base font-bold md:text-lg">
+              Full product catalog we can quote
+            </h3>
+            <p className="mb-4 max-w-2xl text-sm text-text-secondary">
+              Aligned with major wholesale catalogs (Master Halco and others). We
+              recommend and install what fits your property—not every SKU is right
+              for every Florida lot.
+            </p>
+            <ul className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {PRODUCT_LINES.map((p) => (
+                <li
+                  key={p.id}
+                  className="brand-card px-3 py-3 text-sm"
+                >
+                  <span className="font-bold text-text-primary">{p.title}</span>
+                  <span className="mt-0.5 block text-xs text-text-secondary">
+                    {p.florida}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mb-4 text-xs text-text-secondary">{SITE.supplierNote}</p>
+            <div className="flex flex-wrap gap-2">
+              {SERVICE_PAGES.map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/services/${p.slug}`}
+                  className="border border-brand-line bg-background-primary px-3 py-2 text-xs font-semibold text-brand-ink hover:border-brand-accent hover:text-brand-accent md:text-sm"
+                >
+                  {p.h1}
+                </a>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </ScrollSection>
@@ -384,6 +430,7 @@ export function LandingPage() {
             <div className="space-y-3 text-sm leading-relaxed text-text-secondary md:space-y-4 md:text-base">
               <p>{SITE.about}</p>
               <p>{SITE.aboutBody}</p>
+              <p className="text-xs md:text-sm">{SITE.supplierNote}</p>
               <p className="text-xs md:text-sm">{SITE.legalLine}</p>
             </div>
           </div>

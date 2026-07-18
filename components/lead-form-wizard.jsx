@@ -22,8 +22,10 @@ const NEED_OPTIONS = [
 const MATERIAL_OPTIONS = [
   { value: "wood", label: "Wood" },
   { value: "vinyl", label: "Vinyl" },
-  { value: "aluminum", label: "Aluminum" },
+  { value: "aluminum", label: "Aluminum (pool)" },
+  { value: "steel", label: "Ornamental steel" },
   { value: "chain-link", label: "Chain link" },
+  { value: "gates", label: "Gates / access" },
   { value: "not-sure", label: "Not sure" },
 ];
 
@@ -284,7 +286,7 @@ export function LeadFormWizard({
           options={MATERIAL_OPTIONS}
           value={data.material}
           onChange={(v) => selectAndAdvance("material", v)}
-          columns={3}
+          columns={2}
         />
       )}
 
