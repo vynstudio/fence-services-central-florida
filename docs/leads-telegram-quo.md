@@ -14,6 +14,7 @@ When a visitor submits **Get free quote**, the site posts to `POST /api/leads`, 
 | `QUO_API_KEY` | Yes* | Quo → Settings → API |
 | `QUO_FROM_NUMBER` | Yes* | Your Quo business number, E.164 (`+1407…`) |
 | `QUO_USER_ID` | No | Send as a specific workspace member |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Recommended | Places autocomplete on quote form |
 
 \*At least one channel (Telegram **or** Quo) should be set in production. The form still returns success if a channel fails or is missing so the customer always reaches thank-you.
 
