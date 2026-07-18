@@ -75,7 +75,7 @@ export function LandingPage() {
             return (
               <div
                 key={s.title}
-                className="flex h-full gap-3 border border-border-primary bg-background-primary p-4 md:p-5"
+                className="brand-card flex h-full gap-3 p-4 md:p-5"
               >
                 <Icon
                   className="mt-0.5 size-6 shrink-0 text-brand-accent"
@@ -104,7 +104,7 @@ export function LandingPage() {
         <div className="shell-phone-only snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {MATERIAL_SERVICES.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 0.05} className="contents">
-              <article className="w-[78%] max-w-[280px] shrink-0 snap-start overflow-hidden border border-border-primary">
+              <article className="brand-card w-[78%] max-w-[280px] shrink-0 snap-start overflow-hidden">
                 <div className="aspect-[3/4] w-full overflow-hidden">
                   <ResponsivePicture
                     name={s.name}
@@ -134,7 +134,7 @@ export function LandingPage() {
           {MATERIAL_SERVICES.map((s) => (
             <article
               key={s.title}
-              className="flex h-full flex-col overflow-hidden border border-border-primary"
+              className="brand-card flex h-full flex-col overflow-hidden"
             >
               <div className="aspect-[4/3] w-full overflow-hidden lg:aspect-[16/10]">
                 <ResponsivePicture
@@ -175,7 +175,7 @@ export function LandingPage() {
               {AREAS.map((city) => (
                 <li
                   key={city}
-                  className="border border-border-primary bg-background-primary px-2.5 py-1.5 text-xs font-medium md:px-3 md:text-sm"
+                  className="border border-brand-line bg-background-primary px-2.5 py-1.5 text-xs font-semibold text-brand-ink md:px-3 md:text-sm"
                 >
                   {city}
                 </li>
@@ -218,7 +218,7 @@ export function LandingPage() {
             return (
               <div
                 key={item.title}
-                className="h-full border border-border-primary bg-background-secondary p-4 md:p-5 lg:p-6"
+                className="brand-card h-full bg-background-secondary p-4 md:p-5 lg:p-6"
               >
                 <Icon
                   className="mb-3 size-7 text-brand-accent sm:size-8"
@@ -248,7 +248,7 @@ export function LandingPage() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.08}>
-          <div className="mx-auto max-w-3xl divide-y divide-border-primary border border-border-primary bg-background-primary">
+          <div className="mx-auto max-w-3xl divide-y divide-brand-line border border-brand-line bg-background-primary">
             {HOME_FAQS.map((item) => (
               <details key={item.q} className="group">
                 <summary className="cursor-pointer list-none px-4 py-4 text-base font-bold touch-manipulation sm:px-5 sm:py-5 sm:text-base md:p-6 md:text-lg [&::-webkit-details-marker]:hidden">
@@ -288,12 +288,12 @@ export function LandingPage() {
       {/* Get a fence quote today */}
       <ScrollSection
         id="contact"
-        className="bg-background-alternative text-text-alternative"
+        className="bg-brand-accent text-text-alternative"
         post={false}
       >
         <ScrollReveal>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-accent sm:mb-3 sm:text-xs md:text-sm">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80 sm:mb-3 sm:text-xs md:text-sm">
               Free estimate
             </p>
             <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
@@ -306,12 +306,12 @@ export function LandingPage() {
               A representative from our team will contact you soon.
             </p>
             <div className="flex flex-col items-stretch justify-center gap-2.5 md:flex-row md:items-center md:gap-3">
-              <QuoteButton className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
+              <QuoteButton className="min-h-12 w-full touch-manipulation !bg-white !text-brand-accent hover:!bg-brand-soft md:w-auto md:min-h-11">
                 Get free quote
               </QuoteButton>
               <Button
                 variant="secondary-alt"
-                className="min-h-12 w-full touch-manipulation md:w-auto md:min-h-11"
+                className="min-h-12 w-full touch-manipulation border-2 border-white/50 bg-transparent text-white hover:bg-white/10 md:w-auto md:min-h-11"
                 asChild
               >
                 <a href={SITE.phoneHref}>Call {SITE.phone}</a>

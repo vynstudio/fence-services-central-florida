@@ -48,7 +48,7 @@ export function SiteHeader() {
     <header className="site-header">
       {/* Phone: compact · iPad: mid · Desktop: full rail */}
       <div className="shell-rail flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3.5 lg:py-4">
-        <BrandLogo variant="dark" height={32} className="md:h-9" />
+        <BrandLogo variant="dark" height={34} className="md:!h-10" />
 
         {/* ── iPad shell ── */}
         <nav

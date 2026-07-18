@@ -14,16 +14,16 @@
 
 @layer base {
   :root {
-    --meridian-black: #111111;
-    --meridian-ink: #121212;
-    /* Align with Fence Line logo green (#124137), readable UI accents */
+    /* Fence Line logo system — sampled from logo-dark.png */
+    --meridian-black: #0b1a16;
+    --meridian-ink: #0f241f;
     --meridian-accent: #124137;
     --meridian-accent-hover: #0e332c;
-    --meridian-accent-bright: #2a9b6a;
-    --meridian-accent-soft: #e8f2ee;
-    --meridian-soft: #f6f8f6;
-    --meridian-gray: #555555;
-    --meridian-line: #e2e8e4;
+    --meridian-accent-bright: #1f7a52;
+    --meridian-accent-soft: #e7f0ec;
+    --meridian-soft: #f3f7f5;
+    --meridian-gray: #4a5c56;
+    --meridian-line: #c9d5cf;
 
     /* Phone defaults */
     --shell-pad-x: 1rem;
@@ -89,9 +89,10 @@
   h4,
   h5,
   h6 {
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--meridian-ink);
-    line-height: 1.15;
+    line-height: 1.12;
+    font-weight: 700;
   }
 
   button,
@@ -103,11 +104,25 @@
     max-width: 100%;
     height: auto;
   }
+
+  /* Relume primary buttons → logo green (not pure black) */
+  button.bg-background-alternative,
+  a.bg-background-alternative,
+  .bg-background-alternative.border-border-alternative {
+    background-color: var(--meridian-accent) !important;
+    border-color: var(--meridian-accent) !important;
+  }
+  button.bg-background-alternative:hover,
+  a.bg-background-alternative:hover {
+    background-color: var(--meridian-accent-hover) !important;
+    border-color: var(--meridian-accent-hover) !important;
+  }
 }
 
 @layer components {
   .brand-eyebrow {
-    @apply mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] sm:text-xs md:mb-3 md:text-sm;
+    @apply mb-2 text-[11px] font-semibold uppercase sm:text-xs md:mb-3 md:text-sm;
+    letter-spacing: 0.16em;
     color: var(--meridian-accent);
   }
 
@@ -121,8 +136,37 @@
   }
 
   .site-header {
-    @apply sticky top-0 z-[900] w-full border-b border-border-primary bg-background-primary/95 backdrop-blur-md;
+    @apply sticky top-0 z-[900] w-full bg-background-primary/95 backdrop-blur-md;
+    border-bottom: 1px solid var(--meridian-line);
+    box-shadow: 0 1px 0 0 color-mix(in srgb, var(--meridian-accent) 8%, transparent);
     padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Thin logo-green rail on header (matches logo mark geometry) */
+  .site-header::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--meridian-accent) 0%,
+      var(--meridian-accent-bright) 45%,
+      var(--meridian-accent) 100%
+    );
+  }
+
+  /* Cards / service tiles — soft brand edges instead of harsh black boxes */
+  .brand-card {
+    border: 1px solid var(--meridian-line);
+    background: #fff;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .brand-card:hover {
+    border-color: color-mix(in srgb, var(--meridian-accent) 45%, var(--meridian-line));
+    box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--meridian-accent) 35%, transparent);
   }
 
   /* Shared content rail */

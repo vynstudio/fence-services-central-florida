@@ -1,6 +1,15 @@
 import "./globals.css";
 import { Providers } from "@/app/providers";
 import { SITE, HOME_TITLE, HOME_DESCRIPTION } from "@/lib/site";
+import { DM_Sans } from "next/font/google";
+
+/** Geometric sans — closer to Fence Line wordmark than generic Inter */
+const brandFont = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-brand",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -79,8 +88,10 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-background-primary font-sans text-text-primary antialiased">
+    <html lang="en" className={brandFont.variable}>
+      <body
+        className={`${brandFont.className} min-h-screen bg-background-primary font-sans text-text-primary antialiased`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>

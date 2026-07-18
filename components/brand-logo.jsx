@@ -34,7 +34,7 @@ export function BrandLogo({
       src={src}
       alt={SITE.webName}
       height={height}
-      className={`h-[${height}px] w-auto max-w-[min(200px,55vw)] object-contain object-left md:max-w-[220px] ${className}`}
+      className={`w-auto max-w-[min(200px,55vw)] object-contain object-left md:max-w-[240px] ${className}`}
       style={{ height, width: "auto" }}
       decoding="async"
     />

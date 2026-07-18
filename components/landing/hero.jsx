@@ -125,7 +125,7 @@ export function Hero() {
     <section className="shell-section !py-3 md:!py-6 lg:!py-10">
       <div className="shell-inner">
         <div
-          className="relative overflow-hidden border border-border-primary bg-black"
+          className="relative overflow-hidden border border-brand-line bg-brand-navy-deep"
           onMouseEnter={() => setPaused(true)}
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={(e) => {
@@ -218,7 +218,7 @@ export function Hero() {
             </div>
 
             {/* Copy — left-aligned, bold, two-line H1, clean black panel */}
-            <div className="relative order-2 flex flex-col justify-center bg-black px-5 py-10 text-left sm:px-8 sm:py-12 md:order-1 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-14">
+            <div className="relative order-2 flex flex-col justify-center bg-brand-navy-deep px-5 py-10 text-left sm:px-8 sm:py-12 md:order-1 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-14">
               <div className="flex w-full max-w-md flex-col items-start md:max-w-lg">
                 <motion.h1
                   className="mb-4 w-full text-left text-[1.75rem] font-extrabold leading-[1.12] tracking-tight text-white sm:mb-5 sm:text-[2.15rem] md:text-[2.35rem] md:leading-[1.1] lg:text-[2.75rem] xl:text-[3rem]"
@@ -261,12 +261,12 @@ export function Hero() {
                   className="flex w-full flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-start sm:gap-3"
                   {...fadeUp(reduceMotion, STAGGER.cta)}
                 >
-                  <QuoteButton className="min-h-12 w-full touch-manipulation bg-brand-accent text-base font-bold text-white hover:bg-brand-accent-hover sm:w-auto sm:min-w-[11rem] md:min-h-11 md:text-sm">
+                  <QuoteButton className="min-h-12 w-full touch-manipulation !bg-brand-accent text-base font-bold text-white hover:!bg-brand-accent-hover sm:w-auto sm:min-w-[11rem] md:min-h-11 md:text-sm">
                     {SITE.heroCta}
                   </QuoteButton>
                   <Button
                     variant="secondary-alt"
-                    className="min-h-12 w-full touch-manipulation border-2 border-white/40 bg-transparent text-base font-bold text-white hover:bg-white/10 sm:w-auto md:min-h-11 md:text-sm"
+                    className="min-h-12 w-full touch-manipulation border-2 border-white/35 bg-transparent text-base font-bold text-white hover:border-brand-accent-bright hover:bg-white/10 sm:w-auto md:min-h-11 md:text-sm"
                     asChild
                   >
                     <a
