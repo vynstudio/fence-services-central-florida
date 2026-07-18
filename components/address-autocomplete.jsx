@@ -127,7 +127,10 @@ export function AddressAutocomplete({
         {hasKey && !mapsReady && !mapsError && "Loading address search…"}
         {!hasKey && "Type your full street address"}
         {hasKey && mapsError && mapsError !== "manual" && (
-          "Search offline — enter address manually"
+          <span className="text-amber-800">
+            Address search unavailable (enable Maps JavaScript API + Places API
+            and billing in Google Cloud). Use manual entry below.
+          </span>
         )}
       </p>
     </div>
