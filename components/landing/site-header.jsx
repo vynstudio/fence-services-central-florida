@@ -9,27 +9,28 @@ import React, { useEffect, useState } from "react";
 
 /** Desktop bar — room for 4 links */
 const DESKTOP_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#areas", label: "Areas" },
-  { href: "#why", label: "Why us" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#services", label: "Services" },
+  { href: "/#areas", label: "Areas" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 /** iPad bar — 3 links max so it never wraps */
 const TABLET_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#areas", label: "Areas" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#services", label: "Services" },
+  { href: "/#areas", label: "Areas" },
+  { href: "/#reviews", label: "Reviews" },
 ];
 
 /** Phone drawer — full map */
 const MENU_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#areas", label: "Areas" },
-  { href: "#why", label: "Why us" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#areas", label: "Areas" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/#why", label: "Why us" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {

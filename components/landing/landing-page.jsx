@@ -21,9 +21,12 @@ import {
 import {
   FULL_SERVICES,
   HOME_FAQS,
+  HOME_REVIEWS,
   MATERIAL_SERVICES,
   WHY_POINTS,
 } from "@/lib/seo";
+import { CITY_PAGES } from "@/lib/locations";
+import { SERVICE_PAGES } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 import React from "react";
 import {
@@ -31,6 +34,7 @@ import {
   BiFile,
   BiHomeAlt,
   BiShield,
+  BiStar,
   BiTimeFive,
   BiWrench,
 } from "react-icons/bi";
@@ -116,13 +120,23 @@ export function LandingPage() {
                 <div className="p-4">
                   <h4 className="mb-1.5 text-base font-bold">{s.title}</h4>
                   <p className="mb-3 text-sm text-text-secondary">{s.body}</p>
-                  <QuoteButton
-                    variant="link"
-                    size="link"
-                    className="min-h-10 justify-start p-0"
-                  >
-                    Get quote <RxChevronRight className="size-5" />
-                  </QuoteButton>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <QuoteButton
+                      variant="link"
+                      size="link"
+                      className="min-h-10 justify-start p-0"
+                    >
+                      Get quote <RxChevronRight className="size-5" />
+                    </QuoteButton>
+                    {(s.name === "wood" || s.name === "vinyl") && (
+                      <a
+                        href={`/services/${s.name}-fence`}
+                        className="text-sm font-semibold text-brand-accent hover:underline"
+                      >
+                        Details
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             </ScrollReveal>
@@ -147,17 +161,41 @@ export function LandingPage() {
               <div className="flex flex-1 flex-col p-4 lg:p-5">
                 <h4 className="mb-2 text-lg font-bold">{s.title}</h4>
                 <p className="mb-4 flex-1 text-sm text-text-secondary">{s.body}</p>
-                <QuoteButton
-                  variant="link"
-                  size="link"
-                  className="justify-start p-0"
-                >
-                  Get quote <RxChevronRight className="size-5" />
-                </QuoteButton>
+                <div className="flex flex-wrap items-center gap-3">
+                  <QuoteButton
+                    variant="link"
+                    size="link"
+                    className="justify-start p-0"
+                  >
+                    Get quote <RxChevronRight className="size-5" />
+                  </QuoteButton>
+                  {(s.name === "wood" || s.name === "vinyl") && (
+                    <a
+                      href={`/services/${s.name}-fence`}
+                      className="text-sm font-semibold text-brand-accent hover:underline"
+                    >
+                      Details
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
         </ScrollStaggerGrid>
+
+        <ScrollReveal delay={0.05}>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {SERVICE_PAGES.map((p) => (
+              <a
+                key={p.slug}
+                href={`/services/${p.slug}`}
+                className="border border-brand-line bg-background-primary px-3 py-2 text-xs font-semibold text-brand-ink hover:border-brand-accent hover:text-brand-accent md:text-sm"
+              >
+                {p.h1}
+              </a>
+            ))}
+          </div>
+        </ScrollReveal>
       </ScrollSection>
 
       {/* Areas we serve */}
@@ -172,7 +210,19 @@ export function LandingPage() {
               {SITE.areasLead}
             </p>
             <ul className="mb-5 flex flex-wrap gap-1.5 md:mb-6 md:gap-2">
-              {AREAS.map((city) => (
+              {CITY_PAGES.map((city) => (
+                <li key={city.slug}>
+                  <a
+                    href={`/areas/${city.slug}`}
+                    className="inline-block border border-brand-line bg-background-primary px-2.5 py-1.5 text-xs font-semibold text-brand-ink hover:border-brand-accent hover:text-brand-accent md:px-3 md:text-sm"
+                  >
+                    {city.name}
+                  </a>
+                </li>
+              ))}
+              {AREAS.filter(
+                (a) => !CITY_PAGES.some((c) => c.name === a),
+              ).map((city) => (
                 <li
                   key={city}
                   className="border border-brand-line bg-background-primary px-2.5 py-1.5 text-xs font-semibold text-brand-ink md:px-3 md:text-sm"
@@ -236,8 +286,63 @@ export function LandingPage() {
         </ScrollStaggerGrid>
       </ScrollSection>
 
+      {/* Reviews / social proof */}
+      <ScrollSection id="reviews" className="bg-background-secondary">
+        <ScrollReveal>
+          <p className="brand-eyebrow">Reviews</p>
+          <h2 className="mb-3 max-w-2xl text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl">
+            Homeowners across Central Florida
+          </h2>
+          <p className="mb-6 max-w-xl text-base text-text-secondary sm:mb-8">
+            Straight lines, clear quotes, and crews that show up. Leave a Google
+            review after your project — it helps neighbors find solid fence work.
+          </p>
+        </ScrollReveal>
+        <ScrollStaggerGrid className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+          {HOME_REVIEWS.map((r) => (
+            <blockquote
+              key={`${r.name}-${r.city}`}
+              className="brand-card flex h-full flex-col bg-background-primary p-4 md:p-5"
+            >
+              <div className="mb-2 flex gap-0.5 text-brand-accent" aria-label={`${r.rating} out of 5 stars`}>
+                {Array.from({ length: r.rating }).map((_, i) => (
+                  <BiStar key={i} className="size-4" aria-hidden />
+                ))}
+              </div>
+              <p className="mb-4 flex-1 text-sm leading-relaxed text-text-primary">
+                “{r.text}”
+              </p>
+              <footer className="text-sm font-bold text-text-primary">
+                {r.name}
+                <span className="font-medium text-text-secondary">
+                  {" "}
+                  · {r.city}
+                </span>
+              </footer>
+            </blockquote>
+          ))}
+        </ScrollStaggerGrid>
+        <ScrollReveal delay={0.05}>
+          <p className="mt-6 text-sm text-text-secondary">
+            <a
+              href={SITE.googleBusinessUrl}
+              className="font-semibold text-brand-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Find us on Google
+            </a>
+            {" · "}
+            Call{" "}
+            <a href={SITE.phoneHref} className="font-semibold hover:underline">
+              {SITE.phone}
+            </a>
+          </p>
+        </ScrollReveal>
+      </ScrollSection>
+
       {/* AEO FAQ — one block, before convert */}
-      <ScrollSection id="faq" className="bg-background-secondary">
+      <ScrollSection id="faq">
         <ScrollReveal>
           <p className="brand-eyebrow">FAQ</p>
           <h2 className="mb-3 max-w-xl text-[1.5rem] font-bold leading-tight sm:text-3xl md:mb-4 md:text-4xl">
@@ -335,8 +440,17 @@ export function LandingPage() {
             <p className="mt-3 max-w-sm text-sm text-text-secondary sm:mt-4">
               {SITE.tagline} Fence installation and repair across {SITE.area}.
             </p>
-            <p className="mt-2 max-w-sm text-xs text-text-secondary">
+            <p className="mt-2 max-w-sm text-sm font-medium text-text-primary">
               {SITE.addressLine}
+            </p>
+            <p className="mt-1 max-w-sm text-xs text-text-secondary">
+              <a href={SITE.phoneHref} className="hover:underline">
+                {SITE.phone}
+              </a>
+              {" · "}
+              <a href={SITE.emailHref} className="hover:underline">
+                {SITE.email}
+              </a>
             </p>
           </div>
           <div className="grid grid-cols-2 gap-6 text-sm sm:gap-8">

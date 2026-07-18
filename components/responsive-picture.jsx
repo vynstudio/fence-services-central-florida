@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Device-aware image: mobile (<768) / tablet (768–1023) / desktop (≥1024).
  * Uses native <picture> so the browser only downloads the matching file.
