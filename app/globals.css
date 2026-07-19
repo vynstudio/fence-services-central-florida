@@ -111,12 +111,29 @@
   .bg-background-alternative.border-border-alternative {
     background-color: var(--meridian-accent) !important;
     border-color: var(--meridian-accent) !important;
+    color: #ffffff !important;
   }
   button.bg-background-alternative:hover,
   a.bg-background-alternative:hover {
     background-color: var(--meridian-accent-hover) !important;
     border-color: var(--meridian-accent-hover) !important;
   }
+}
+
+/* White CTA on brand-green bands (subpage + homepage contact) */
+.btn-on-brand,
+button.btn-on-brand,
+a.btn-on-brand {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: var(--meridian-accent) !important;
+}
+.btn-on-brand:hover,
+button.btn-on-brand:hover,
+a.btn-on-brand:hover {
+  background-color: var(--meridian-accent-soft) !important;
+  border-color: var(--meridian-accent-soft) !important;
+  color: var(--meridian-accent) !important;
 }
 
 @layer components {

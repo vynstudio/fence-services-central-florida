@@ -458,7 +458,7 @@ export function LandingPage() {
               A representative from our team will contact you soon.
             </p>
             <div className="flex flex-col items-stretch justify-center gap-2.5 md:flex-row md:items-center md:gap-3">
-              <QuoteButton className="min-h-12 w-full touch-manipulation !bg-white !text-brand-accent hover:!bg-brand-soft md:w-auto md:min-h-11">
+              <QuoteButton className="btn-on-brand min-h-12 w-full touch-manipulation md:w-auto md:min-h-11">
                 Get free quote
               </QuoteButton>
               <Button
