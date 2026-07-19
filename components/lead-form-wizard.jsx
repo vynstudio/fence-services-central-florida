@@ -355,7 +355,7 @@ export function LeadFormWizard({
                     id="city"
                     name="city"
                     autoComplete="address-level2"
-                    placeholder="Orlando"
+                    placeholder="Tampa"
                     value={data.city}
                     onChange={(e) => setField("city", e.target.value)}
                     className="min-h-11"

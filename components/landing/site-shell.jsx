@@ -47,7 +47,17 @@ export function SiteShell({ children }) {
                 {SITE.tagline} Fence installation and repair across {SITE.area}.
               </p>
               <p className="mt-2 text-sm font-medium text-text-primary">
-                {SITE.addressLine}
+                <a
+                  href={SITE.mapsHref}
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {SITE.addressLine}
+                </a>
+              </p>
+              <p className="mt-1 text-xs font-medium text-brand-accent">
+                {SITE.addressServiceLine}
               </p>
               <p className="mt-1 text-sm text-text-secondary">
                 <a href={SITE.phoneHref} className="hover:underline">

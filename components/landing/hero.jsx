@@ -284,7 +284,7 @@ export function Hero() {
                   className="mt-6 text-left text-xs font-bold tracking-wide text-white/55 md:mt-7 md:text-sm"
                   {...fadeUp(reduceMotion, STAGGER.corridor)}
                 >
-                  Jax · Orlando · Tampa
+                  Tampa · Orlando · Jacksonville
                 </motion.p>
               </div>
             </div>

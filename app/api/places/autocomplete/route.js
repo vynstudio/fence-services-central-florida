@@ -42,10 +42,11 @@ export async function GET(request) {
       body: JSON.stringify({
         input: q,
         includedRegionCodes: ["us"],
+        // Bias toward Tampa Bay → Jacksonville service corridor
         locationBias: {
           rectangle: {
-            low: { latitude: 26.5, longitude: -83.0 },
-            high: { latitude: 30.9, longitude: -80.0 },
+            low: { latitude: 27.2, longitude: -82.9 },
+            high: { latitude: 30.5, longitude: -81.2 },
           },
         },
       }),
@@ -89,8 +90,8 @@ export async function GET(request) {
     url.searchParams.set("key", key);
     url.searchParams.set("components", "country:us");
     url.searchParams.set("types", "address");
-    url.searchParams.set("location", "28.5383,-81.3792"); // Orlando bias
-    url.searchParams.set("radius", "250000");
+    url.searchParams.set("location", "27.8439,-82.6394"); // St. Petersburg HQ bias
+    url.searchParams.set("radius", "350000"); // Tampa Bay → Jacksonville corridor
 
     const res = await fetch(url.toString());
     const data = await res.json();
