@@ -46,7 +46,16 @@ Goals:
 
 **Do not** add wood, aluminum, steel, gates-as-primary-service, or “all fence types” positioning.
 
-### Services (entity serviceType)
+### Services (declare via OfferCatalog / Service nodes — not `serviceType`)
+
+`serviceType` is **not** a valid schema.org property on `LocalBusiness`. Do not add it.
+
+Declare offerings with:
+
+- Homepage: `hasOfferCatalog` → Offer → Service  
+- Other pages: `pageEntityGraph` Service node with `provider` → `#localbusiness`  
+
+Service names used in catalog / copy:
 
 - Vinyl Fence Installation  
 - Chain-Link Fence Installation  
@@ -54,6 +63,8 @@ Goals:
 - Commercial Fence Installation  
 - Fence Permit Coordination  
 - HOA Fence Documentation  
+
+LocalBusiness `@type`: `["LocalBusiness", "HomeAndConstructionBusiness"]`
 
 ### Differentiators (use in copy; do not invent new ones)
 
