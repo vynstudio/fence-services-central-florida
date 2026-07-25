@@ -196,7 +196,7 @@ export function Hero() {
           {/* Copy + CTAs — primary above-fold content on phones */}
           <div className="bg-background-primary px-0 pb-6 pt-5">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-accent">
-              Jacksonville · Orange · Seminole · Osceola
+              Jacksonville · Orlando · Kissimmee
             </p>
             <h1 className="mb-3 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-text-primary sm:text-[1.85rem]">
               Fence Installation in Jacksonville
