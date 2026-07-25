@@ -1,3 +1,4 @@
+import { allCityServicePaths } from "@/lib/city-service-pages";
 import { allCityPaths } from "@/lib/locations";
 import { allResourcePaths } from "@/lib/resources";
 import { allServicePaths } from "@/lib/service-pages";
@@ -16,6 +17,11 @@ export default function sitemap() {
     ...allCityPaths().map((path) => ({
       path,
       priority: 0.85,
+      changeFrequency: "monthly",
+    })),
+    ...allCityServicePaths().map((path) => ({
+      path,
+      priority: 0.82,
       changeFrequency: "monthly",
     })),
     { path: "/resources", priority: 0.8, changeFrequency: "monthly" },

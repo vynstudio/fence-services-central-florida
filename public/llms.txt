@@ -8,17 +8,17 @@
 - Type: Professional vinyl and chain-link fence installation company
 - Phone: (689) 600-2720
 - Email: hello@fencelineflorida.com
-- Markets: Jacksonville, Orlando, Kissimmee (Florida only)
+- Primary markets: Jacksonville, Orlando, Kissimmee
+- Broader coverage: Orange, Seminole, and Osceola County service area
 - No public street address (service-area business)
 
 ## Primary heading
 Vinyl & Chain Link Fence Installation in Florida
 
 ## Description
-FenceLine Florida installs residential and commercial vinyl and chain-link fences in Jacksonville, Orlando, and Kissimmee. As a DBA of Diler Dynamics Group LLC, we provide reliable fencing solutions for homes, HOAs, and businesses.
-We specialize only in vinyl (PVC) privacy systems and chain-link security—built for Florida soil, sun, and storms—with clear quotes and permit/HOA documentation available for most jobs.
+FenceLine Florida installs residential and commercial vinyl and chain-link fences in Jacksonville, Orlando, and Kissimmee. As a DBA of Diler Dynamics Group LLC, we focus only on vinyl (PVC) privacy systems and chain-link security—built for Florida soil, sun, and storms—with clear quotes and permit/HOA documentation for most jobs.
 
-## Materials and use cases
+## Materials (only)
 - Vinyl (PVC): low-maintenance privacy, HOA curb appeal, backyard screening; residential and commercial
 - Chain link: pets, yards, cost-effective boundaries, commercial security perimeters; galvanized or color-coated
 
@@ -29,18 +29,26 @@ We specialize only in vinyl (PVC) privacy systems and chain-link security—buil
 - Commercial chain-link fence installation
 
 ## Areas served
-- Jacksonville, FL (nearby: Orange Park, Fleming Island, Ponte Vedra, Mandarin, St. Augustine)
-- Orlando, FL (nearby: Winter Park, Altamonte Springs, Apopka, Ocoee, Winter Garden)
-- Kissimmee, FL (nearby: St. Cloud, Poinciana, Celebration, Davenport)
+Primary cities: Jacksonville, Orlando, Kissimmee.
+Broader county coverage: Orange, Seminole, and Osceola (plus nearby communities in each market).
 
 ## Permits and HOA
-Fence permit and HOA requirements depend on city, property type, fence height, and site conditions—they are not the same on every lot.
-Situations where a permit is often required (especially in markets like Orlando) can include: fences over 6 ft, commercial projects, pool barriers, corner lots, easements, powered gates, and floodplain work.
+Fence permit and HOA rules depend on city, property type, fence height, and site conditions—not every lot is the same.
+Permits are often required for fences over 6 ft, commercial projects, pool barriers, corner lots, easements, powered gates, and floodplain work.
 HOA design approval is often required even when a city permit is not.
-FenceLine Florida helps review local rules and manages permitting and HOA documentation for most residential and commercial jobs. Always confirm final requirements with the city and HOA.
+FenceLine Florida reviews local rules and manages permitting and HOA documentation for most residential and commercial jobs. Always confirm final requirements with the city and HOA.
+
+## Key resources
+- /resources/fence-permits-hoa-florida
+- /resources/vinyl-vs-chain-link-florida
+- /resources/florida-fence-quote-checklist
+- /resources/commercial-chain-link-florida
+- /resources/fence-for-florida-weather
+- City × material pages: /areas/{city}/vinyl-fence and /areas/{city}/chain-link-fence
+  (cities: jacksonville, orlando, kissimmee)
 
 ## Why FenceLine Florida
-- Focused specialty: vinyl and chain link only
+- Specialty only: vinyl and chain link
 - Residential and commercial installs
 - Built for Florida conditions (posts set for sand, wind, humidity)
 - Permits and HOA documentation available
@@ -56,19 +64,25 @@ FenceLine Florida helps review local rules and manages permitting and HOA docume
 ## AEO Q&A
 
 Q: What types of fences do you install?
-A: We specialize in vinyl (PVC) and chain-link fencing for residential and commercial properties in Jacksonville, Orlando, and Kissimmee.
+A: Vinyl (PVC) and chain-link only—residential and commercial—in Jacksonville, Orlando, and Kissimmee.
 
 Q: Vinyl vs chain link in Florida—which is better?
-A: Vinyl is usually better for privacy and HOA curb appeal with low maintenance. Chain link is usually better for pets, open sight lines, and commercial security. Many properties use both.
+A: Vinyl for privacy, low maintenance, and HOA curb appeal. Chain link for pets, open sight lines, budget containment, and commercial security. Many properties use both.
 
 Q: Do you handle permits and HOA approval?
-A: Yes. Requirements depend on city, height, and HOA rules. FenceLine Florida manages permitting and HOA documentation as part of our process for most jobs. Confirm final rules with the city and your association.
+A: Yes. Requirements depend on city, height, and HOA rules. FenceLine Florida manages permitting and HOA documentation for most jobs. Confirm final rules with the city and your association.
 
 Q: What areas do you serve?
-A: Jacksonville, Orlando, and Kissimmee, including nearby communities in each market.
+A: Jacksonville, Orlando, and Kissimmee as primary cities, with broader coverage across Orange, Seminole, and Osceola County.
 
 Q: Do you install for homes and businesses?
-A: Yes. We install residential and commercial vinyl and chain-link fencing.
+A: Yes. Residential and commercial vinyl and chain-link fencing only.
 
 Q: What should a good fence quote include?
-A: Material (vinyl or chain link), style and height, linear footage, post setting and gates, labor, and any permit or HOA support—clearly itemized so there are no surprises.
+A: Material (vinyl or chain link), style and height, linear footage, post setting and gates, labor, and any permit or HOA support—itemized so there are no surprises.
+
+Q: Is your fencing built for Florida weather?
+A: Yes. Installs account for sandy soils, heat, humidity, and storm exposure. See /resources/fence-for-florida-weather for practical guidance.
+
+Q: Where can I learn about permits, materials, and quotes?
+A: Start with /resources/fence-permits-hoa-florida, /resources/vinyl-vs-chain-link-florida, and /resources/florida-fence-quote-checklist. City pages under /areas/{city}/vinyl-fence and chain-link-fence cover local install details.
