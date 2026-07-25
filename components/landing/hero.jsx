@@ -368,7 +368,7 @@ export function Hero() {
                   className="mt-7 text-left text-sm font-bold tracking-wide text-white/55"
                   {...fadeUp(reduceMotion, STAGGER.corridor)}
                 >
-                  Jacksonville · Orange · Seminole · Osceola County
+                  Jacksonville · Orlando · Kissimmee
                 </motion.p>
               </div>
             </div>
