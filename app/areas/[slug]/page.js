@@ -8,6 +8,7 @@ import {
   cityPath,
   getCityBySlug,
 } from "@/lib/locations";
+import { SERVICE_PAGES } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -44,19 +45,19 @@ export default async function CityPage({ params }) {
         <section className="bg-background-primary text-text-primary">
           <div className="shell-section">
             <div className="shell-inner">
-              <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+              <div className="grid items-start gap-5 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
                 <div className="order-2 min-w-0 lg:order-1">
                   <p className="brand-eyebrow">{city.region}</p>
-                  <h1 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-[2.75rem] md:leading-[1.1]">
+                  <h1 className="shell-title mb-3 sm:mb-4 md:text-[2.5rem] lg:text-[2.75rem]">
                     {city.h1}
                   </h1>
-                  <p className="mb-4 text-base leading-relaxed text-text-secondary md:text-lg">
+                  <p className="mb-3 text-[0.975rem] leading-relaxed text-text-secondary sm:mb-4 md:text-lg">
                     {city.intro}
                   </p>
-                  <p className="mb-8 text-base leading-relaxed text-text-secondary">
+                  <p className="mb-6 text-[0.975rem] leading-relaxed text-text-secondary sm:mb-8 md:text-base">
                     {city.body}
                   </p>
-                  <div className="mb-10 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
+                  <div className="mb-8 flex flex-col gap-2.5 sm:mb-10 sm:flex-row sm:flex-wrap sm:items-center">
                     <QuoteButton className="min-h-12 w-full touch-manipulation !bg-brand-accent font-bold !text-white hover:!bg-brand-accent-hover sm:w-auto sm:min-w-[10.5rem]">
                       Get free quote
                     </QuoteButton>
@@ -67,6 +68,29 @@ export default async function CityPage({ params }) {
                       Call {SITE.phone}
                     </a>
                   </div>
+                  <h2 className="mb-3 text-lg font-bold text-text-primary">
+                    Services in {city.name}
+                  </h2>
+                  <ul className="mb-8 flex flex-wrap gap-2">
+                    {SERVICE_PAGES.map((s) => (
+                      <li key={s.slug}>
+                        <a
+                          href={`/services/${s.slug}`}
+                          className="inline-block border border-brand-line bg-brand-soft px-3 py-1.5 text-sm font-semibold text-text-primary hover:border-brand-accent hover:text-brand-accent"
+                        >
+                          {s.h1}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mb-8 text-sm">
+                    <a
+                      href="/resources/fence-permits-hoa-florida"
+                      className="font-semibold text-brand-accent hover:underline"
+                    >
+                      Fence permits &amp; HOA approval guide →
+                    </a>
+                  </p>
                   <h2 className="mb-3 text-lg font-bold text-text-primary">
                     Nearby communities
                   </h2>
@@ -86,7 +110,7 @@ export default async function CityPage({ params }) {
                       href="/#areas"
                       className="font-semibold text-brand-accent hover:underline"
                     >
-                      cities across {SITE.area}
+                      {SITE.area}
                     </a>
                     . {SITE.legalLine}
                   </p>
@@ -101,7 +125,7 @@ export default async function CityPage({ params }) {
                 </div>
 
                 <div className="order-1 min-w-0 lg:order-2">
-                  <div className="relative w-full overflow-hidden border border-brand-line bg-brand-soft aspect-[4/3] lg:aspect-[5/4]">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden border border-brand-line bg-brand-soft sm:aspect-[4/3] lg:aspect-[5/4]">
                     <ResponsivePicture
                       name="about"
                       alt={`Fence installation in ${city.name}, Florida`}

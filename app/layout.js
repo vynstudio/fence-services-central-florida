@@ -74,9 +74,7 @@ export const metadata = {
   },
   other: {
     "geo.region": "US-FL",
-    "geo.placename": "St. Petersburg",
-    "geo.position": `${SITE.geo.latitude};${SITE.geo.longitude}`,
-    ICBM: `${SITE.geo.latitude}, ${SITE.geo.longitude}`,
+    "geo.placename": "Jacksonville, Orange County, Seminole County, Osceola County",
   },
 };
 

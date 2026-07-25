@@ -45,19 +45,19 @@ export default async function ServicePage({ params }) {
           <div className="shell-section">
             <div className="shell-inner">
               {/* Mobile: image first · Desktop: copy | image */}
-              <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+              <div className="grid items-start gap-5 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
                 <div className="order-2 min-w-0 lg:order-1">
                   <p className="brand-eyebrow">{service.eyebrow}</p>
-                  <h1 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-[2.75rem] md:leading-[1.1]">
+                  <h1 className="shell-title mb-3 sm:mb-4 md:text-[2.5rem] lg:text-[2.75rem]">
                     {service.h1}
                   </h1>
-                  <p className="mb-4 text-base leading-relaxed text-text-secondary md:text-lg">
+                  <p className="mb-3 text-[0.975rem] leading-relaxed text-text-secondary sm:mb-4 md:text-lg">
                     {service.intro}
                   </p>
-                  <p className="mb-6 text-base leading-relaxed text-text-secondary">
+                  <p className="mb-5 text-[0.975rem] leading-relaxed text-text-secondary md:mb-6 md:text-base">
                     {service.body}
                   </p>
-                  <ul className="mb-8 space-y-2.5">
+                  <ul className="mb-6 space-y-2.5 sm:mb-8">
                     {service.bullets.map((b) => (
                       <li
                         key={b}
@@ -82,10 +82,18 @@ export default async function ServicePage({ params }) {
                       Call {SITE.phone}
                     </a>
                   </div>
-                  <p className="mt-8 text-sm">
+                  <p className="mt-4 text-sm">
+                    <a
+                      href="/resources/fence-permits-hoa-florida"
+                      className="inline-flex min-h-10 items-center font-semibold text-brand-accent hover:underline"
+                    >
+                      Fence permits &amp; HOA approval guide →
+                    </a>
+                  </p>
+                  <p className="mt-2 text-sm sm:mt-4">
                     <a
                       href="/#services"
-                      className="font-semibold text-brand-accent hover:underline"
+                      className="inline-flex min-h-10 items-center font-semibold text-brand-accent hover:underline"
                     >
                       ← All services
                     </a>
@@ -93,7 +101,7 @@ export default async function ServicePage({ params }) {
                 </div>
 
                 <div className="order-1 min-w-0 lg:order-2">
-                  <div className="relative w-full overflow-hidden border border-brand-line bg-brand-soft aspect-[4/3] lg:aspect-[5/4]">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden border border-brand-line bg-brand-soft sm:aspect-[4/3] lg:aspect-[5/4]">
                     <ResponsivePicture
                       name={service.image}
                       alt={`${service.h1} — FenceLine Florida`}

@@ -44,19 +44,9 @@ export function SiteShell({ children }) {
             <div>
               <BrandLogo variant="dark" height={34} />
               <p className="mt-3 max-w-sm text-sm text-text-secondary">
-                {SITE.tagline} Fence installation and repair across {SITE.area}.
+                {SITE.tagline} Vinyl &amp; chain-link fencing across {SITE.area}.
               </p>
-              <p className="mt-2 text-sm font-medium text-text-primary">
-                <a
-                  href={SITE.mapsHref}
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {SITE.addressLine}
-                </a>
-              </p>
-              <p className="mt-1 text-xs font-medium text-brand-accent">
+              <p className="mt-2 text-xs font-medium text-brand-accent">
                 {SITE.addressServiceLine}
               </p>
               <p className="mt-1 text-sm text-text-secondary">

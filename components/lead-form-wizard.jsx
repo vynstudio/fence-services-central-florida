@@ -14,19 +14,15 @@ const STEPS = [
 ];
 
 const NEED_OPTIONS = [
-  { value: "repair", label: "Repair", hint: "Fix posts, panels, or gates" },
+  { value: "repair", label: "Repair", hint: "Fix vinyl or chain-link sections" },
   { value: "install", label: "New install", hint: "Full new fence line" },
   { value: "not-sure", label: "Not sure", hint: "We’ll help you decide" },
 ];
 
 const MATERIAL_OPTIONS = [
-  { value: "wood", label: "Wood" },
-  { value: "vinyl", label: "Vinyl" },
-  { value: "aluminum", label: "Aluminum (pool)" },
-  { value: "steel", label: "Ornamental steel" },
-  { value: "chain-link", label: "Chain link" },
-  { value: "gates", label: "Gates / access" },
-  { value: "not-sure", label: "Not sure" },
+  { value: "vinyl", label: "Vinyl", hint: "Privacy / low maintenance" },
+  { value: "chain-link", label: "Chain link", hint: "Security / value" },
+  { value: "not-sure", label: "Not sure", hint: "We’ll recommend" },
 ];
 
 const PROPERTY_OPTIONS = [
@@ -355,7 +351,7 @@ export function LeadFormWizard({
                     id="city"
                     name="city"
                     autoComplete="address-level2"
-                    placeholder="Tampa"
+                    placeholder="Orlando"
                     value={data.city}
                     onChange={(e) => setField("city", e.target.value)}
                     className="min-h-11"

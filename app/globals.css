@@ -6,9 +6,9 @@
   ═══════════════════════════════════════════════════
   THREE SITE SHELLS (mobile-first)
   ───────────────────────────────────────────────────
-  phone   < 768px   default styles
-  iPad    768–1023  md:
-  desktop ≥ 1024    lg:
+  phone   < 768px   default — conversion-first, tight
+  iPad    768–1023  md: — 2-col comfort
+  desktop ≥ 1024    lg: — wide rail, airy rhythm
   ═══════════════════════════════════════════════════
 */
 
@@ -25,24 +25,28 @@
     --meridian-gray: #4a5c56;
     --meridian-line: #c9d5cf;
 
-    /* Phone defaults */
-    --shell-pad-x: 1rem;
-    --shell-pad-y: 2.25rem;
+    /* Phone defaults — denser, thumb-friendly */
+    --shell-pad-x: 1.125rem;
+    --shell-pad-y: 2.5rem;
     --shell-max: 100%;
     --shell-gap: 0.75rem;
-    --site-nav-height: 3.25rem;
-    --site-sticky-cta-height: 4.35rem;
+    --site-nav-height: 3.5rem;
+    --site-sticky-cta-height: 4.5rem;
+    --section-title: clamp(1.375rem, 5.2vw, 1.625rem);
+    --section-lead: 0.975rem;
   }
 
   /* iPad */
   @media (min-width: 768px) {
     :root {
-      --shell-pad-x: 2rem;
-      --shell-pad-y: 3.5rem;
+      --shell-pad-x: 1.75rem;
+      --shell-pad-y: 3.25rem;
       --shell-max: 100%;
       --shell-gap: 1rem;
       --site-nav-height: 4rem;
-      --site-sticky-cta-height: 0px; /* header CTAs on tablet */
+      --site-sticky-cta-height: 0px;
+      --section-title: clamp(1.75rem, 3vw, 2.25rem);
+      --section-lead: 1.0625rem;
     }
   }
 
@@ -50,11 +54,22 @@
   @media (min-width: 1024px) {
     :root {
       --shell-pad-x: 2rem;
-      --shell-pad-y: 5rem;
-      --shell-max: 1120px;
+      --shell-pad-y: 4.5rem;
+      --shell-max: 1180px;
       --shell-gap: 1.25rem;
-      --site-nav-height: 5rem;
+      --site-nav-height: 4.5rem;
       --site-sticky-cta-height: 0px;
+      --section-title: clamp(2rem, 2.4vw, 2.75rem);
+      --section-lead: 1.125rem;
+    }
+  }
+
+  /* Wide desktop */
+  @media (min-width: 1280px) {
+    :root {
+      --shell-pad-x: 2.5rem;
+      --shell-pad-y: 5.25rem;
+      --shell-max: 1240px;
     }
   }
 
@@ -177,13 +192,20 @@ a.btn-on-brand:hover {
   .brand-card {
     border: 1px solid var(--meridian-line);
     background: #fff;
+    border-radius: 2px;
     transition:
       border-color 0.15s ease,
-      box-shadow 0.15s ease;
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
   }
-  .brand-card:hover {
-    border-color: color-mix(in srgb, var(--meridian-accent) 45%, var(--meridian-line));
-    box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--meridian-accent) 35%, transparent);
+  @media (hover: hover) and (pointer: fine) {
+    .brand-card:hover {
+      border-color: color-mix(in srgb, var(--meridian-accent) 45%, var(--meridian-line));
+      box-shadow: 0 10px 28px -14px color-mix(in srgb, var(--meridian-accent) 40%, transparent);
+    }
+  }
+  .brand-card:active {
+    border-color: color-mix(in srgb, var(--meridian-accent) 35%, var(--meridian-line));
   }
 
   /* Shared content rail */
@@ -192,16 +214,16 @@ a.btn-on-brand:hover {
     max-width: var(--shell-max);
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--shell-pad-x);
-    padding-right: var(--shell-pad-x);
+    padding-left: max(var(--shell-pad-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--shell-pad-x), env(safe-area-inset-right, 0px));
   }
 
   /* Section vertical rhythm by shell */
   .shell-section {
     padding-top: var(--shell-pad-y);
     padding-bottom: var(--shell-pad-y);
-    padding-left: var(--shell-pad-x);
-    padding-right: var(--shell-pad-x);
+    padding-left: max(var(--shell-pad-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--shell-pad-x), env(safe-area-inset-right, 0px));
   }
 
   .shell-section > .shell-inner {
@@ -211,12 +233,129 @@ a.btn-on-brand:hover {
     margin-right: auto;
   }
 
+  /* Section title scale — use on homepage H2s */
+  .shell-title {
+    font-size: var(--section-title);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--meridian-ink);
+  }
+
+  .shell-lead {
+    font-size: var(--section-lead);
+    line-height: 1.55;
+    color: var(--meridian-gray);
+  }
+
+  /* Equal 2-col mobile grid that never orphans on 4 items */
+  .grid-services {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 480px) {
+    .grid-services {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-services {
+      gap: 1.125rem;
+    }
+  }
+
+  /* Materials: always 1 → 2 cols (exactly 2 products) */
+  .grid-materials {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 640px) {
+    .grid-materials {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-materials {
+      gap: 1.25rem;
+    }
+  }
+
+  /* Cities: 1 → 3 equal cards */
+  .grid-cities {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .grid-cities {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.875rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-cities {
+      gap: 1.125rem;
+    }
+  }
+
+  .city-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 7.5rem;
+    padding: 1.125rem 1.125rem 1rem;
+    border: 1px solid var(--meridian-line);
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    touch-action: manipulation;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      background-color 0.15s ease;
+  }
+  @media (min-width: 1024px) {
+    .city-card {
+      min-height: 9rem;
+      padding: 1.35rem 1.35rem 1.15rem;
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .city-card:hover {
+      border-color: var(--meridian-accent);
+      box-shadow: 0 10px 28px -14px color-mix(in srgb, var(--meridian-accent) 40%, transparent);
+    }
+  }
+  .city-card:active {
+    background: var(--meridian-accent-soft);
+  }
+
   .tap-target {
     @apply min-h-11 min-w-11 touch-manipulation;
   }
 
   .bg-brand-soft {
     background-color: var(--meridian-accent-soft);
+  }
+
+  /* Full-bleed hero on phone (no side chrome) */
+  .hero-bleed {
+    --hero-inset-l: max(var(--shell-pad-x), env(safe-area-inset-left, 0px));
+    --hero-inset-r: max(var(--shell-pad-x), env(safe-area-inset-right, 0px));
+    margin-left: calc(-1 * var(--hero-inset-l));
+    margin-right: calc(-1 * var(--hero-inset-r));
+    width: calc(100% + var(--hero-inset-l) + var(--hero-inset-r));
+  }
+  @media (min-width: 768px) {
+    .hero-bleed {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
   }
 }
 

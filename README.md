@@ -1,6 +1,6 @@
-# Meridian Fence Group
+# FenceLine Florida
 
-Fence repair and installation across Central Florida (Jacksonville to Tampa). Built with Next.js + Relume.
+Vinyl and chain-link fence installation (residential & commercial) for Jacksonville, Orlando, and Kissimmee. Built with Next.js + Relume.
 
 ## Local development
 

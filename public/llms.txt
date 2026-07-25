@@ -1,55 +1,74 @@
 # FenceLine Florida (fencelineflorida.com)
-# SEO + AEO foundation
+# SEO + AEO foundation for AI crawlers and citation
 
 ## Entity
 - Name: FenceLine Florida
 - Legal: FenceLine Florida is a DBA of Diler Dynamics Group LLC
 - URL: https://fencelineflorida.com
-- Type: Professional fence installation and repair company
-- Market: Central and North Florida
+- Type: Professional vinyl and chain-link fence installation company
+- Phone: (689) 600-2720
+- Email: hello@fencelineflorida.com
+- Markets: Jacksonville, Orlando, Kissimmee (Florida only)
+- No public street address (service-area business)
 
 ## Primary heading
-Fence Installation & Repair in Central Florida
+Vinyl & Chain Link Fence Installation in Florida
 
 ## Description
-FenceLine Florida is a professional fence installation and repair company serving Central and North Florida, including Orlando, Lakeland, Tampa, Jacksonville, and surrounding areas. As a DBA of Diler Dynamics Group LLC, we provide reliable, code-compliant fencing solutions for residential and commercial properties.
-We install and repair wood, vinyl, aluminum, and chain-link fences built specifically for Florida’s soil and storm conditions. Every project is handled with precision, from post setting to final inspection, ensuring long-term durability and clean, professional results.
+FenceLine Florida installs residential and commercial vinyl and chain-link fences in Jacksonville, Orlando, and Kissimmee. As a DBA of Diler Dynamics Group LLC, we provide reliable fencing solutions for homes, HOAs, and businesses.
+We specialize only in vinyl (PVC) privacy systems and chain-link security—built for Florida soil, sun, and storms—with clear quotes and permit/HOA documentation available for most jobs.
 
-## Full-service offerings
-- New fence installation (wood, vinyl, aluminum, chain-link)
-- Fence repair and replacement
-- Gate installation and upgrades
-- Storm damage fence restoration
-- Permit processing and HOA approvals
+## Materials and use cases
+- Vinyl (PVC): low-maintenance privacy, HOA curb appeal, backyard screening; residential and commercial
+- Chain link: pets, yards, cost-effective boundaries, commercial security perimeters; galvanized or color-coated
 
-All installations are engineered to withstand Florida weather, including high winds, shifting soil, and heavy rainfall.
+## Services
+- Residential vinyl fence installation
+- Commercial vinyl fence installation
+- Residential chain-link fence installation
+- Commercial chain-link fence installation
 
 ## Areas served
-Orlando, Sanford, Kissimmee, Clermont, Lakeland, Tampa, Daytona Beach, Melbourne, Ocala, and Jacksonville.
+- Jacksonville, FL (nearby: Orange Park, Fleming Island, Ponte Vedra, Mandarin, St. Augustine)
+- Orlando, FL (nearby: Winter Park, Altamonte Springs, Apopka, Ocoee, Winter Garden)
+- Kissimmee, FL (nearby: St. Cloud, Poinciana, Celebration, Davenport)
+
+## Permits and HOA
+Fence permit and HOA requirements depend on city, property type, fence height, and site conditions—they are not the same on every lot.
+Situations where a permit is often required (especially in markets like Orlando) can include: fences over 6 ft, commercial projects, pool barriers, corner lots, easements, powered gates, and floodplain work.
+HOA design approval is often required even when a city permit is not.
+FenceLine Florida helps review local rules and manages permitting and HOA documentation for most residential and commercial jobs. Always confirm final requirements with the city and HOA.
 
 ## Why FenceLine Florida
-- Built for Florida conditions (deep-set posts, proper spacing, durable materials)
-- Fast turnaround times and clear communication
-- Fully managed permits and HOA documentation
-- Clean, professional installations with long-term value
-- Job done right the first time—no shortcuts, no weak installs
+- Focused specialty: vinyl and chain link only
+- Residential and commercial installs
+- Built for Florida conditions (posts set for sand, wind, humidity)
+- Permits and HOA documentation available
+- Clear quotes: material, style, height, linear footage, gates, labor
+
+## Buyer decision guidance
+- Privacy + low maintenance + HOA curb appeal → vinyl
+- Pets, open yards, budget containment → residential chain link
+- Commercial security / site perimeter → commercial chain link
+- Commercial screening / cleaner street face → commercial vinyl
+- A good quote includes material, style, height, footage, posts, gates, labor, and any permit/HOA support
 
 ## AEO Q&A
 
 Q: What types of fences do you install?
-A: We install wood, vinyl, aluminum, and chain-link fences for residential and commercial properties across Central Florida.
+A: We specialize in vinyl (PVC) and chain-link fencing for residential and commercial properties in Jacksonville, Orlando, and Kissimmee.
+
+Q: Vinyl vs chain link in Florida—which is better?
+A: Vinyl is usually better for privacy and HOA curb appeal with low maintenance. Chain link is usually better for pets, open sight lines, and commercial security. Many properties use both.
 
 Q: Do you handle permits and HOA approval?
-A: Yes, FenceLine Florida manages all permitting and HOA documentation as part of our full-service process.
-
-Q: Do your fences withstand Florida weather?
-A: Yes, all fences are installed with techniques designed for Florida soil, wind loads, and storm conditions.
+A: Yes. Requirements depend on city, height, and HOA rules. FenceLine Florida manages permitting and HOA documentation as part of our process for most jobs. Confirm final rules with the city and your association.
 
 Q: What areas do you serve?
-A: We serve Orlando, Lakeland, Tampa, Jacksonville, and surrounding cities throughout Central and North Florida.
+A: Jacksonville, Orlando, and Kissimmee, including nearby communities in each market.
 
-## Contact
-- Quote: https://fencelineflorida.com
-- Phone: (407) 555-0198
-- Email: hello@fencelineflorida.com
-- After inquiry: a representative from our team will contact you soon.
+Q: Do you install for homes and businesses?
+A: Yes. We install residential and commercial vinyl and chain-link fencing.
+
+Q: What should a good fence quote include?
+A: Material (vinyl or chain link), style and height, linear footage, post setting and gates, labor, and any permit or HOA support—clearly itemized so there are no surprises.

@@ -8,7 +8,7 @@
 export const OG_SIZE = { width: 1200, height: 630 };
 
 export const OG_ALT =
-  "FenceLine Florida — fence installation and repair from Jacksonville to Tampa";
+  "FenceLine Florida — vinyl & chain-link fences in Jacksonville, Orlando & Kissimmee";
 
 const chip = (label) => (
   <div
@@ -205,9 +205,9 @@ export function OgCard({ logoSrc = null }) {
             maxWidth: 920,
           }}
         >
-          <div style={{ display: "flex" }}>Fence install & repair</div>
+          <div style={{ display: "flex" }}>Vinyl &amp; chain-link fences</div>
           <div style={{ display: "flex", color: "rgba(255,255,255,0.42)" }}>
-            in Central Florida
+            homes &amp; businesses
           </div>
         </div>
 
@@ -221,8 +221,8 @@ export function OgCard({ logoSrc = null }) {
             maxWidth: 820,
           }}
         >
-          Wood · Vinyl · Aluminum · Chain link — free quotes across Central &amp;
-          North Florida
+          Jacksonville · Orlando · Kissimmee — free quotes for residential &amp;
+          commercial installs
         </div>
       </div>
 
@@ -237,7 +237,7 @@ export function OgCard({ logoSrc = null }) {
         }}
       >
         <div style={{ display: "flex", gap: 12 }}>
-          {["Install", "Repair", "HOA & permits", "Storm-ready"].map(chip)}
+          {["Vinyl", "Chain link", "Residential", "Commercial"].map(chip)}
         </div>
         <div
           style={{

@@ -96,25 +96,39 @@ export function SiteHeader() {
         </nav>
 
         {/* ── Phone shell ── */}
-        <div className="shell-phone-only items-center gap-2">
-          <QuoteButton size="sm" className="min-h-11 px-3.5 text-sm">
+        <div className="shell-phone-only items-center gap-1.5">
+          <a
+            href={SITE.phoneHref}
+            className="inline-flex size-11 items-center justify-center border border-brand-line text-brand-accent touch-manipulation active:bg-brand-soft"
+            aria-label={`Call ${SITE.phone}`}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="size-5"
+              fill="currentColor"
+              aria-hidden
+            >
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.4 21 3 13.6 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </a>
+          <QuoteButton size="sm" className="min-h-11 px-3.5 text-sm font-bold">
             Quote
           </QuoteButton>
           <button
             type="button"
-            className="flex size-11 touch-manipulation flex-col items-center justify-center"
+            className="flex size-11 touch-manipulation flex-col items-center justify-center border border-brand-line active:bg-brand-soft"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
           >
             <span
-              className={`mb-1.5 block h-0.5 w-6 bg-text-primary transition ${open ? "translate-y-2 rotate-45" : ""}`}
+              className={`mb-1.5 block h-0.5 w-5 bg-text-primary transition ${open ? "translate-y-2 rotate-45" : ""}`}
             />
             <span
-              className={`mb-1.5 block h-0.5 w-6 bg-text-primary transition ${open ? "opacity-0" : ""}`}
+              className={`mb-1.5 block h-0.5 w-5 bg-text-primary transition ${open ? "opacity-0" : ""}`}
             />
             <span
-              className={`block h-0.5 w-6 bg-text-primary transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
+              className={`block h-0.5 w-5 bg-text-primary transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
             />
           </button>
         </div>
@@ -130,7 +144,7 @@ export function SiteHeader() {
             className="overflow-hidden border-t border-border-primary bg-background-primary md:hidden"
             aria-label="Mobile menu"
           >
-            <div className="px-4 py-2 pb-5">
+            <div className="px-4 py-2 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
               {MENU_LINKS.map((l) => (
                 <a
                   key={l.href}
@@ -142,11 +156,11 @@ export function SiteHeader() {
                 </a>
               ))}
               <div className="mt-4 grid grid-cols-2 gap-2">
-                <QuoteButton className="min-h-12 w-full" size="sm">
+                <QuoteButton className="min-h-12 w-full font-bold" size="sm">
                   Get quote
                 </QuoteButton>
                 <Button
-                  className="min-h-12 w-full"
+                  className="min-h-12 w-full font-bold"
                   size="sm"
                   variant="secondary"
                   asChild
@@ -159,7 +173,7 @@ export function SiteHeader() {
               <a
                 href={SITE.smsHref}
                 onClick={close}
-                className="mt-2 flex min-h-12 items-center justify-center border border-border-primary text-sm font-semibold touch-manipulation"
+                className="mt-2 flex min-h-12 items-center justify-center border border-border-primary text-sm font-semibold touch-manipulation active:bg-brand-soft"
               >
                 Text us
               </a>

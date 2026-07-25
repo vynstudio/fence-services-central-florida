@@ -90,8 +90,8 @@ export async function GET(request) {
     url.searchParams.set("key", key);
     url.searchParams.set("components", "country:us");
     url.searchParams.set("types", "address");
-    url.searchParams.set("location", "27.8439,-82.6394"); // St. Petersburg HQ bias
-    url.searchParams.set("radius", "350000"); // Tampa Bay → Jacksonville corridor
+    url.searchParams.set("location", "28.5383,-81.3792"); // Orlando — center of service markets
+    url.searchParams.set("radius", "250000"); // Jacksonville · Orlando · Kissimmee corridor
 
     const res = await fetch(url.toString());
     const data = await res.json();
