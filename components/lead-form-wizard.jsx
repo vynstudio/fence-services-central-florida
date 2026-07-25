@@ -156,6 +156,7 @@ export function LeadFormWizard({
   };
 
   const handlePlace = (place) => {
+    // Fill fields and stay on this step so the client can verify, then tap Continue
     setData((prev) => ({
       ...prev,
       street: place.street || prev.street,
@@ -169,14 +170,6 @@ export function LeadFormWizard({
       lng: place.lng,
       addressQuery: place.formattedAddress || prev.addressQuery,
     }));
-
-    // Auto-advance when Google returns a full address
-    if (place.street && place.city && place.zip) {
-      if (advanceTimer.current) clearTimeout(advanceTimer.current);
-      advanceTimer.current = setTimeout(() => {
-        setStep((s) => Math.min(s + 1, STEPS.length - 1));
-      }, 400);
-    }
   };
 
   const handleSubmit = async (event) => {
@@ -306,7 +299,7 @@ export function LeadFormWizard({
           {(data.street || data.city || data.zip) && (
             <div className="rounded-sm border border-brand-line bg-brand-soft/80 px-3 py-3 text-sm">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-accent">
-                We’ll use this address
+                Verify this address
               </p>
               <p className="font-medium text-text-primary">
                 {data.formattedAddress ||
@@ -314,88 +307,87 @@ export function LeadFormWizard({
                     .filter(Boolean)
                     .join(", ")}
               </p>
-              {addressComplete && (
-                <p className="mt-1 text-xs text-brand-accent">
-                  Looking good — continuing…
-                </p>
-              )}
+              <p className="mt-1.5 text-xs text-text-secondary">
+                Check street, city, and ZIP below. Edit if needed, then tap{" "}
+                <span className="font-semibold text-text-primary">Continue</span>.
+              </p>
             </div>
           )}
 
-          {/* Manual fallback / tweak fields */}
-          <details className="group text-sm">
-            <summary className="cursor-pointer font-medium text-brand-accent underline-offset-2 hover:underline">
-              Enter or edit address manually
-            </summary>
-            <div className="mt-3 grid gap-3">
-              <div>
-                <Label htmlFor="street" className="mb-1.5">
-                  Street
+          {/* Always visible so clients can verify/edit after picking a suggestion */}
+          <div className="grid gap-3 rounded-sm border border-brand-line p-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+              Confirm address details
+            </p>
+            <div>
+              <Label htmlFor="street" className="mb-1.5">
+                Street
+              </Label>
+              <Input
+                id="street"
+                name="street"
+                autoComplete="street-address"
+                placeholder="123 Main St"
+                value={data.street}
+                onChange={(e) => setField("street", e.target.value)}
+                className="min-h-11"
+              />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="sm:col-span-1">
+                <Label htmlFor="city" className="mb-1.5">
+                  City
                 </Label>
                 <Input
-                  id="street"
-                  name="street"
-                  autoComplete="street-address"
-                  placeholder="123 Main St"
-                  value={data.street}
-                  onChange={(e) => setField("street", e.target.value)}
+                  id="city"
+                  name="city"
+                  autoComplete="address-level2"
+                  placeholder="Orlando"
+                  value={data.city}
+                  onChange={(e) => setField("city", e.target.value)}
                   className="min-h-11"
                 />
               </div>
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="sm:col-span-1">
-                  <Label htmlFor="city" className="mb-1.5">
-                    City
-                  </Label>
-                  <Input
-                    id="city"
-                    name="city"
-                    autoComplete="address-level2"
-                    placeholder="Orlando"
-                    value={data.city}
-                    onChange={(e) => setField("city", e.target.value)}
-                    className="min-h-11"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="state" className="mb-1.5">
-                    State
-                  </Label>
-                  <Input
-                    id="state"
-                    name="state"
-                    autoComplete="address-level1"
-                    value={data.state}
-                    onChange={(e) =>
-                      setField("state", e.target.value.toUpperCase().slice(0, 2))
-                    }
-                    className="min-h-11"
-                    maxLength={2}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="zip" className="mb-1.5">
-                    ZIP
-                  </Label>
-                  <Input
-                    id="zip"
-                    name="zip"
-                    autoComplete="postal-code"
-                    inputMode="numeric"
-                    maxLength={5}
-                    placeholder="32801"
-                    value={data.zip}
-                    onChange={(e) =>
-                      setField("zip", e.target.value.replace(/\D/g, "").slice(0, 5))
-                    }
-                    className="min-h-11"
-                  />
-                </div>
+              <div>
+                <Label htmlFor="state" className="mb-1.5">
+                  State
+                </Label>
+                <Input
+                  id="state"
+                  name="state"
+                  autoComplete="address-level1"
+                  value={data.state}
+                  onChange={(e) =>
+                    setField("state", e.target.value.toUpperCase().slice(0, 2))
+                  }
+                  className="min-h-11"
+                  maxLength={2}
+                />
+              </div>
+              <div>
+                <Label htmlFor="zip" className="mb-1.5">
+                  ZIP
+                </Label>
+                <Input
+                  id="zip"
+                  name="zip"
+                  autoComplete="postal-code"
+                  inputMode="numeric"
+                  maxLength={5}
+                  placeholder="32801"
+                  value={data.zip}
+                  onChange={(e) =>
+                    setField("zip", e.target.value.replace(/\D/g, "").slice(0, 5))
+                  }
+                  className="min-h-11"
+                />
               </div>
             </div>
-          </details>
+          </div>
 
-          <p className="text-xs text-text-secondary">Serving {SITE.area}</p>
+          <p className="text-xs text-text-secondary">
+            Serving Jacksonville, Orlando &amp; Kissimmee
+          </p>
         </div>
       )}
 
@@ -532,7 +524,7 @@ export function LeadFormWizard({
             title="Continue"
             disabled={!canNext()}
             onClick={goNext}
-            className="min-h-11 min-w-[7.5rem]"
+            className="min-h-12 min-w-[9rem] !bg-brand-accent font-bold touch-manipulation"
           >
             Continue
           </Button>
