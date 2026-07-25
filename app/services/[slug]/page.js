@@ -8,6 +8,7 @@ import {
   serviceJsonLd,
   servicePath,
 } from "@/lib/service-pages";
+import { buildPageMetadata } from "@/lib/seo-entity";
 import { SITE } from "@/lib/site";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -20,16 +21,11 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
-  return {
+  return buildPageMetadata({
     title: service.title,
     description: service.description,
-    alternates: { canonical: `${SITE.url}${servicePath(service.slug)}` },
-    openGraph: {
-      title: service.title,
-      description: service.description,
-      url: `${SITE.url}${servicePath(service.slug)}`,
-    },
-  };
+    path: servicePath(service.slug),
+  });
 }
 
 export default async function ServicePage({ params }) {

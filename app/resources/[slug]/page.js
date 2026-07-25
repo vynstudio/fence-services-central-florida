@@ -7,6 +7,7 @@ import {
   resourceJsonLd,
   resourcePath,
 } from "@/lib/resources";
+import { buildPageMetadata } from "@/lib/seo-entity";
 import { SITE } from "@/lib/site";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -19,16 +20,11 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const resource = getResourceBySlug(slug);
   if (!resource) return {};
-  return {
+  return buildPageMetadata({
     title: resource.title,
     description: resource.description,
-    alternates: { canonical: `${SITE.url}${resourcePath(resource.slug)}` },
-    openGraph: {
-      title: resource.title,
-      description: resource.description,
-      url: `${SITE.url}${resourcePath(resource.slug)}`,
-    },
-  };
+    path: resourcePath(resource.slug),
+  });
 }
 
 export default async function ResourcePage({ params }) {

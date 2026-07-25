@@ -9,6 +9,7 @@ import {
   getCityBySlug,
 } from "@/lib/locations";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { buildPageMetadata } from "@/lib/seo-entity";
 import { SITE } from "@/lib/site";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -21,16 +22,11 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const city = getCityBySlug(slug);
   if (!city) return {};
-  return {
+  return buildPageMetadata({
     title: city.title,
     description: city.description,
-    alternates: { canonical: `${SITE.url}${cityPath(city.slug)}` },
-    openGraph: {
-      title: city.title,
-      description: city.description,
-      url: `${SITE.url}${cityPath(city.slug)}`,
-    },
-  };
+    path: cityPath(city.slug),
+  });
 }
 
 export default async function CityPage({ params }) {
